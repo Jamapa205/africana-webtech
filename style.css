@@ -523,7 +523,39 @@ footer a:hover{
   color: #ffc60b;
 }
 
-/* --- MULTI-FACET SEARCH, SORT & FILTER BAR STYLES --- */
+/* --- CATEGORY ROW SECTION HEADERS STYLES --- */
+.category-row-section {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.row-header {
+  margin-bottom: 20px;
+  text-align: left;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 12px;
+}
+
+.row-header h2 {
+  font-size: 26px;
+  color: #0047AB;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.row-header h2 i {
+  color: #088178;
+  font-size: 22px;
+}
+
+.row-header p {
+  color: #64748b;
+  font-size: 14px;
+  margin: 4px 0 0 0;
+}
 
 #shop-controls {
   padding-bottom: 20px;
