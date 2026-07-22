@@ -134,7 +134,14 @@
                     const smallImgs = document.getElementsByClassName("small-img");
                     for (let i = 0; i < smallImgs.length; i++) {
                         smallImgs[i].onclick = function() {
-                            if (mainImg) mainImg.src = smallImgs[i].src;
+                            if (mainImg) {
+                                mainImg.style.transition = 'opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1)';
+                                mainImg.style.opacity = '0.3';
+                                setTimeout(() => {
+                                    mainImg.src = smallImgs[i].src;
+                                    mainImg.style.opacity = '1';
+                                }, 120);
+                            }
                         };
                     }
                 }
