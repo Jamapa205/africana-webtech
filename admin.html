@@ -330,77 +330,92 @@
 
         // Load Orders Log
         async function loadOrders() {
+            let apiOrders = [];
             try {
                 const res = await fetch('/api/orders', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 const data = await res.json();
-                if (data.success) {
-                    const tbody = document.getElementById('orders-table-body');
-                    if (data.orders.length === 0) {
-                        tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 25px;">No checkout orders submitted yet.</td></tr>';
-                        return;
-                    }
-
-                    tbody.innerHTML = data.orders.map((o, idx) => {
-                        const items = o.items || [];
-                        const detailsId = `order-details-${idx}`;
-                        
-                        return `
-                            <tr>
-                                <td><code>${o.id}</code></td>
-                                <td>
-                                    <strong>${o.customerName}</strong><br>
-                                    <small style="color:#64748b;"><i class="fas fa-phone-alt"></i> ${o.customerPhone}</small><br>
-                                    <small style="color:#64748b;"><i class="fas fa-map-marker-alt"></i> ${o.shippingAddress || 'Juba, South Sudan'}</small>
-                                </td>
-                                <td><span style="background: #e2e8f0; padding: 4px 8px; border-radius: 6px; font-weight: 600; font-size: 12px;">${items.length} ${items.length === 1 ? 'item' : 'items'}</span></td>
-                                <td><strong style="color:#0047AB;">SSP ${Number(o.totalAmount || 0).toLocaleString()}</strong></td>
-                                <td><span class="badge-real">${o.status}</span></td>
-                                <td>${new Date(o.createdAt).toLocaleDateString()} ${new Date(o.createdAt).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</td>
-                                <td>
-                                    <button onclick="toggleOrderDetails('${detailsId}')" style="background: #0047AB; color: white; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600;">
-                                        <i class="fas fa-eye"></i> View Items
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr id="${detailsId}" style="display: none; background-color: #f8fafc;">
-                                <td colspan="7" style="padding: 15px 20px;">
-                                    <div style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);">
-                                        <h4 style="color: #0047AB; margin-bottom: 10px; font-size: 14px;"><i class="fas fa-shopping-basket"></i> Items Breakdown for Order ${o.id}:</h4>
-                                        <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
-                                            <thead>
-                                                <tr style="border-bottom: 2px solid #e2e8f0; text-align: left; color: #475569;">
-                                                    <th style="padding: 8px;">Product</th>
-                                                    <th style="padding: 8px;">Title</th>
-                                                    <th style="padding: 8px;">Size</th>
-                                                    <th style="padding: 8px;">Price</th>
-                                                    <th style="padding: 8px;">Quantity</th>
-                                                    <th style="padding: 8px;">Subtotal</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                ${items.map(item => `
-                                                    <tr style="border-bottom: 1px solid #f1f5f9;">
-                                                        <td style="padding: 8px;"><img src="${item.imageUrl}" style="width: 45px; height: 45px; object-fit: contain; border-radius: 6px; background: #f8fafc; padding: 2px;"></td>
-                                                        <td style="padding: 8px;"><strong>${item.name}</strong></td>
-                                                        <td style="padding: 8px;">${item.size ? `<span style="background:#e2e8f0; padding:2px 6px; border-radius:4px;">${item.size}</span>` : 'Standard'}</td>
-                                                        <td style="padding: 8px;">SSP ${Number(item.price || 0).toLocaleString()}</td>
-                                                        <td style="padding: 8px;">x${item.quantity || 1}</td>
-                                                        <td style="padding: 8px;"><strong style="color:#088178;">SSP ${(Number(item.price || 0) * Number(item.quantity || 1)).toLocaleString()}</strong></td>
-                                                    </tr>
-                                                `).join('')}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </td>
-                            </tr>
-                        `;
-                    }).join('');
+                if (data.success && Array.isArray(data.orders)) {
+                    apiOrders = data.orders;
                 }
             } catch (err) {
-                console.error(err);
+                console.error("API orders error:", err);
             }
+
+            const localOrders = JSON.parse(localStorage.getItem('africana_orders')) || [];
+
+            const orderMap = new Map();
+            [...apiOrders, ...localOrders].forEach(o => {
+                if (o && o.id && !orderMap.has(o.id)) {
+                    orderMap.set(o.id, o);
+                }
+            });
+
+            const combinedOrders = Array.from(orderMap.values());
+            const tbody = document.getElementById('orders-table-body');
+            if (!tbody) return;
+
+            if (combinedOrders.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 25px;">No checkout orders submitted yet.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = combinedOrders.map((o, idx) => {
+                const items = o.items || [];
+                const detailsId = `order-details-${idx}`;
+                
+                return `
+                    <tr>
+                        <td><code>${o.id}</code></td>
+                        <td>
+                            <strong>${o.customerName}</strong><br>
+                            <small style="color:#64748b;"><i class="fas fa-phone-alt"></i> ${o.customerPhone}</small><br>
+                            <small style="color:#64748b;"><i class="fas fa-map-marker-alt"></i> ${o.shippingAddress || 'Juba, South Sudan'}</small>
+                        </td>
+                        <td><span style="background: #e2e8f0; padding: 4px 8px; border-radius: 6px; font-weight: 600; font-size: 12px;">${items.length} ${items.length === 1 ? 'item' : 'items'}</span></td>
+                        <td><strong style="color:#0047AB;">SSP ${Number(o.totalAmount || 0).toLocaleString()}</strong></td>
+                        <td><span class="badge-real">${o.status || 'Pending'}</span></td>
+                        <td>${new Date(o.createdAt || Date.now()).toLocaleDateString()} ${new Date(o.createdAt || Date.now()).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</td>
+                        <td>
+                            <button onclick="toggleOrderDetails('${detailsId}')" style="background: #0047AB; color: white; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600;">
+                                <i class="fas fa-eye"></i> View Items
+                            </button>
+                        </td>
+                    </tr>
+                    <tr id="${detailsId}" style="display: none; background-color: #f8fafc;">
+                        <td colspan="7" style="padding: 15px 20px;">
+                            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);">
+                                <h4 style="color: #0047AB; margin-bottom: 10px; font-size: 14px;"><i class="fas fa-shopping-basket"></i> Items Breakdown for Order ${o.id}:</h4>
+                                <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+                                    <thead>
+                                        <tr style="border-bottom: 2px solid #e2e8f0; text-align: left; color: #475569;">
+                                            <th style="padding: 8px;">Product</th>
+                                            <th style="padding: 8px;">Title</th>
+                                            <th style="padding: 8px;">Size</th>
+                                            <th style="padding: 8px;">Price</th>
+                                            <th style="padding: 8px;">Quantity</th>
+                                            <th style="padding: 8px;">Subtotal</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${items.map(item => `
+                                            <tr style="border-bottom: 1px solid #f1f5f9;">
+                                                <td style="padding: 8px;"><img src="${item.imageUrl}" style="width: 45px; height: 45px; object-fit: contain; border-radius: 6px; background: #f8fafc; padding: 2px;"></td>
+                                                <td style="padding: 8px;"><strong>${item.name}</strong></td>
+                                                <td style="padding: 8px;">${item.size ? `<span style="background:#e2e8f0; padding:2px 6px; border-radius:4px;">${item.size}</span>` : 'Standard'}</td>
+                                                <td style="padding: 8px;">SSP ${Number(item.price || 0).toLocaleString()}</td>
+                                                <td style="padding: 8px;">x${item.quantity || 1}</td>
+                                                <td style="padding: 8px;"><strong style="color:#088178;">SSP ${(Number(item.price || 0) * Number(item.quantity || 1)).toLocaleString()}</strong></td>
+                                            </tr>
+                                        `).join('')}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
         }
 
         // Load Users Directory
@@ -429,6 +444,8 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             loadAdminProducts();
+            loadOrders();
+            loadUsers();
         });
     </script>
 </body>
