@@ -8,7 +8,7 @@ let PRODUCTS_DATA = {
         price: 150000,
         mainImg: "img/products/f1.png",
         smallImgs: ["img/products/f1.png", "img/products/f3.png", "img/products/f8.jpg"],
-        description: "Handcrafted traditional men's tunic shirt featuring intricate blue and dark-toned embroidery along the neckline and front chest placket. Tailored from 100% premium breathable cotton, this garment provides regal comfort and authentic heritage styling for formal cultural events, weddings, and celebrations."
+        description: "Handcrafted traditional men's tunic shirt featuring intricate navy and sapphire embroidery along the split neckline and chest placket. Tailored from 100% premium breathable linen cotton, this garment provides regal comfort and authentic heritage styling for formal cultural events, weddings, and executive gatherings."
     },
     "f2": {
         id: "f2",
@@ -17,7 +17,7 @@ let PRODUCTS_DATA = {
         price: 200000,
         mainImg: "img/products/f2.jpg",
         smallImgs: ["img/products/f2.jpg", "img/products/f4.jpg", "img/products/f5.jpg"],
-        description: "Elegant African women's traditional gown featuring vibrant color accents, ornate embroidery patterns along the front placket, and a graceful flowing silhouette. Made with authentic high-grade African cotton fabric designed to showcase royal elegance at cultural gatherings."
+        description: "Elegant African women's traditional gown featuring vibrant turquoise and dark floral accents, ornate embroidery patterns along the front placket, and a graceful flowing silhouette. Made with authentic high-grade African cotton fabric designed to showcase royal elegance at cultural gatherings."
     },
     "f3": {
         id: "f3",
@@ -26,7 +26,7 @@ let PRODUCTS_DATA = {
         price: 170000,
         mainImg: "img/products/f3.png",
         smallImgs: ["img/products/f3.png", "img/products/f1.png", "img/products/f8.jpg"],
-        description: "Distinguished Havani men's traditional attire with rich gold embroidery along the neck and cuff bands. Designed with modern tailored lines for maximum comfort and commanding presence."
+        description: "Distinguished Havani men's traditional tunic featuring rich metallic gold embroidery along the mandarin neck collar and cuff bands. Designed with modern tailored lines for maximum comfort, breathability, and commanding presence at ceremonies."
     },
     "f4": {
         id: "f4",
@@ -35,7 +35,7 @@ let PRODUCTS_DATA = {
         price: 200000,
         mainImg: "img/products/f4.jpg",
         smallImgs: ["img/products/f4.jpg", "img/products/f2.jpg", "img/products/f5.jpg"],
-        description: "Vibrant women's traditional gown crafted with premium patterned textiles and contrasting embroidered trims. Perfect for festive ceremonies."
+        description: "Vibrant African women's traditional gown crafted with premium patterned textiles, contrasting embroidered trims, and structured waist tailoring. Perfect for festive celebrations, weddings, and formal receptions."
     },
     "f5": {
         id: "f5",
@@ -44,7 +44,7 @@ let PRODUCTS_DATA = {
         price: 200000,
         mainImg: "img/products/f5.jpg",
         smallImgs: ["img/products/f5.jpg", "img/products/f2.jpg", "img/products/f4.jpg"],
-        description: "Royal Jieng traditional gown showcasing bold cultural motifs, regal neckline embellishments, and breathable linen cotton."
+        description: "Royal Jieng traditional gown showcasing bold cultural motifs, regal neckline embellishments, and breathable linen cotton fabric. Tailored for comfort and timeless heritage beauty."
     },
     "f6": {
         id: "f6",
@@ -53,7 +53,7 @@ let PRODUCTS_DATA = {
         price: 300000,
         mainImg: "img/products/f6.webp",
         smallImgs: ["img/products/f6.webp", "img/products/f1.png", "img/products/f3.png"],
-        description: "High-end luxury ceremonial robe featuring rich metallic threads, premium woven jacquard fabric, and flawless hand finishing."
+        description: "High-end luxury ceremonial robe featuring rich metallic threads, premium woven jacquard fabric, and flawless hand finishing. Exudes prestige and regal authority for VIP occasions."
     },
     "f7": {
         id: "f7",
@@ -62,7 +62,7 @@ let PRODUCTS_DATA = {
         price: 250000,
         mainImg: "img/products/f7.jpg",
         smallImgs: ["img/products/f7.jpg", "img/products/f1.png", "img/products/f3.png"],
-        description: "Complete 2-piece traditional tunic and matching trouser ensemble. Features clean geometric front embroidery and relaxed athletic cut."
+        description: "Complete 2-piece traditional tunic shirt and matching tailored trouser ensemble. Features clean geometric front embroidery, comfortable elasticated waist, and athletic cut."
     },
     "f8": {
         id: "f8",
@@ -71,7 +71,7 @@ let PRODUCTS_DATA = {
         price: 150000,
         mainImg: "img/products/f8.jpg",
         smallImgs: ["img/products/f8.jpg", "img/products/f1.png", "img/products/f3.png"],
-        description: "Classic short-sleeved traditional tunic shirt adorned with understated chest embroidery. Lightweight and breathable for daily wear."
+        description: "Classic short-sleeved traditional tunic shirt adorned with understated chest embroidery. Lightweight, breathable, and designed for stylish daily wear in hot climates."
     },
     "f9": {
         id: "f9",
@@ -89,7 +89,7 @@ let PRODUCTS_DATA = {
         price: 45000,
         mainImg: "img/products/a1.webp",
         smallImgs: ["img/products/a1.webp", "img/products/a3.jpg", "img/products/a5.webp"],
-        description: "Handcrafted authentic cowrie shell necklace strung on durable natural twine. Symbolizing prosperity and royal African heritage."
+        description: "Handcrafted authentic cowrie shell necklace strung on durable natural twine. Symbolizing prosperity, spiritual strength, and royal African heritage."
     },
     "a2": {
         id: "a2",
@@ -98,7 +98,7 @@ let PRODUCTS_DATA = {
         price: 100000,
         mainImg: "img/products/a2.jpg",
         smallImgs: ["img/products/a2.jpg", "img/products/a4.jpg", "img/products/a6.jpg"],
-        description: "Handcrafted traditional brass and beaded cuff set. Beautifully polished with authentic tribal engravings."
+        description: "Handcrafted traditional brass and beaded cuff bracelet set. Beautifully polished with authentic tribal engravings for cultural elegance."
     },
     "a3": {
         id: "a3",
@@ -107,7 +107,7 @@ let PRODUCTS_DATA = {
         price: 45000,
         mainImg: "img/products/a3.jpg",
         smallImgs: ["img/products/a3.jpg", "img/products/a1.webp", "img/products/a5.webp"],
-        description: "Artisanal glass bead necklace celebrating traditional African colorways and ceremonial significance."
+        description: "Artisanal multi-strand glass bead necklace celebrating traditional African colorways and ceremonial beauty."
     }
 };
 
@@ -214,6 +214,34 @@ function getProductById(id) {
 
     return PRODUCTS_DATA["f1"];
 }
+
+// Global Click Router for Product Cards across static and dynamic HTML
+document.addEventListener('click', (e) => {
+    const proCard = e.target.closest('.pro');
+    if (!proCard) return;
+
+    // Do not redirect if user clicked directly on cart icon button
+    if (e.target.closest('.cart') || e.target.classList.contains('fa-shopping-cart')) {
+        return;
+    }
+
+    let prodId = proCard.getAttribute('data-id');
+
+    if (!prodId) {
+        const titleEl = proCard.querySelector('h5');
+        if (titleEl) {
+            const titleText = titleEl.textContent.trim().toLowerCase();
+            const found = Object.values(PRODUCTS_DATA).find(p => p.name.trim().toLowerCase() === titleText);
+            if (found) {
+                prodId = found.id;
+            }
+        }
+    }
+
+    if (!prodId) prodId = 'f1';
+
+    window.location.href = `sproduct.html?id=${encodeURIComponent(prodId)}`;
+});
 
 // Initialize dynamic grid on load
 document.addEventListener('DOMContentLoaded', () => {
