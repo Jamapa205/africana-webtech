@@ -161,13 +161,29 @@ document.addEventListener('DOMContentLoaded', () => {
         // Handle Product Card click navigation to sproduct.html?id=...
         const proCard = e.target.closest('.pro');
         if (proCard) {
-            const imgEl = proCard.querySelector('img');
-            if (imgEl) {
-                const src = imgEl.getAttribute('src') || imgEl.src || '';
-                const match = src.match(/\/(f[0-9]+|a[0-9]+|n[0-9]+)\./i);
-                const id = match ? match[1].toLowerCase() : 'f1';
-                window.location.href = `sproduct.html?id=${id}`;
+            let prodId = proCard.getAttribute('data-id');
+
+            if (!prodId) {
+                const titleEl = proCard.querySelector('h5');
+                if (titleEl && typeof PRODUCTS_DATA !== 'undefined') {
+                    const titleText = titleEl.textContent.trim().toLowerCase();
+                    const found = Object.values(PRODUCTS_DATA).find(p => p.name && p.name.trim().toLowerCase() === titleText);
+                    if (found) prodId = found.id;
+                }
             }
+
+            if (!prodId) {
+                const imgEl = proCard.querySelector('img');
+                if (imgEl) {
+                    const src = imgEl.getAttribute('src') || imgEl.src || '';
+                    const match = src.match(/\/(f[0-9]+|a[0-9]+|n[0-9]+)\./i);
+                    if (match) prodId = match[1].toLowerCase();
+                }
+            }
+
+            if (!prodId) prodId = 'f1';
+
+            window.location.href = `sproduct.html?id=${encodeURIComponent(prodId)}`;
         }
     });
 
