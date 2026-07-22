@@ -273,31 +273,41 @@ function getFilteredAndSortedProducts() {
     return items;
 }
 
-// Render Main Product Catalog Grid
+// Render Main Product Catalog Grid (Products of the same category grouped together under section headers)
 function renderProductGrid() {
     const containers = document.querySelectorAll('.pro-container');
     if (!containers || containers.length === 0) return;
 
     const filteredItems = getFilteredAndSortedProducts();
 
+    // Group items by category when default view/featured sort is active
+    let groupedItems = filteredItems;
+    if (STATE.sortBy === 'featured') {
+        const categoryOrderMap = { 'men': 1, 'women': 2, 'bags': 3, 'belts': 4, 'jewelry': 5, 'luxe': 6 };
+        groupedItems = [...filteredItems].sort((a, b) => {
+            const grpA = categoryOrderMap[a.categoryGroup || getCategoryGroup(a.category)] || 99;
+            const grpB = categoryOrderMap[b.categoryGroup || getCategoryGroup(b.category)] || 99;
+            return grpA - grpB;
+        });
+    }
+
     // Render active filter badges bar if container exists
     renderActiveFilterChips(filteredItems.length);
 
+    const categoryHeaderLabels = {
+        'men': '<i class="fas fa-male"></i> Men\'s Collection',
+        'women': '<i class="fas fa-female"></i> Women\'s Collection',
+        'bags': '<i class="fas fa-shopping-bag"></i> Handbags & Bags',
+        'belts': '<i class="fas fa-user-tag"></i> Belts & Straps',
+        'jewelry': '<i class="fas fa-gem"></i> Jewelry Collection',
+        'luxe': '<i class="fas fa-crown"></i> Cultural Luxe'
+    };
+
     containers.forEach((container) => {
-        let itemsToRender = filteredItems;
+        let itemsToRender = groupedItems;
 
         if (container.id === 'home-featured') {
-            itemsToRender = filteredItems.slice(0, 8);
-        } else if (container.id === 'home-apparel') {
-            itemsToRender = filteredItems.filter(p => {
-                const grp = p.categoryGroup || getCategoryGroup(p.category);
-                return grp === 'men' || grp === 'women';
-            });
-        } else if (container.id === 'home-accessories') {
-            itemsToRender = filteredItems.filter(p => {
-                const grp = p.categoryGroup || getCategoryGroup(p.category);
-                return grp === 'bags' || grp === 'belts' || grp === 'jewelry';
-            });
+            itemsToRender = groupedItems.slice(0, 8);
         }
 
         if (itemsToRender.length === 0) {
@@ -312,24 +322,43 @@ function renderProductGrid() {
             return;
         }
 
-        container.innerHTML = itemsToRender.map(p => `
-            <div class="pro" data-id="${p.id}">
-                <img src="${p.mainImg || 'img/products/f1.png'}" alt="${p.name}">
-                <div class="des">
-                    <span>${p.category || 'Africana'}</span>
-                    <h5>${p.name}</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+        let html = '';
+        let lastCategoryGroup = null;
+
+        itemsToRender.forEach((p) => {
+            const grp = p.categoryGroup || getCategoryGroup(p.category);
+            
+            // Insert category header row when category changes in 'all' view mode
+            if (STATE.activeCategory === 'all' && STATE.sortBy === 'featured' && grp !== lastCategoryGroup && categoryHeaderLabels[grp]) {
+                lastCategoryGroup = grp;
+                html += `
+                    <div class="category-header-title">
+                        <h3>${categoryHeaderLabels[grp]}</h3>
                     </div>
-                    <h4>SSP ${Number(p.price || 0).toLocaleString()}</h4>
+                `;
+            }
+
+            html += `
+                <div class="pro" data-id="${p.id}">
+                    <img src="${p.mainImg || 'img/products/f1.png'}" alt="${p.name}">
+                    <div class="des">
+                        <span>${p.category || 'Africana'}</span>
+                        <h5>${p.name}</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>SSP ${Number(p.price || 0).toLocaleString()}</h4>
+                    </div>
+                    <a href="javascript:void(0);"><i class="fal fa-shopping-cart cart"></i></a>
                 </div>
-                <a href="javascript:void(0);"><i class="fal fa-shopping-cart cart"></i></a>
-            </div>
-        `).join('');
+            `;
+        });
+
+        container.innerHTML = html;
     });
 }
 
