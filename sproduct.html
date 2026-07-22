@@ -106,42 +106,59 @@
         </footer>
 
         <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                // Load product data based on ?id= query param
-                const urlParams = new URLSearchParams(window.location.search);
-                const productId = urlParams.get('id') || 'f1';
-                const product = getProductById(productId);
+            function populateProductUI(product) {
+                if (!product) return;
+                const catEl = document.getElementById('pro-cat');
+                const titleEl = document.getElementById('pro-title');
+                const priceEl = document.getElementById('pro-price');
+                const descEl = document.getElementById('pro-desc');
+                const mainImg = document.getElementById('main-img');
+                const smallImgBox = document.getElementById('small-img-box');
 
-                if (product) {
-                    const catEl = document.getElementById('pro-cat');
-                    const titleEl = document.getElementById('pro-title');
-                    const priceEl = document.getElementById('pro-price');
-                    const descEl = document.getElementById('pro-desc');
-                    const mainImg = document.getElementById('main-img');
-                    const smallImgBox = document.getElementById('small-img-box');
+                if (catEl) catEl.textContent = product.category || "Africana Apparel";
+                if (titleEl) titleEl.textContent = product.name;
+                if (priceEl) priceEl.textContent = `SSP ${Number(product.price || 0).toLocaleString()}`;
+                if (descEl) descEl.textContent = product.description || "Authentic African traditional wear.";
+                if (mainImg) mainImg.src = product.mainImg || 'img/products/f1.png';
 
-                    if (catEl) catEl.textContent = product.category;
-                    if (titleEl) titleEl.textContent = product.name;
-                    if (priceEl) priceEl.textContent = `SSP ${product.price.toLocaleString()}`;
-                    if (descEl) descEl.textContent = product.description;
-                    if (mainImg) mainImg.src = product.mainImg;
+                const imgs = product.smallImgs || [product.mainImg || 'img/products/f1.png'];
+                if (smallImgBox && imgs.length > 0) {
+                    smallImgBox.innerHTML = imgs.map((imgUrl, idx) => `
+                        <div class="small-img-col">
+                            <img src="${imgUrl}" width="100%" class="small-img" alt="Thumbnail ${idx + 1}">
+                        </div>
+                    `).join('');
 
-                    if (smallImgBox && product.smallImgs) {
-                        smallImgBox.innerHTML = product.smallImgs.map((imgUrl, idx) => `
-                            <div class="small-img-col">
-                                <img src="${imgUrl}" width="100%" class="small-img" alt="Thumbnail ${idx + 1}">
-                            </div>
-                        `).join('');
-
-                        // Bind thumbnail switcher
-                        const smallImgs = document.getElementsByClassName("small-img");
-                        for (let i = 0; i < smallImgs.length; i++) {
-                            smallImgs[i].onclick = function() {
-                                if (mainImg) mainImg.src = smallImgs[i].src;
-                            };
-                        }
+                    const smallImgs = document.getElementsByClassName("small-img");
+                    for (let i = 0; i < smallImgs.length; i++) {
+                        smallImgs[i].onclick = function() {
+                            if (mainImg) mainImg.src = smallImgs[i].src;
+                        };
                     }
                 }
+            }
+
+            document.addEventListener('DOMContentLoaded', async () => {
+                const urlParams = new URLSearchParams(window.location.search);
+                const productId = urlParams.get('id') || 'f1';
+                
+                let product = getProductById(productId);
+
+                if ((!product || (product.id === 'f1' && productId !== 'f1')) && productId !== 'f1') {
+                    try {
+                        const res = await fetch(`/api/products/${productId}`);
+                        const data = await res.json();
+                        if (data && data.success && data.product) {
+                            product = data.product;
+                            PRODUCTS_DATA[product.id] = product;
+                        }
+                    } catch (err) {
+                        console.warn('API fetch product error:', err);
+                    }
+                }
+
+                populateProductUI(product);
+            });
 
                 // Single Product Add To Cart Handler
                 const addBtn = document.getElementById("add-to-cart-btn");

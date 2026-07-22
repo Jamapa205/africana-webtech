@@ -436,7 +436,7 @@ app.get(['/api/products/:id', '/products/:id'], (req, res) => {
 
 // Admin: Add Product with File Upload or Base64 Image
 app.post(['/api/products', '/products'], requireAdmin, upload.single('image'), (req, res) => {
-    const { name, category, price, description, imageUrl } = req.body;
+    const { id, name, category, price, description, imageUrl } = req.body;
     
     if (!name || !price) {
         return res.status(400).json({ success: false, message: 'Name and price are required' });
@@ -453,8 +453,13 @@ app.post(['/api/products', '/products'], requireAdmin, upload.single('image'), (
         mainImgUrl = imageUrl;
     }
 
+    const productId = id ? String(id).trim() : ('p_' + Date.now());
+
+    // Prevent duplicate entries by ID
+    db.products = db.products.filter(p => p.id !== productId);
+
     const newProduct = {
-        id: 'p_' + Date.now(),
+        id: productId,
         name: name.trim(),
         category: category ? category.trim() : "Africana / Apparel",
         price: parseFloat(price) || 0,
