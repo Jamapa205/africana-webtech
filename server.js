@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
@@ -9,12 +10,23 @@ const multer = require('multer');
 const app = express();
 const PORT = process.env.PORT || 8000;
 const JWT_SECRET = 'africana_super_secret_jwt_key_2026';
-const DB_FILE = path.join(__dirname, 'database.json');
-const UPLOADS_DIR = path.join(__dirname, 'uploads');
+
+const isVercel = Boolean(process.env.VERCEL || process.env.NOW_REGION);
+const DB_FILE = isVercel
+    ? path.join(os.tmpdir(), 'database.json')
+    : path.join(__dirname, 'database.json');
+
+const UPLOADS_DIR = isVercel
+    ? path.join(os.tmpdir(), 'uploads')
+    : path.join(__dirname, 'uploads');
 
 // Ensure uploads folder exists
-if (!fs.existsSync(UPLOADS_DIR)) {
-    fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+try {
+    if (!fs.existsSync(UPLOADS_DIR)) {
+        fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+    }
+} catch (err) {
+    console.warn('Uploads folder init warning:', err.message);
 }
 
 // Middleware
@@ -239,38 +251,55 @@ const SEED_PRODUCTS = [
     }
 ];
 
-// Helper Functions for JSON Database Persistence
+// Helper Functions for JSON Database Persistence with Serverless Safety
+let memoryDatabase = null;
+
 function loadDatabase() {
-    if (!fs.existsSync(DB_FILE)) {
-        const adminPasswordHash = bcrypt.hashSync('Dueng@123', 10);
-        const initialData = {
-            users: [
-                {
-                    id: 'usr_admin_jamapa',
-                    username: 'jamapa',
-                    email: 'jamapa@africana.com',
-                    passwordHash: adminPasswordHash,
-                    role: 'admin',
-                    createdAt: new Date().toISOString()
-                }
-            ],
-            products: SEED_PRODUCTS,
-            orders: []
-        };
-        fs.writeFileSync(DB_FILE, JSON.stringify(initialData, null, 2));
-        return initialData;
-    }
+    const adminPasswordHash = bcrypt.hashSync('Dueng@123', 10);
+    const initialData = {
+        users: [
+            {
+                id: 'usr_admin_jamapa',
+                username: 'jamapa',
+                email: 'jamapa@africana.com',
+                passwordHash: adminPasswordHash,
+                role: 'admin',
+                createdAt: new Date().toISOString()
+            }
+        ],
+        products: SEED_PRODUCTS,
+        orders: []
+    };
+
     try {
+        if (!fs.existsSync(DB_FILE)) {
+            try {
+                fs.writeFileSync(DB_FILE, JSON.stringify(initialData, null, 2));
+            } catch (wErr) {
+                console.warn('DB file write warning, using memory state:', wErr.message);
+            }
+            memoryDatabase = initialData;
+            return initialData;
+        }
+
         const raw = fs.readFileSync(DB_FILE, 'utf8');
-        return JSON.parse(raw);
+        memoryDatabase = JSON.parse(raw);
+        return memoryDatabase;
     } catch (err) {
-        console.error("Database parse error, resetting...", err);
-        return { users: [], products: SEED_PRODUCTS, orders: [] };
+        if (!memoryDatabase) {
+            memoryDatabase = initialData;
+        }
+        return memoryDatabase;
     }
 }
 
 function saveDatabase(data) {
-    fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
+    memoryDatabase = data;
+    try {
+        fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
+    } catch (err) {
+        console.warn('DB save warning (serverless mode active):', err.message);
+    }
 }
 
 // Ensure database file & admin user exist
@@ -303,7 +332,7 @@ function requireAdmin(req, res, next) {
 // --- AUTH API ROUTES ---
 
 // Login Endpoint (jamapa / Dueng@123)
-app.post('/api/auth/login', (req, res) => {
+app.post(['/api/auth/login', '/auth/login'], (req, res) => {
     const { username, password } = req.body;
     if (!username || !password) {
         return res.status(400).json({ success: false, message: 'Username and password are required' });
@@ -339,7 +368,7 @@ app.post('/api/auth/login', (req, res) => {
 });
 
 // Register Endpoint
-app.post('/api/auth/register', (req, res) => {
+app.post(['/api/auth/register', '/auth/register'], (req, res) => {
     const { username, email, password } = req.body;
     if (!username || !email || !password) {
         return res.status(400).json({ success: false, message: 'All fields are required' });
@@ -392,13 +421,13 @@ app.post('/api/auth/register', (req, res) => {
 // --- PRODUCT API ROUTES ---
 
 // Public: Get All Products
-app.get('/api/products', (req, res) => {
+app.get(['/api/products', '/products'], (req, res) => {
     db = loadDatabase();
     res.json({ success: true, products: db.products });
 });
 
 // Public: Get Product by ID
-app.get('/api/products/:id', (req, res) => {
+app.get(['/api/products/:id', '/products/:id'], (req, res) => {
     db = loadDatabase();
     const item = db.products.find(p => p.id === req.params.id);
     if (!item) return res.status(404).json({ success: false, message: 'Product not found' });
@@ -406,7 +435,7 @@ app.get('/api/products/:id', (req, res) => {
 });
 
 // Admin: Add Product with File Upload
-app.post('/api/products', requireAdmin, upload.single('image'), (req, res) => {
+app.post(['/api/products', '/products'], requireAdmin, upload.single('image'), (req, res) => {
     const { name, category, price, description } = req.body;
     
     if (!name || !price) {
@@ -441,7 +470,7 @@ app.post('/api/products', requireAdmin, upload.single('image'), (req, res) => {
 });
 
 // Admin: Update Product
-app.put('/api/products/:id', requireAdmin, upload.single('image'), (req, res) => {
+app.put(['/api/products/:id', '/products/:id'], requireAdmin, upload.single('image'), (req, res) => {
     const productId = req.params.id;
     db = loadDatabase();
 
@@ -471,7 +500,7 @@ app.put('/api/products/:id', requireAdmin, upload.single('image'), (req, res) =>
 });
 
 // Admin: Delete Product
-app.delete('/api/products/:id', requireAdmin, (req, res) => {
+app.delete(['/api/products/:id', '/products/:id'], requireAdmin, (req, res) => {
     db = loadDatabase();
     const initialLen = db.products.length;
     db.products = db.products.filter(p => p.id !== req.params.id);
@@ -487,7 +516,7 @@ app.delete('/api/products/:id', requireAdmin, (req, res) => {
 // --- ORDERS API ROUTES ---
 
 // Customer: Submit Order
-app.post('/api/orders', (req, res) => {
+app.post(['/api/orders', '/orders'], (req, res) => {
     const { items, totalAmount, shippingAddress, customerName, customerPhone } = req.body;
 
     if (!items || items.length === 0) {
@@ -513,13 +542,13 @@ app.post('/api/orders', (req, res) => {
 });
 
 // Admin: Get All Orders
-app.get('/api/orders', requireAdmin, (req, res) => {
+app.get(['/api/orders', '/orders'], requireAdmin, (req, res) => {
     db = loadDatabase();
     res.json({ success: true, orders: db.orders });
 });
 
 // Admin: Get All Registered Users
-app.get('/api/users', requireAdmin, (req, res) => {
+app.get(['/api/users', '/users'], requireAdmin, (req, res) => {
     db = loadDatabase();
     const safeUsers = db.users.map(u => ({
         id: u.id,
