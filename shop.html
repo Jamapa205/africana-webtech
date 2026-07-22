@@ -36,12 +36,58 @@
         </section>
 
         <section id="shop-header">
-            <H2>AFRICANA</H2>
-
-            <p>buy 5 and get 1 free and 10% discount</p>
+            <h2>#ModernBoutique</h2>
+            <p>Explore our curated collections of apparel, handbags, belts, jewelry, and luxury sets</p>
         </section>
 
-        <section id="product1" class="section-p1">
+        <section id="shop-controls" class="section-p1">
+            <!-- Search & Sort Top Bar -->
+            <div class="search-sort-bar">
+                <div class="search-box-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="shop-search-input" placeholder="Search jeans, shirts, handbags, belts, jewelry, tags..." autocomplete="off">
+                </div>
+                <div class="sort-box-container">
+                    <label for="shop-sort-select"><i class="fas fa-sort-amount-down"></i> Sort By:</label>
+                    <select id="shop-sort-select">
+                        <option value="featured">Featured</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="newest">Newest Arrivals</option>
+                        <option value="name-asc">Name: A to Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Category Pills Bar -->
+            <div class="pills-wrapper">
+                <span class="pills-label"><i class="fas fa-filter"></i> Categories:</span>
+                <button class="category-pill active" data-cat="all" onclick="setCategoryFilter('all')">All Boutique</button>
+                <button class="category-pill" data-cat="men" onclick="setCategoryFilter('men')"><i class="fas fa-male"></i> Men's Collection</button>
+                <button class="category-pill" data-cat="women" onclick="setCategoryFilter('women')"><i class="fas fa-female"></i> Women's Collection</button>
+                <button class="category-pill" data-cat="bags" onclick="setCategoryFilter('bags')"><i class="fas fa-shopping-bag"></i> Handbags & Bags</button>
+                <button class="category-pill" data-cat="belts" onclick="setCategoryFilter('belts')"><i class="fas fa-user-tag"></i> Belts</button>
+                <button class="category-pill" data-cat="jewelry" onclick="setCategoryFilter('jewelry')"><i class="fas fa-gem"></i> Jewelry</button>
+                <button class="category-pill" data-cat="luxe" onclick="setCategoryFilter('luxe')"><i class="fas fa-crown"></i> Cultural Luxe</button>
+            </div>
+
+            <!-- Price Range Pills Bar -->
+            <div class="pills-wrapper price-pills-bar">
+                <span class="pills-label"><i class="fas fa-tags"></i> Price Range:</span>
+                <button class="price-pill active" data-price="all" onclick="setPriceFilter('all')">All Prices</button>
+                <button class="price-pill" data-price="under-50k" onclick="setPriceFilter('under-50k')">&lt; SSP 50,000</button>
+                <button class="price-pill" data-price="50k-150k" onclick="setPriceFilter('50k-150k')">SSP 50k - 150k</button>
+                <button class="price-pill" data-price="over-150k" onclick="setPriceFilter('over-150k')">&gt; SSP 150,000</button>
+            </div>
+
+            <!-- Active Filters & Result Counter Header -->
+            <div class="catalog-status-bar">
+                <span id="catalog-result-count">Loading Products...</span>
+                <div id="active-filter-chips" class="active-chips-container hide"></div>
+            </div>
+        </section>
+
+        <section id="product1" class="section-p1" style="padding-top: 0;">
             <div class="pro-container">
                 <div class="pro" data-id="f1">
                     <img src="img/products/f1.png" alt="">

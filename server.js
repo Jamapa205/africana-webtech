@@ -461,11 +461,12 @@ app.post(['/api/products', '/products'], requireAdmin, upload.single('image'), (
     const newProduct = {
         id: productId,
         name: name.trim(),
-        category: category ? category.trim() : "Africana / Apparel",
+        category: category ? category.trim() : "Men's Collection",
         price: parseFloat(price) || 0,
+        tags: req.body.tags ? (typeof req.body.tags === 'string' ? req.body.tags.split(',').map(t => t.trim()).filter(Boolean) : req.body.tags) : [name, category].join(' ').toLowerCase().split(/\s+/),
         mainImg: mainImgUrl,
         smallImgs: [mainImgUrl],
-        description: description ? description.trim() : "Authentic African traditional apparel handcrafted with care.",
+        description: description ? description.trim() : "Authentic boutique item handcrafted with care.",
         isPlaceholder: false,
         createdAt: new Date().toISOString()
     };
