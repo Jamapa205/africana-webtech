@@ -166,13 +166,27 @@ async function fetchOnlineProducts() {
             const data = await response.json();
             if (data.success && Array.isArray(data.products)) {
                 data.products.forEach(p => {
+                    const existing = PRODUCTS_DATA[p.id];
+                    let bestImg = p.mainImg;
+
+                    if (existing && existing.mainImg && existing.mainImg.startsWith('data:image')) {
+                        bestImg = existing.mainImg;
+                    } else if (p.mainImg && p.mainImg.startsWith('uploads/')) {
+                        // If uploads path returned from serverless, check if we have local Base64
+                        const localCustom = JSON.parse(localStorage.getItem('africana_custom_products')) || [];
+                        const matchLocal = localCustom.find(lc => lc.id === p.id || lc.name === p.name);
+                        if (matchLocal && matchLocal.mainImg && matchLocal.mainImg.startsWith('data:image')) {
+                            bestImg = matchLocal.mainImg;
+                        }
+                    }
+
                     PRODUCTS_DATA[p.id] = {
                         id: p.id,
                         name: p.name,
                         category: p.category,
                         price: p.price,
-                        mainImg: p.mainImg,
-                        smallImgs: p.smallImgs || [p.mainImg],
+                        mainImg: bestImg || 'img/products/f1.png',
+                        smallImgs: [bestImg || 'img/products/f1.png'],
                         description: p.description,
                         isPlaceholder: p.isPlaceholder || false
                     };
