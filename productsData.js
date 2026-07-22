@@ -138,8 +138,8 @@ function renderProductGrid() {
         if (!itemsToRender || itemsToRender.length === 0) itemsToRender = allProducts;
 
         container.innerHTML = itemsToRender.map(p => `
-            <div class="pro" data-id="${p.id}">
-                <img src="${p.mainImg}" alt="${p.name}">
+            <div class="pro" data-id="${p.id}" onclick="window.location.href='sproduct.html?id=${encodeURIComponent(p.id)}';">
+                <img src="${p.mainImg || 'img/products/f1.png'}" alt="${p.name}">
                 <div class="des">
                     <span>${p.category || 'Africana'}</span>
                     <h5>${p.name}</h5>
@@ -150,9 +150,9 @@ function renderProductGrid() {
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <h4>SSP ${Number(p.price).toLocaleString()}</h4>
+                    <h4>SSP ${Number(p.price || 0).toLocaleString()}</h4>
                 </div>
-                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+                <a href="javascript:void(0);" onclick="event.stopPropagation();"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
         `).join('');
     });
@@ -172,7 +172,6 @@ async function fetchOnlineProducts() {
                     if (existing && existing.mainImg && existing.mainImg.startsWith('data:image')) {
                         bestImg = existing.mainImg;
                     } else if (p.mainImg && p.mainImg.startsWith('uploads/')) {
-                        // If uploads path returned from serverless, check if we have local Base64
                         const localCustom = JSON.parse(localStorage.getItem('africana_custom_products')) || [];
                         const matchLocal = localCustom.find(lc => lc.id === p.id || lc.name === p.name);
                         if (matchLocal && matchLocal.mainImg && matchLocal.mainImg.startsWith('data:image')) {
@@ -206,10 +205,14 @@ function getProductById(id) {
         if (p && p.id) PRODUCTS_DATA[p.id] = p;
     });
 
-    if (!id || !PRODUCTS_DATA[id]) {
-        return PRODUCTS_DATA["f1"];
+    if (id && PRODUCTS_DATA[id]) {
+        return PRODUCTS_DATA[id];
     }
-    return PRODUCTS_DATA[id];
+
+    const found = Object.values(PRODUCTS_DATA).find(p => p.id === id || String(p.id) === String(id));
+    if (found) return found;
+
+    return PRODUCTS_DATA["f1"];
 }
 
 // Initialize dynamic grid on load
