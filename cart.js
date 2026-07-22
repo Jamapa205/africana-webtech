@@ -1,7 +1,20 @@
 // Global Cart & Navigation State Management for Africana
 
+let lastAddTimestamp = 0;
+let lastItemKey = '';
+
 // Function to handle adding an item to the cart
 function addToCart(productName, price, imageUrl, quantity = 1, size = '') {
+    const now = Date.now();
+    const itemKey = `${productName}_${size}_${quantity}`;
+    
+    // Prevent duplicate triggers within 500ms (debounces double-click / event bubbling)
+    if (now - lastAddTimestamp < 500 && lastItemKey === itemKey) {
+        return;
+    }
+    lastAddTimestamp = now;
+    lastItemKey = itemKey;
+
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     // Sanitize price and quantity
@@ -120,41 +133,42 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartIcon();
     updateAuthNav();
 
-    // Delegate click events for product card "Add to Cart" icons
-    document.querySelectorAll('.cart').forEach((cartIcon) => {
-        cartIcon.addEventListener('click', function(e) {
+    // Single Document Event Delegation for Product Card Actions & Navigation
+    document.addEventListener('click', (e) => {
+        // Handle "Add to Cart" icon click
+        const cartBtn = e.target.closest('.cart');
+        if (cartBtn) {
             e.preventDefault();
             e.stopPropagation();
-            let proCard = cartIcon.closest('.pro');
+
+            const proCard = cartBtn.closest('.pro');
             if (proCard) {
-                let nameEl = proCard.querySelector('h5');
-                let priceEl = proCard.querySelector('h4');
-                let imgEl = proCard.querySelector('img');
+                const nameEl = proCard.querySelector('h5');
+                const priceEl = proCard.querySelector('h4');
+                const imgEl = proCard.querySelector('img');
 
                 if (nameEl && priceEl && imgEl) {
-                    let productName = nameEl.textContent.trim();
-                    let price = priceEl.textContent.trim();
-                    let imageUrl = imgEl.src;
+                    const productName = nameEl.textContent.trim();
+                    const price = priceEl.textContent.trim();
+                    const imageUrl = imgEl.src;
 
                     addToCart(productName, price, imageUrl, 1);
                 }
             }
-        });
-    });
+            return;
+        }
 
-    // Delegate click events for product card navigation to sproduct.html?id=...
-    document.querySelectorAll('.pro').forEach((proCard) => {
-        proCard.addEventListener('click', function(e) {
-            if (e.target.closest('.cart')) return;
-
-            let imgEl = proCard.querySelector('img');
+        // Handle Product Card click navigation to sproduct.html?id=...
+        const proCard = e.target.closest('.pro');
+        if (proCard) {
+            const imgEl = proCard.querySelector('img');
             if (imgEl) {
-                let src = imgEl.getAttribute('src') || imgEl.src || '';
-                let match = src.match(/\/(f[0-9]+|a[0-9]+|n[0-9]+)\./i);
-                let id = match ? match[1].toLowerCase() : 'f1';
+                const src = imgEl.getAttribute('src') || imgEl.src || '';
+                const match = src.match(/\/(f[0-9]+|a[0-9]+|n[0-9]+)\./i);
+                const id = match ? match[1].toLowerCase() : 'f1';
                 window.location.href = `sproduct.html?id=${id}`;
             }
-        });
+        }
     });
 
     // Mobile Navbar Toggle Functionality
