@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Africana</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+
+        <link rel="stylesheet" href="style.css">
+        <script src="cart.js"></script>
+        <script src="productsData.js"></script>
+    </head>
+
+    <body>
+
+        <section id="header">
+            <a href="index.html"><img src="img/logo.png" class="logo" alt="logo"></a>
+
+            <div>
+                <ul id="navbar">
+                    <li><a href="#" id="close"><i class="far fa-times"></i></a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="active" href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span id="cart-count">0</span></a></li>
+                </ul>
+            </div>
+            <div id="mobile">
+                <a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+                <i id="bar" class="fas fa-outdent"></i>
+            </div>
+        </section>
+
+        <section id="pro-details" class="section-p1">
+            <div class="single-pro-img">
+                <img src="img/products/f1.png" width="100%" id="main-img" alt="Main product image">
+
+                <div class="small-img-box" id="small-img-box">
+                    <div class="small-img-col">
+                        <img src="img/products/f1.png" width="100%" class="small-img" alt="Thumbnail 1">
+                    </div>
+                </div>
+            </div>
+
+            <div class="details">
+                <h6 id="pro-cat">Home / Traditional Wear</h6>
+                <h4 id="pro-title">Lori mens tradional wear</h4>
+                <h2 id="pro-price">SSP 150000</h2>
+                <select id="pro-size">
+                    <option>Select Size</option>
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                    <option>XL</option>
+                    <option>XXL</option>
+                </select>
+
+                <input type="number" id="pro-qty" value="1" min="1">
+                <button id="add-to-cart-btn" class="normal">Add To Cart</button>
+                <h4>Product Details</h4>
+                <span id="pro-desc">African Traditional wear made from authentic cotton grown at the pearl of Africa. Features intricate hand-woven embroidery and relaxed fit designed for high comfort and elegance.</span>
+            </div>
+        </section>
+
+        <footer class="section-p1">
+            <div class="col">
+                <img class="logo" src="img/logo.png" alt="">
+                <h4>Contact</h4>
+                <p><strong>Address:</strong> Jebel road, juba, South Sudan</p>
+                <p><strong>Phone:</strong> +211 922 273 982</p>
+                <p><strong>Hours</strong> 8:00 - 5:00, Mon - Fri</p>
+                <div class="follow">
+                    <h4>Follow us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-pinterest-p"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <h4>About</h4>
+                <a href="about.html">About us</a>
+                <a href="contact.html">Contact us</a>
+            </div>
+
+            <div class="col">
+                <h4>Account</h4>
+                <a href="#">Sign in</a>
+                <a href="cart.html">View Cart</a>
+                <a href="#">Wishlist</a>
+                <a href="#">Help</a>
+            </div>
+
+            <div class="payment">
+                <h4>Payment Gateway</h4>
+                <img src="img/pay/pay.png" alt="">
+            </div>
+        </footer>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                // Load product data based on ?id= query param
+                const urlParams = new URLSearchParams(window.location.search);
+                const productId = urlParams.get('id') || 'f1';
+                const product = getProductById(productId);
+
+                if (product) {
+                    const catEl = document.getElementById('pro-cat');
+                    const titleEl = document.getElementById('pro-title');
+                    const priceEl = document.getElementById('pro-price');
+                    const descEl = document.getElementById('pro-desc');
+                    const mainImg = document.getElementById('main-img');
+                    const smallImgBox = document.getElementById('small-img-box');
+
+                    if (catEl) catEl.textContent = product.category;
+                    if (titleEl) titleEl.textContent = product.name;
+                    if (priceEl) priceEl.textContent = `SSP ${product.price.toLocaleString()}`;
+                    if (descEl) descEl.textContent = product.description;
+                    if (mainImg) mainImg.src = product.mainImg;
+
+                    if (smallImgBox && product.smallImgs) {
+                        smallImgBox.innerHTML = product.smallImgs.map((imgUrl, idx) => `
+                            <div class="small-img-col">
+                                <img src="${imgUrl}" width="100%" class="small-img" alt="Thumbnail ${idx + 1}">
+                            </div>
+                        `).join('');
+
+                        // Bind thumbnail switcher
+                        const smallImgs = document.getElementsByClassName("small-img");
+                        for (let i = 0; i < smallImgs.length; i++) {
+                            smallImgs[i].onclick = function() {
+                                if (mainImg) mainImg.src = smallImgs[i].src;
+                            };
+                        }
+                    }
+                }
+
+                // Single Product Add To Cart Handler
+                const addBtn = document.getElementById("add-to-cart-btn");
+                if (addBtn) {
+                    addBtn.addEventListener("click", () => {
+                        const title = document.getElementById("pro-title").textContent.trim();
+                        const price = document.getElementById("pro-price").textContent.trim();
+                        const sizeSelect = document.getElementById("pro-size");
+                        const size = sizeSelect ? sizeSelect.value : '';
+                        const qtyInput = document.getElementById("pro-qty");
+                        const qty = qtyInput ? qtyInput.value : 1;
+                        const mainImg = document.getElementById('main-img');
+                        const imgSrc = mainImg ? mainImg.src : '';
+
+                        if (size === "Select Size") {
+                            if (typeof showToast === 'function') {
+                                showToast("Please select a size first!");
+                            } else {
+                                alert("Please select a size first!");
+                            }
+                            return;
+                        }
+
+                        addToCart(title, price, imgSrc, qty, size);
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Africana</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+
+        <link rel="stylesheet" href="style.css">
+        <script src="cart.js"></script>
+    </head>
+
+    <body>
+
+        <section id="header">
+            <a href="index.html"><img src="img/logo.png" class="logo" alt="logo"></a>
+
+            <div>
+                <ul id="navbar">
+                    <li><a href="#" id="close"><i class="far fa-times"></i></a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a class="active" href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span id="cart-count">0</span></a></li>
+                </ul>
+            </div>
+            <div id="mobile">
+                <a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+                <i id="bar" class="fas fa-outdent"></i>
+            </div>
+        </section>
+
+        <section id="about" class="section-p1">
+            <div>
+                <h2>About us</h2>
+                <p>
+                    we are an inspiring botique shop located in South Sudan juba trying to show that it is possible that Eccommerce is possible even in the youngest nation in the world. We hope to grow this bussiness till its nation wide and if possible world wide. We sell the latest in fasion in the African market and we hope to show the beauty of African wear to everyone. We will not stop till our goal is reached and we hope that you will support our goal buy using out website. 
+
+                    <br>
+
+                    a little about our country
+
+                    <br>
+
+                    South Sudan, country located in northeastern Africa. Its rich biodiversity includes lush savannas, swamplands, and rainforests that are home to many species of wildlife. Prior to 2011, South Sudan was part of Sudan, its neighbour to the north.
+                </p>
+            </div>
+        </section>
+ 
+        <footer class="section-p1">
+            <div class="col">
+                <img class="logo" src="img/logo.png" alt="">
+                <h4>Contact</h4>
+                <p><strong>Address:</strong> Jebel road, juba, South Sudan</p>
+                <p><strong>Phone:</strong> +211 922 273 982</p>
+                <p><strong>Hours</strong> 8:00 - 5:00, Mon - Fri</p>
+                <div class="follow">
+                    <h4>Follow us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-pinterest-p"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <h4>About</h4>
+                <a href="#">About us</a>
+                <a href="#">Contact us</a>
+            </div>
+
+            <div class="col">
+                <h4>Account</h4>
+                <a href="#">Sign in</a>
+                <a href="#">View Cart</a>
+                <a href="#">Wishlist</a>
+                <a href="#">Help</a>
+            </div>
+
+            <div class="payment">
+                <h4>Payment Gateway</h4>
+                <img src="img/pay/pay.png" alt="">
+            </div>
+        </footer>
+        <script>
+            // Function to handle adding an item to the cart
+            function addToCart(productName, price, imageUrl) {
+                // Create a cart object if it doesn't exist
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+                // Create a new item object
+                let item = {
+                    name: productName,
+                    price: price,
+                    imageUrl: imageUrl,
+                    quantity: 1
+                };
+            
+                // Add the item to the cart
+                cart.push(item);
+            
+                // Save the updated cart to localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+            
+                // Optional: Update the cart icon with the number of items
+                updateCartIcon();
+            }
+            
+            // Function to update the cart icon with the number of items
+            function updateCartIcon() {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                let cartCount = cart.length;
+                document.getElementById("cart-count").textContent = cartCount;
+            }
+            
+            // Add event listeners to the shopping cart icons
+            document.querySelectorAll('.cart').forEach((cartIcon) => {
+                cartIcon.addEventListener('click', function() {
+                    let productName = cartIcon.closest('.pro').querySelector('h5').textContent;
+                    let price = cartIcon.closest('.pro').querySelector('h4').textContent.replace('SSP ', '').trim();
+                    let imageUrl = cartIcon.closest('.pro').querySelector('img').src;
+            
+                    // Add to cart
+                    addToCart(productName, price, imageUrl);
+                });
+            });
+            
+            // Update cart icon when the page loads
+            document.addEventListener('DOMContentLoaded', updateCartIcon);
+            </script>
+    </body>
+
+</html>

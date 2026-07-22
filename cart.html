@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Africana</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+        <link rel="stylesheet" href="style.css">
+        <script src="cart.js"></script>
+    </head>
+
+    <body>
+        <section id="header">
+            <a href="index.html"><img src="img/logo.png" class="logo" alt="logo"></a>
+            <div>
+                <ul id="navbar">
+                    <li><a href="#" id="close"><i class="far fa-times"></i></a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li id="lg-bag"><a class="active" href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span id="cart-count">0</span></a></li>
+                </ul>
+            </div>
+            <div id="mobile">
+                <a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+                <i id="bar" class="fas fa-outdent"></i>
+            </div>
+        </section>
+
+        <section id="cart" class="section-p1">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <td>Remove</td>
+                        <td>Image</td>
+                        <td>Product</td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                        <td>Subtotal</td>
+                    </tr>
+                </thead>
+                <tbody id="cart-body">
+                </tbody>
+            </table>
+
+            <div id="total">
+                <table width="100%">
+                    <tr>
+                        <td><strong>Cart Subtotal:</strong></td>
+                        <td id="total-price">SSP 0</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Shipping Flat Rate:</strong></td>
+                        <td id="shipping-price">SSP 20,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Grand Total:</strong></td>
+                        <td id="grand-total">SSP 0</td>
+                    </tr>
+                </table>
+
+                <button id="payment-btn" class="btn">Proceed to Payment</button>
+            </div>
+        </section>
+
+        <footer class="section-p1">
+            <div class="col">
+                <img class="logo" src="img/logo.png" alt="">
+                <h4>Contact</h4>
+                <p><strong>Address:</strong> Jebel road, juba, South Sudan</p>
+                <p><strong>Phone:</strong> +211 922 273 982</p>
+                <p><strong>Hours</strong> 8:00 - 5:00, Mon - Fri</p>
+                <div class="follow">
+                    <h4>Follow us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-pinterest-p"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <h4>About</h4>
+                <a href="#">About us</a>
+                <a href="#">Contact us</a>
+            </div>
+
+            <div class="col">
+                <h4>Account</h4>
+                <a href="#">Sign in</a>
+                <a href="#">View Cart</a>
+                <a href="#">Wishlist</a>
+                <a href="#">Help</a>
+            </div>
+
+            <div class="payment">
+                <h4>Payment Gateway</h4>
+                <img src="img/pay/pay.png" alt="">
+            </div>
+        </footer>
+
+        <script>
+            function loadCart() {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                let cartTableBody = document.getElementById('cart-body');
+                if (!cartTableBody) return;
+
+                cartTableBody.innerHTML = '';
+                let totalPrice = 0;
+
+                if (cart.length === 0) {
+                    cartTableBody.innerHTML = `
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 30px; font-size: 18px;">
+                                Your cart is currently empty. <br><br>
+                                <a href="shop.html" style="background: #0047AB; color: #fff; padding: 10px 20px; border-radius: 4px; text-decoration: none; font-size: 14px;">Explore Catalog</a>
+                            </td>
+                        </tr>
+                    `;
+                    document.getElementById('total-price').textContent = 'SSP 0';
+                    document.getElementById('shipping-price').textContent = 'SSP 0';
+                    document.getElementById('grand-total').textContent = 'SSP 0';
+                    return;
+                }
+
+                cart.forEach((item, index) => {
+                    let row = document.createElement('tr');
+                    let priceNum = typeof item.price === 'number' ? item.price : parseFloat(String(item.price).replace(/[^0-9.]/g, '')) || 0;
+                    let qty = parseInt(item.quantity, 10) || 1;
+                    let itemTotal = priceNum * qty;
+                    totalPrice += itemTotal;
+
+                    let sizeBadge = item.size ? ` <span style="font-size:12px; color:#666;">(${item.size})</span>` : '';
+
+                    row.innerHTML = `
+                        <td><a href="#" onclick="removeFromCart(${index}); return false;"><i class="far fa-times-circle" style="color: #ef3636; font-size: 18px;"></i></a></td>
+                        <td><img src="${item.imageUrl}" alt="${item.name}" style="width: 70px; border-radius: 4px;"></td>
+                        <td><strong>${item.name}</strong>${sizeBadge}</td>
+                        <td>SSP ${priceNum.toLocaleString()}</td>
+                        <td><input type="number" value="${qty}" min="1" onchange="updateQuantity(${index}, this.value)" style="width: 60px; padding: 5px; text-align: center; border: 1px solid #ccc; border-radius: 4px;"></td>
+                        <td><strong>SSP ${itemTotal.toLocaleString()}</strong></td>
+                    `;
+
+                    cartTableBody.appendChild(row);
+                });
+
+                let shippingCost = 20000;
+                let grandTotal = totalPrice + shippingCost;
+
+                document.getElementById('total-price').textContent = `SSP ${totalPrice.toLocaleString()}`;
+                document.getElementById('shipping-price').textContent = `SSP ${shippingCost.toLocaleString()}`;
+                document.getElementById('grand-total').textContent = `SSP ${grandTotal.toLocaleString()}`;
+            }
+
+            function updateQuantity(index, newQty) {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                let parsed = parseInt(newQty, 10);
+                if (isNaN(parsed) || parsed < 1) parsed = 1;
+
+                if (cart[index]) {
+                    cart[index].quantity = parsed;
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartIcon();
+                    loadCart();
+                }
+            }
+
+            function removeFromCart(index) {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                if (cart[index]) {
+                    let removedName = cart[index].name;
+                    cart.splice(index, 1);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartIcon();
+                    loadCart();
+                    if (typeof showToast === 'function') {
+                        showToast(`Removed "${removedName}" from cart`);
+                    }
+                }
+            }
+
+            async function handlePayment() {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                if (cart.length === 0) {
+                    alert('Your cart is empty! Please add items before checking out.');
+                    return;
+                }
+
+                const userRaw = localStorage.getItem('user');
+                const user = userRaw ? JSON.parse(userRaw) : null;
+                const customerName = user ? user.username : prompt("Enter your name for delivery:", "Guest Customer");
+                if (!customerName) return;
+                
+                const customerPhone = prompt("Enter your phone number for delivery:", "+211 922 000 000");
+                if (!customerPhone) return;
+
+                let grandTotalStr = document.getElementById('grand-total').textContent;
+                let grandTotalNum = parseFloat(grandTotalStr.replace(/[^0-9.]/g, '')) || 0;
+
+                try {
+                    const response = await fetch('/api/orders', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            items: cart,
+                            totalAmount: grandTotalNum,
+                            customerName: customerName,
+                            customerPhone: customerPhone,
+                            shippingAddress: "Juba, South Sudan"
+                        })
+                    });
+
+                    const data = await response.json();
+                    if (data.success) {
+                        alert(`Thank you! Order ${data.order.id} submitted successfully for total: SSP ${grandTotalNum.toLocaleString()}`);
+                        localStorage.removeItem('cart');
+                        updateCartIcon();
+                        loadCart();
+                    } else {
+                        alert('Failed to submit order. Please try again.');
+                    }
+                } catch(err) {
+                    alert('Error connecting to order server.');
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                loadCart();
+                const payBtn = document.getElementById('payment-btn');
+                if (payBtn) payBtn.addEventListener('click', handlePayment);
+            });
+        </script>
+    </body>
+</html>

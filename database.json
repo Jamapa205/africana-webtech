@@ -1,0 +1,301 @@
+{
+  "users": [
+    {
+      "id": "usr_admin_jamapa",
+      "username": "jamapa",
+      "email": "jamapa@africana.com",
+      "passwordHash": "$2a$10$BWyaJypZ0eQKHJ5Wg0p/mugtgJ.cQs1.7/ASc2dj/MFjW/Wh0PRj6",
+      "role": "admin",
+      "createdAt": "2026-07-22T16:22:04.062Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "f1",
+      "name": "Lori mens tradional wear",
+      "category": "Africana / Men's Traditional",
+      "price": 150000,
+      "mainImg": "img/products/f1.png",
+      "smallImgs": [
+        "img/products/f1.png",
+        "img/products/f3.png",
+        "img/products/f8.jpg"
+      ],
+      "description": "Handcrafted traditional men's tunic shirt featuring intricate blue and dark-toned embroidery along the neckline and front chest placket. Tailored from 100% premium breathable cotton, this garment provides regal comfort and authentic heritage styling for formal cultural events, weddings, and celebrations.",
+      "isPlaceholder": true,
+      "createdAt": "2026-07-22T16:22:03.993Z"
+    },
+    {
+      "id": "f2",
+      "name": "Lori women tradional wear",
+      "category": "Africana / Women's Traditional",
+      "price": 200000,
+      "mainImg": "img/products/f2.jpg",
+      "smallImgs": [
+        "img/products/f2.jpg",
+        "img/products/f4.jpg",
+        "img/products/f5.jpg"
+      ],
+      "description": "Elegant African women's traditional gown featuring vibrant color accents, ornate embroidery patterns along the front placket, and a graceful flowing silhouette. Made with authentic high-grade African cotton fabric designed to showcase royal elegance at cultural gatherings.",
+      "isPlaceholder": true,
+      "createdAt": "2026-07-22T16:22:03.994Z"
+    },
+    {
+      "id": "f3",
+      "name": "Havani men tradional wear",
+      "category": "Africana / Men's Traditional",
+      "price": 170000,
+      "mainImg": "img/products/f3.png",
+      "smallImgs": [
+        "img/products/f3.png",
+        "img/products/f1.png",
+        "img/products/f8.jpg"
+      ],
+      "description": "Refined men's tunic shirt styled with subtle contrast stitching, tailored mandarin collar, and classic button placket. Ideal for modern African men seeking comfort combined with authentic heritage design.",
+      "isPlaceholder": true,
+      "createdAt": "2026-07-22T16:22:03.994Z"
+    },
+    {
+      "id": "f4",
+      "name": "Havani women tradional wear",
+      "category": "Africana / Women's Traditional",
+      "price": 200000,
+      "mainImg": "img/products/f4.jpg",
+      "smallImgs": [
+        "img/products/f4.jpg",
+        "img/products/f2.jpg",
+        "img/products/f5.jpg"
+      ],
+      "description": "Stunning African women's ceremonial dress designed with vibrant heritage patterns, structured bodice, and comfortable flared skirt for festive occasions and family celebrations.",
+      "isPlaceholder": true,
+      "createdAt": "2026-07-22T16:22:03.994Z"
+    },
+    {
+      "id": "f5",
+      "name": "Jieng women traditional wear",
+      "category": "Africana / Women's Traditional",
+      "price": 180000,
+      "mainImg": "img/products/f5.jpg",
+      "smallImgs": [
+        "img/products/f5.jpg",
+        "img/products/f2.jpg",
+        "img/products/f4.jpg"
+      ],
+      "description": "Authentic Jieng women's traditional garment featuring handcrafted beadwork details and comfortable lightweight cotton weave suitable for celebrations, weddings, and cultural gatherings.",
+      "isPlaceholder": true,
+      "createdAt": "2026-07-22T16:22:03.994Z"
+    },
+    {
+      "id": "f6",
+      "name": "Flutani",
+      "category": "Africana / Cultural Luxe",
+      "price": 300000,
+      "mainImg": "img/products/f6.webp",
+      "smallImgs": [
+        "img/products/f6.webp",
+        "img/products/f1.png",
+        "img/products/f3.png"
+      ],
+      "description": "High-fashion luxury African ceremonial outfit featuring rich woven textures, metallic thread accents, and hand-tailored borders designed for distinguished gentlemen and formal galas.",
+      "isPlaceholder": true,
+      "createdAt": "2026-07-22T16:22:03.994Z"
+    },
+    {
+      "id": "f7",
+      "name": "Damo",
+      "category": "Africana / Men's Traditional",
+      "price": 195000,
+      "mainImg": "img/products/f7.jpg",
+      "smallImgs": [
+        "img/products/f7.jpg",
+        "img/products/f8.jpg",
+        "img/products/f1.png"
+      ],
+      "description": "Distinguished men's traditional suit tailored with crisp lines, mandarin collar, and subtle contrast embroidery along the cuffs and chest, representing modern African pride.",
+      "isPlaceholder": true,
+      "createdAt": "2026-07-22T16:22:03.994Z"
+    },
+    {
+      "id": "f8",
+      "name": "Jieng men traditional wear",
+      "category": "Africana / Men's Traditional",
+      "price": 160000,
+      "mainImg": "img/products/f8.jpg",
+      "smallImgs": [
+        "img/products/f8.jpg",
+        "img/products/f7.jpg",
+        "img/products/f1.png"
+      ],
+      "description": "Classic men's short-sleeve traditional tunic crafted with clean minimalist stitching and breathable fabric tailored for warm climates and everyday elegance.",
+      "isPlaceholder": true,
+      "createdAt": "2026-07-22T16:22:03.994Z"
+    },
+    {
+      "id": "f9",
+      "name": "Casual inspired tradition wear",
+      "category": "Africana / Casual Culture",
+      "price": 175000,
+      "mainImg": "img/products/f9.avif",
+      "smallImgs": [
+        "img/products/f9.avif",
+        "img/products/f1.png",
+        "img/products/f3.png"
+      ],
+      "description": "Versatile casual tunic blending modern streetwear cuts with traditional African motif prints. Soft, durable, and styled for effortless daily wear.",
+      "isPlaceholder": true,
+      "createdAt": "2026-07-22T16:22:03.994Z"
+    },
+    {
+      "id": "a1",
+      "name": "cowrie shell necklace",
+      "category": "Africana / Accessories",
+      "price": 45000,
+      "mainImg": "img/products/a1.webp",
+      "smallImgs": [
+        "img/products/a1.webp",
+        "img/products/a3.jpg",
+        "img/products/a5.webp"
+      ],
+      "description": "Handcrafted authentic cowrie shell necklace strung on durable natural twine. Symbolizing prosperity and royal African heritage, it serves as an iconic statement piece.",
+      "isPlaceholder": true,
+      "createdAt": "2026-07-22T16:22:03.994Z"
+    },
+    {
+      "id": "a2",
+      "name": "Tenal pair",
+      "category": "Africana / Jewelry & Accessories",
+      "price": 100000,
+      "mainImg": "img/products/a2.jpg",
+      "smallImgs": [
+        "img/products/a2.jpg",
+        "img/products/a4.jpg",
+        "img/products/a6.jpg"
+      ],
+      "description": "Handcrafted traditional brass and beaded cuff set. Beautifully polished with authentic tribal engravings, designed to complement any traditional apparel.",
+      "isPlaceholder": true,
+      "createdAt": "2026-07-22T16:22:03.994Z"
+    },
+    {
+      "id": "a3",
+      "name": "Rememberance beads",
+      "category": "Africana / Cultural Jewelry",
+      "price": 45000,
+      "mainImg": "img/products/a3.jpg",
+      "smallImgs": [
+        "img/products/a3.jpg",
+        "img/products/a1.webp",
+        "img/products/a5.webp"
+      ],
+      "description": "Vibrant multi-colored beaded necklace crafted using traditional glass beads. Worn during cultural dances, festivities, and ancestral remembrance ceremonies.",
+      "isPlaceholder": true,
+      "createdAt": "2026-07-22T16:22:03.994Z"
+    },
+    {
+      "id": "a4",
+      "name": "lori earings",
+      "category": "Africana / Women's Jewelry",
+      "price": 15000,
+      "mainImg": "img/products/a4.jpg",
+      "smallImgs": [
+        "img/products/a4.jpg",
+        "img/products/a6.jpg",
+        "img/products/a2.jpg"
+      ],
+      "description": "Lightweight handcrafted hoop earrings featuring subtle African wirework detail and polished metallic finish.",
+      "isPlaceholder": true,
+      "createdAt": "2026-07-22T16:22:03.994Z"
+    },
+    {
+      "id": "a5",
+      "name": "Africa bangles",
+      "category": "Africana / Accessories",
+      "price": 75000,
+      "mainImg": "img/products/a5.webp",
+      "smallImgs": [
+        "img/products/a5.webp",
+        "img/products/a2.jpg",
+        "img/products/a7.webp"
+      ],
+      "description": "Set of stacked wooden and brass bangles wrapped with vibrant traditional thread patterns, perfect for adding African flair to any outfit.",
+      "isPlaceholder": true,
+      "createdAt": "2026-07-22T16:22:03.994Z"
+    },
+    {
+      "id": "a6",
+      "name": "Tani earings",
+      "category": "Africana / Jewelry",
+      "price": 30000,
+      "mainImg": "img/products/a6.jpg",
+      "smallImgs": [
+        "img/products/a6.jpg",
+        "img/products/a4.jpg",
+        "img/products/a2.jpg"
+      ],
+      "description": "Statement drop earrings adorned with carved bone and polished beads, embodying authentic artisanal craftsmanship.",
+      "isPlaceholder": true,
+      "createdAt": "2026-07-22T16:22:03.994Z"
+    },
+    {
+      "id": "a7",
+      "name": "Madino Bracelet",
+      "category": "Africana / Jewelry",
+      "price": 55000,
+      "mainImg": "img/products/a7.webp",
+      "smallImgs": [
+        "img/products/a7.webp",
+        "img/products/a2.jpg",
+        "img/products/a5.webp"
+      ],
+      "description": "Elegantly braided leather and beaded wristlet featuring a secure brass clasp and comfortable fit.",
+      "isPlaceholder": true,
+      "createdAt": "2026-07-22T16:22:03.994Z"
+    },
+    {
+      "id": "a8",
+      "name": "Matako necklace",
+      "category": "Africana / Jewelry",
+      "price": 100000,
+      "mainImg": "img/products/a8.jpg",
+      "smallImgs": [
+        "img/products/a8.jpg",
+        "img/products/a1.webp",
+        "img/products/a3.jpg"
+      ],
+      "description": "Bold ceremonial statement necklace featuring cascading amber-hued beads and intricate wire-wrapped accents.",
+      "isPlaceholder": true,
+      "createdAt": "2026-07-22T16:22:03.994Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ORD-1784737450211",
+      "customerName": "jamapa",
+      "customerPhone": "+211 922 000 000",
+      "shippingAddress": "Juba, South Sudan",
+      "items": [
+        {
+          "name": "Lori mens tradional wear",
+          "price": "150000",
+          "imageUrl": "http://localhost:8000/img/products/f1.png",
+          "quantity": 1
+        },
+        {
+          "name": "Lori mens tradional wear",
+          "price": "SSP 150000",
+          "imageUrl": "http://localhost:8000/img/products/f1.png",
+          "quantity": 1
+        },
+        {
+          "name": "Lori mens tradional wear",
+          "price": 150000,
+          "imageUrl": "http://localhost:8000/img/products/f1.png",
+          "quantity": 1,
+          "size": "Medium"
+        }
+      ],
+      "totalAmount": 470000,
+      "status": "Pending",
+      "createdAt": "2026-07-22T16:24:10.211Z"
+    }
+  ]
+}
