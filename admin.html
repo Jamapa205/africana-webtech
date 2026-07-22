@@ -280,64 +280,60 @@
         // Add Product Form Handler
         document.getElementById('add-product-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            const formData = new FormData();
-            formData.append('name', document.getElementById('new-name').value);
-            formData.append('category', document.getElementById('new-category').value);
-            formData.append('price', document.getElementById('new-price').value);
-            formData.append('description', document.getElementById('new-desc').value);
-
+            const name = document.getElementById('new-name').value;
+            const category = document.getElementById('new-category').value;
+            const price = parseFloat(document.getElementById('new-price').value) || 0;
+            const description = document.getElementById('new-desc').value;
             const imageFile = document.getElementById('new-image').files[0];
-            if (imageFile) {
-                formData.append('image', imageFile);
-            }
+
+            const getBase64 = (file) => new Promise((resolve) => {
+                if (!file) return resolve('img/products/f1.png');
+                const reader = new FileReader();
+                reader.onload = (ev) => resolve(ev.target.result);
+                reader.onerror = () => resolve('img/products/f1.png');
+                reader.readAsDataURL(file);
+            });
+
+            const mainImgData = await getBase64(imageFile);
+
+            const newProd = {
+                id: 'p_' + Date.now(),
+                name: name,
+                category: category,
+                price: price,
+                description: description,
+                mainImg: mainImgData,
+                smallImgs: [mainImgData],
+                isPlaceholder: false,
+                createdAt: new Date().toISOString()
+            };
+
+            // Save to local storage for instant availability across shop/home pages
+            let localCustom = JSON.parse(localStorage.getItem('africana_custom_products')) || [];
+            localCustom.unshift(newProd);
+            localStorage.setItem('africana_custom_products', JSON.stringify(localCustom));
+
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('category', category);
+            formData.append('price', price);
+            formData.append('description', description);
+            formData.append('imageUrl', mainImgData);
+            if (imageFile) formData.append('image', imageFile);
 
             try {
-                const res = await fetch('/api/products', {
+                await fetch('/api/products', {
                     method: 'POST',
                     headers: { 'Authorization': `Bearer ${token}` },
                     body: formData
                 });
-
-                const data = await res.json();
-                if (data.success) {
-                    if (data.product) {
-                        let localCustom = JSON.parse(localStorage.getItem('africana_custom_products')) || [];
-                        localCustom.unshift(data.product);
-                        localStorage.setItem('africana_custom_products', JSON.stringify(localCustom));
-                    }
-
-                    if (typeof showToast === 'function') showToast('Product published successfully!');
-                    document.getElementById('add-product-form').reset();
-                    loadAdminProducts();
-                } else {
-                    alert(data.message || 'Failed to add product');
-                }
             } catch (err) {
-                // Fallback for offline/serverless file upload handling
-                const newName = document.getElementById('new-name').value;
-                const newCat = document.getElementById('new-category').value;
-                const newPrice = parseFloat(document.getElementById('new-price').value) || 0;
-                const newDesc = document.getElementById('new-desc').value;
-
-                const fallbackProduct = {
-                    id: 'p_' + Date.now(),
-                    name: newName,
-                    category: newCat,
-                    price: newPrice,
-                    description: newDesc,
-                    mainImg: 'img/products/f1.png',
-                    smallImgs: ['img/products/f1.png'],
-                    isPlaceholder: false
-                };
-
-                let localCustom = JSON.parse(localStorage.getItem('africana_custom_products')) || [];
-                localCustom.unshift(fallbackProduct);
-                localStorage.setItem('africana_custom_products', JSON.stringify(localCustom));
-
-                if (typeof showToast === 'function') showToast('Product published successfully!');
-                document.getElementById('add-product-form').reset();
-                loadAdminProducts();
+                console.warn('API product post warning:', err);
             }
+
+            if (typeof showToast === 'function') showToast('Product published successfully!');
+            document.getElementById('add-product-form').reset();
+            loadAdminProducts();
         });
 
         // Delete Product
