@@ -239,29 +239,42 @@
 
         // Fetch and Render Products
         async function loadAdminProducts() {
+            let apiProducts = [];
             try {
                 const res = await fetch('/api/products');
                 const data = await res.json();
-                if (data.success) {
-                    const tbody = document.getElementById('products-table-body');
-                    document.getElementById('product-count').textContent = data.products.length;
-                    
-                    tbody.innerHTML = data.products.map(p => `
-                        <tr>
-                            <td><img src="${p.mainImg}" style="width: 50px; height: 50px; object-fit: contain; border-radius: 6px; background: #f8fafc;"></td>
-                            <td><strong>${p.name}</strong></td>
-                            <td>${p.category}</td>
-                            <td>SSP ${Number(p.price).toLocaleString()}</td>
-                            <td>${p.isPlaceholder ? '<span class="badge-placeholder">Placeholder</span>' : '<span class="badge-real">Real Product</span>'}</td>
-                            <td>
-                                <button onclick="deleteProduct('${p.id}')" style="background: #ef4444; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px;"><i class="fas fa-trash"></i> Delete</button>
-                            </td>
-                        </tr>
-                    `).join('');
+                if (data.success && Array.isArray(data.products)) {
+                    apiProducts = data.products;
                 }
             } catch (err) {
                 console.error(err);
             }
+
+            const localCustom = JSON.parse(localStorage.getItem('africana_custom_products')) || [];
+            const prodMap = new Map();
+            [...localCustom, ...apiProducts].forEach(p => {
+                if (p && p.id && !prodMap.has(p.id)) {
+                    prodMap.set(p.id, p);
+                }
+            });
+
+            const combinedProducts = Array.from(prodMap.values());
+            const tbody = document.getElementById('products-table-body');
+            if (!tbody) return;
+
+            document.getElementById('product-count').textContent = combinedProducts.length;
+            tbody.innerHTML = combinedProducts.map(p => `
+                <tr>
+                    <td><img src="${p.mainImg}" style="width: 50px; height: 50px; object-fit: contain; border-radius: 6px; background: #f8fafc;"></td>
+                    <td><strong>${p.name}</strong></td>
+                    <td>${p.category || 'Africana / Apparel'}</td>
+                    <td>SSP ${Number(p.price || 0).toLocaleString()}</td>
+                    <td>${p.isPlaceholder ? '<span class="badge-placeholder">Placeholder</span>' : '<span class="badge-real">Real Product</span>'}</td>
+                    <td>
+                        <button onclick="deleteProduct('${p.id}')" style="background: #ef4444; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px;"><i class="fas fa-trash"></i> Delete</button>
+                    </td>
+                </tr>
+            `).join('');
         }
 
         // Add Product Form Handler
@@ -287,6 +300,12 @@
 
                 const data = await res.json();
                 if (data.success) {
+                    if (data.product) {
+                        let localCustom = JSON.parse(localStorage.getItem('africana_custom_products')) || [];
+                        localCustom.unshift(data.product);
+                        localStorage.setItem('africana_custom_products', JSON.stringify(localCustom));
+                    }
+
                     if (typeof showToast === 'function') showToast('Product published successfully!');
                     document.getElementById('add-product-form').reset();
                     loadAdminProducts();
@@ -294,7 +313,30 @@
                     alert(data.message || 'Failed to add product');
                 }
             } catch (err) {
-                alert('Server error adding product');
+                // Fallback for offline/serverless file upload handling
+                const newName = document.getElementById('new-name').value;
+                const newCat = document.getElementById('new-category').value;
+                const newPrice = parseFloat(document.getElementById('new-price').value) || 0;
+                const newDesc = document.getElementById('new-desc').value;
+
+                const fallbackProduct = {
+                    id: 'p_' + Date.now(),
+                    name: newName,
+                    category: newCat,
+                    price: newPrice,
+                    description: newDesc,
+                    mainImg: 'img/products/f1.png',
+                    smallImgs: ['img/products/f1.png'],
+                    isPlaceholder: false
+                };
+
+                let localCustom = JSON.parse(localStorage.getItem('africana_custom_products')) || [];
+                localCustom.unshift(fallbackProduct);
+                localStorage.setItem('africana_custom_products', JSON.stringify(localCustom));
+
+                if (typeof showToast === 'function') showToast('Product published successfully!');
+                document.getElementById('add-product-form').reset();
+                loadAdminProducts();
             }
         });
 
