@@ -273,7 +273,7 @@ function getFilteredAndSortedProducts() {
     return items;
 }
 
-// Render Main Product Catalog Grids (Organized Row Sections)
+// Render Main Product Catalog Grid
 function renderProductGrid() {
     const containers = document.querySelectorAll('.pro-container');
     if (!containers || containers.length === 0) return;
@@ -283,77 +283,54 @@ function renderProductGrid() {
     // Render active filter badges bar if container exists
     renderActiveFilterChips(filteredItems.length);
 
-    let visibleSectionCount = 0;
-
     containers.forEach((container) => {
         let itemsToRender = filteredItems;
-        const cid = container.id;
 
-        // Row Section Category Filter
-        if (cid === 'cat-grid-men' || cid === 'home-men') {
-            itemsToRender = filteredItems.filter(p => (p.categoryGroup || getCategoryGroup(p.category)) === 'men');
-        } else if (cid === 'cat-grid-women' || cid === 'home-women') {
-            itemsToRender = filteredItems.filter(p => (p.categoryGroup || getCategoryGroup(p.category)) === 'women');
-        } else if (cid === 'cat-grid-bags') {
-            itemsToRender = filteredItems.filter(p => (p.categoryGroup || getCategoryGroup(p.category)) === 'bags');
-        } else if (cid === 'cat-grid-belts') {
-            itemsToRender = filteredItems.filter(p => (p.categoryGroup || getCategoryGroup(p.category)) === 'belts');
-        } else if (cid === 'home-bags-belts') {
+        if (container.id === 'home-featured') {
+            itemsToRender = filteredItems.slice(0, 8);
+        } else if (container.id === 'home-apparel') {
             itemsToRender = filteredItems.filter(p => {
                 const grp = p.categoryGroup || getCategoryGroup(p.category);
-                return grp === 'bags' || grp === 'belts';
+                return grp === 'men' || grp === 'women';
             });
-        } else if (cid === 'cat-grid-jewelry' || cid === 'home-jewelry') {
-            itemsToRender = filteredItems.filter(p => (p.categoryGroup || getCategoryGroup(p.category)) === 'jewelry');
-        } else if (cid === 'cat-grid-luxe') {
-            itemsToRender = filteredItems.filter(p => (p.categoryGroup || getCategoryGroup(p.category)) === 'luxe');
-        } else if (cid === 'home-featured') {
-            itemsToRender = filteredItems.slice(0, 8);
+        } else if (container.id === 'home-accessories') {
+            itemsToRender = filteredItems.filter(p => {
+                const grp = p.categoryGroup || getCategoryGroup(p.category);
+                return grp === 'bags' || grp === 'belts' || grp === 'jewelry';
+            });
         }
 
-        const parentSection = container.closest('section');
-
-        if (!itemsToRender || itemsToRender.length === 0) {
-            container.innerHTML = '';
-            if (parentSection && parentSection.classList.contains('category-row-section')) {
-                parentSection.style.display = 'none';
-            }
-        } else {
-            visibleSectionCount++;
-            if (parentSection && parentSection.classList.contains('category-row-section')) {
-                parentSection.style.display = 'block';
-            }
-
-            container.innerHTML = itemsToRender.map(p => `
-                <div class="pro" data-id="${p.id}">
-                    <img src="${p.mainImg || 'img/products/f1.png'}" alt="${p.name}">
-                    <div class="des">
-                        <span>${p.category || 'Africana'}</span>
-                        <h5>${p.name}</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>SSP ${Number(p.price || 0).toLocaleString()}</h4>
-                    </div>
-                    <a href="javascript:void(0);"><i class="fal fa-shopping-cart cart"></i></a>
+        if (itemsToRender.length === 0) {
+            container.innerHTML = `
+                <div class="no-results-box">
+                    <i class="fas fa-search-minus"></i>
+                    <h3>No items found matching your criteria</h3>
+                    <p>Try searching for <strong>jeans, shirts, belts, handbags, or cowrie shell necklaces</strong>.</p>
+                    <button onclick="clearAllFilters()" class="normal">Clear All Filters</button>
                 </div>
-            `).join('');
+            `;
+            return;
         }
-    });
 
-    // Handle Empty Search/Filter State across all sections
-    const globalEmptyState = document.getElementById('global-no-results');
-    if (globalEmptyState) {
-        if (filteredItems.length === 0 || visibleSectionCount === 0) {
-            globalEmptyState.style.display = 'block';
-        } else {
-            globalEmptyState.style.display = 'none';
-        }
-    }
+        container.innerHTML = itemsToRender.map(p => `
+            <div class="pro" data-id="${p.id}">
+                <img src="${p.mainImg || 'img/products/f1.png'}" alt="${p.name}">
+                <div class="des">
+                    <span>${p.category || 'Africana'}</span>
+                    <h5>${p.name}</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>SSP ${Number(p.price || 0).toLocaleString()}</h4>
+                </div>
+                <a href="javascript:void(0);"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+        `).join('');
+    });
 }
 
 // Render Removable Active Filter Chips
