@@ -4,63 +4,81 @@ let PRODUCTS_DATA = {
     "d1": {
         id: "d1",
         name: "Mint Floral Chiffon Rhinestone Maxi Dress",
-        category: "Women's Collection",
-        categoryGroup: "women",
+        gender: "women",
+        mainCategory: "dresses_gowns",
+        subCategory: "Maxi Dress",
+        category: "Dresses & Evening Gowns",
+        categoryGroup: "dresses_gowns",
         price: 210000,
         tags: ["women", "dress", "maxi", "floral", "mint green", "chiffon", "rhinestone", "evening", "gala", "apparel"],
         mainImg: "img/products/d1.jpg",
-        smallImgs: ["img/products/d1.jpg"],
+        smallImgs: ["img/products/d1.jpg", "img/products/d1_front.jpg", "img/products/d1_back.jpg"],
         description: "Elegant mint green watercolor floral print chiffon maxi dress featuring a surplice V-neckline adorned with sparkling rhinestone embellishments. Detailed with graceful bell sleeves, ruffle cuffs, and a flowing side cascade ruffle."
     },
     "d2": {
         id: "d2",
         name: "Shimmering Champagne Gold Plunge Evening Gown",
-        category: "Women's Collection",
-        categoryGroup: "women",
+        gender: "women",
+        mainCategory: "dresses_gowns",
+        subCategory: "Evening Gown",
+        category: "Dresses & Evening Gowns",
+        categoryGroup: "dresses_gowns",
         price: 240000,
         tags: ["women", "gown", "gold", "metallic", "shimmer", "plunge", "evening", "party", "gala", "apparel"],
         mainImg: "img/products/d2.jpg",
-        smallImgs: ["img/products/d2.jpg"],
+        smallImgs: ["img/products/d2.jpg", "img/products/d2_front.jpg", "img/products/d2_back.jpg"],
         description: "Breathtaking champagne gold metallic shimmer evening gown with a deep plunging V-neckline, waist-cinching crystal brooch detail, flare bell ruffle sleeves, and an alluring lace-up open back design."
     },
     "j1": {
         id: "j1",
         name: "Dark Indigo Distressed Ripped Skinny Jeans",
-        category: "Men's Collection",
-        categoryGroup: "men",
+        gender: "men",
+        mainCategory: "denim_bottoms",
+        subCategory: "Distressed Jeans",
+        category: "Denim & Bottoms",
+        categoryGroup: "denim_bottoms",
         price: 185000,
         tags: ["jeans", "denim", "distressed", "ripped", "dark blue", "indigo", "skinny", "men", "pants"],
         mainImg: "img/products/j1.jpg",
-        smallImgs: ["img/products/j1.jpg"],
+        smallImgs: ["img/products/j1.jpg", "img/products/j1_front.jpg", "img/products/j1_back.jpg"],
         description: "Modern dark indigo blue skinny jeans featuring edgy horizontal ripped slash cuts along the thighs and knees. Crafted from premium stretch cotton denim with contrast gold stitching, 5-pocket layout, and comfortable tapered fit."
     },
     "j2": {
         id: "j2",
         name: "Light Sky Blue Distressed Slash Jeans",
-        category: "Women's Collection",
-        categoryGroup: "women",
+        gender: "women",
+        mainCategory: "denim_bottoms",
+        subCategory: "Distressed Jeans",
+        category: "Denim & Bottoms",
+        categoryGroup: "denim_bottoms",
         price: 175000,
         tags: ["jeans", "denim", "distressed", "ripped", "light blue", "sky blue", "high waist", "women", "pants"],
         mainImg: "img/products/j2.jpg",
-        smallImgs: ["img/products/j2.jpg"],
+        smallImgs: ["img/products/j2.jpg", "img/products/j2_front.jpg", "img/products/j2_back.jpg"],
         description: "Light sky blue wash denim jeans with stylish knee slash distress detailing and subtle thigh fading. Features a flattering high-waist cut, durable stretch cotton fabric, and classic 5-pocket styling."
     },
     "j3": {
         id: "j3",
         name: "Vintage Washed Charcoal Black Jeans",
-        category: "Men's Collection",
-        categoryGroup: "men",
+        gender: "men",
+        mainCategory: "denim_bottoms",
+        subCategory: "Slim Fit Jeans",
+        category: "Denim & Bottoms",
+        categoryGroup: "denim_bottoms",
         price: 160000,
         tags: ["jeans", "denim", "black", "charcoal", "washed", "slim fit", "streetwear", "men", "pants"],
         mainImg: "img/products/j3.jpg",
-        smallImgs: ["img/products/j3.jpg"],
+        smallImgs: ["img/products/j3.jpg", "img/products/j3_front.jpg"],
         description: "Vintage washed charcoal black denim jeans with a subtle faded thigh finish. Designed with a slim tapered leg, reinforced belt loops, and premium stretch comfort for modern daily styling."
     },
     "f1": {
         id: "f1",
         name: "Men's Slim Fit Oxford Shirt",
-        category: "Men's Collection",
-        categoryGroup: "men",
+        gender: "men",
+        mainCategory: "shirts_tops",
+        subCategory: "Oxford Shirt",
+        category: "Shirts & Tops",
+        categoryGroup: "shirts_tops",
         price: 150000,
         tags: ["men", "shirt", "oxford", "cotton", "formal", "casual", "apparel", "navy"],
         mainImg: "img/products/f1.png",
@@ -70,8 +88,11 @@ let PRODUCTS_DATA = {
     "f2": {
         id: "f2",
         name: "Women's Floral Wrap Midi Dress",
-        category: "Women's Collection",
-        categoryGroup: "women",
+        gender: "women",
+        mainCategory: "dresses_gowns",
+        subCategory: "Midi Dress",
+        category: "Dresses & Evening Gowns",
+        categoryGroup: "dresses_gowns",
         price: 200000,
         tags: ["women", "dress", "floral", "midi", "wrap", "casual", "summer", "apparel"],
         mainImg: "img/products/f2.jpg",
@@ -81,8 +102,11 @@ let PRODUCTS_DATA = {
     "f3": {
         id: "f3",
         name: "Men's Classic Denim Jacket",
-        category: "Men's Collection",
-        categoryGroup: "men",
+        gender: "men",
+        mainCategory: "suits_outerwear",
+        subCategory: "Outerwear",
+        category: "Suits & Outerwear",
+        categoryGroup: "suits_outerwear",
         price: 170000,
         tags: ["men", "jacket", "denim", "blue", "streetwear", "casual", "outerwear"],
         mainImg: "img/products/f3.png",
@@ -92,8 +116,11 @@ let PRODUCTS_DATA = {
     "f4": {
         id: "f4",
         name: "Women's Tailored Blazer & Pants Set",
-        category: "Women's Collection",
-        categoryGroup: "women",
+        gender: "women",
+        mainCategory: "suits_outerwear",
+        subCategory: "Blazer Set",
+        category: "Suits & Outerwear",
+        categoryGroup: "suits_outerwear",
         price: 200000,
         tags: ["women", "suit", "blazer", "set", "formal", "office", "apparel"],
         mainImg: "img/products/f4.jpg",
@@ -103,8 +130,11 @@ let PRODUCTS_DATA = {
     "f5": {
         id: "f5",
         name: "Women's Satin Evening Gown",
-        category: "Women's Collection",
-        categoryGroup: "women",
+        gender: "women",
+        mainCategory: "dresses_gowns",
+        subCategory: "Evening Gown",
+        category: "Dresses & Evening Gowns",
+        categoryGroup: "dresses_gowns",
         price: 200000,
         tags: ["women", "gown", "satin", "evening", "party", "gala", "apparel"],
         mainImg: "img/products/f5.jpg",
@@ -114,8 +144,11 @@ let PRODUCTS_DATA = {
     "f6": {
         id: "f6",
         name: "Men's Executive 3-Piece Suit",
-        category: "Cultural Luxe",
-        categoryGroup: "luxe",
+        gender: "men",
+        mainCategory: "suits_outerwear",
+        subCategory: "3-Piece Suit",
+        category: "Suits & Outerwear",
+        categoryGroup: "suits_outerwear",
         price: 300000,
         tags: ["luxe", "suit", "tuxedo", "formal", "vip", "gala", "men", "executive"],
         mainImg: "img/products/f6.webp",
@@ -125,8 +158,11 @@ let PRODUCTS_DATA = {
     "f7": {
         id: "f7",
         name: "Men's Urban Streetwear 2-Piece Set",
-        category: "Men's Collection",
-        categoryGroup: "men",
+        gender: "men",
+        mainCategory: "suits_outerwear",
+        subCategory: "Streetwear Set",
+        category: "Suits & Outerwear",
+        categoryGroup: "suits_outerwear",
         price: 250000,
         tags: ["men", "streetwear", "set", "casual", "tracksuit", "apparel", "2piece"],
         mainImg: "img/products/f7.jpg",
@@ -136,8 +172,11 @@ let PRODUCTS_DATA = {
     "f8": {
         id: "f8",
         name: "Men's Pure Linen Casual Shirt",
-        category: "Men's Collection",
-        categoryGroup: "men",
+        gender: "men",
+        mainCategory: "shirts_tops",
+        subCategory: "Linen Shirt",
+        category: "Shirts & Tops",
+        categoryGroup: "shirts_tops",
         price: 150000,
         tags: ["men", "shirt", "linen", "casual", "summer", "short-sleeve", "apparel"],
         mainImg: "img/products/f8.jpg",
@@ -147,8 +186,11 @@ let PRODUCTS_DATA = {
     "f9": {
         id: "f9",
         name: "Unisex Minimalist Trench Coat",
-        category: "Cultural Luxe",
-        categoryGroup: "luxe",
+        gender: "unisex",
+        mainCategory: "suits_outerwear",
+        subCategory: "Trench Coat",
+        category: "Suits & Outerwear",
+        categoryGroup: "suits_outerwear",
         price: 175000,
         tags: ["luxe", "trench", "coat", "unisex", "outerwear", "minimalist", "modern"],
         mainImg: "img/products/f9.avif",
@@ -158,8 +200,11 @@ let PRODUCTS_DATA = {
     "a1": {
         id: "a1",
         name: "Minimalist Gold Choker Necklace",
-        category: "Jewelry",
-        categoryGroup: "jewelry",
+        gender: "women",
+        mainCategory: "jewelry_belts",
+        subCategory: "Necklace",
+        category: "Jewelry & Accessories",
+        categoryGroup: "jewelry_belts",
         price: 45000,
         tags: ["jewelry", "necklace", "gold", "choker", "minimalist", "accessories"],
         mainImg: "img/products/a1.webp",
@@ -169,8 +214,11 @@ let PRODUCTS_DATA = {
     "a2": {
         id: "a2",
         name: "Designer Leather Crossbody Handbag",
+        gender: "women",
+        mainCategory: "handbags_bags",
+        subCategory: "Crossbody Bag",
         category: "Handbags & Bags",
-        categoryGroup: "bags",
+        categoryGroup: "handbags_bags",
         price: 100000,
         tags: ["bags", "handbag", "crossbody", "leather", "designer", "accessories"],
         mainImg: "img/products/a2.jpg",
@@ -180,8 +228,11 @@ let PRODUCTS_DATA = {
     "a3": {
         id: "a3",
         name: "Layered Pearl & Gold Necklace",
-        category: "Jewelry",
-        categoryGroup: "jewelry",
+        gender: "women",
+        mainCategory: "jewelry_belts",
+        subCategory: "Necklace",
+        category: "Jewelry & Accessories",
+        categoryGroup: "jewelry_belts",
         price: 45000,
         tags: ["jewelry", "necklace", "pearl", "gold", "layered", "accessories"],
         mainImg: "img/products/a3.jpg",
@@ -191,8 +242,11 @@ let PRODUCTS_DATA = {
     "a4": {
         id: "a4",
         name: "Geometric Drop Gold Earrings",
-        category: "Jewelry",
-        categoryGroup: "jewelry",
+        gender: "women",
+        mainCategory: "jewelry_belts",
+        subCategory: "Earrings",
+        category: "Jewelry & Accessories",
+        categoryGroup: "jewelry_belts",
         price: 15000,
         tags: ["jewelry", "earrings", "gold", "geometric", "drop", "accessories"],
         mainImg: "img/products/a4.jpg",
@@ -202,8 +256,11 @@ let PRODUCTS_DATA = {
     "a5": {
         id: "a5",
         name: "Genuine Leather Dress Belt",
-        category: "Belts & Straps",
-        categoryGroup: "belts",
+        gender: "men",
+        mainCategory: "jewelry_belts",
+        subCategory: "Leather Belt",
+        category: "Jewelry & Accessories",
+        categoryGroup: "jewelry_belts",
         price: 75000,
         tags: ["belts", "belt", "leather", "black", "brass", "accessories"],
         mainImg: "img/products/a5.webp",
@@ -213,8 +270,11 @@ let PRODUCTS_DATA = {
     "a6": {
         id: "a6",
         name: "Crystal Stud Statement Earrings",
-        category: "Jewelry",
-        categoryGroup: "jewelry",
+        gender: "women",
+        mainCategory: "jewelry_belts",
+        subCategory: "Earrings",
+        category: "Jewelry & Accessories",
+        categoryGroup: "jewelry_belts",
         price: 30000,
         tags: ["jewelry", "earrings", "crystal", "stud", "sparkle", "accessories"],
         mainImg: "img/products/a6.jpg",
@@ -224,8 +284,11 @@ let PRODUCTS_DATA = {
     "a7": {
         id: "a7",
         name: "Braided Leather Wrist Strap",
-        category: "Belts & Straps",
-        categoryGroup: "belts",
+        gender: "unisex",
+        mainCategory: "jewelry_belts",
+        subCategory: "Wristlet",
+        category: "Jewelry & Accessories",
+        categoryGroup: "jewelry_belts",
         price: 55000,
         tags: ["belts", "strap", "leather", "braided", "wristlet", "accessories"],
         mainImg: "img/products/a7.webp",
@@ -235,8 +298,11 @@ let PRODUCTS_DATA = {
     "a8": {
         id: "a8",
         name: "Chunky Chain Link Gold Necklace",
-        category: "Jewelry",
-        categoryGroup: "jewelry",
+        gender: "women",
+        mainCategory: "jewelry_belts",
+        subCategory: "Necklace",
+        category: "Jewelry & Accessories",
+        categoryGroup: "jewelry_belts",
         price: 100000,
         tags: ["jewelry", "necklace", "chain", "gold", "chunky", "accessories"],
         mainImg: "img/products/a8.jpg",
@@ -257,12 +323,16 @@ let STATE = {
 function getCategoryGroup(catName) {
     if (!catName) return 'all';
     const lower = String(catName).toLowerCase();
-    if (lower.includes("men") && !lower.includes("women")) return 'men';
-    if (lower.includes("women")) return 'women';
-    if (lower.includes("bag") || lower.includes("handbag") || lower.includes("tote") || lower.includes("purse") || lower.includes("clutch")) return 'bags';
-    if (lower.includes("belt") || lower.includes("strap") || lower.includes("waist")) return 'belts';
-    if (lower.includes("jewel") || lower.includes("necklace") || lower.includes("earring") || lower.includes("bracelet") || lower.includes("bangle") || lower.includes("bead")) return 'jewelry';
-    if (lower.includes("luxe") || lower.includes("suit") || lower.includes("gala")) return 'luxe';
+    if (lower.includes("dresses_gowns") || lower.includes("dress") || lower.includes("gown") || lower.includes("maxi") || lower.includes("wrap")) return 'dresses_gowns';
+    if (lower.includes("denim_bottoms") || lower.includes("jean") || lower.includes("denim") || lower.includes("bottom") || lower.includes("pant") || lower.includes("trouser") || lower.includes("skirt")) return 'denim_bottoms';
+    if (lower.includes("shirts_tops") || lower.includes("shirt") || lower.includes("top") || lower.includes("blouse") || lower.includes("tee")) return 'shirts_tops';
+    if (lower.includes("suits_outerwear") || lower.includes("suit") || lower.includes("blazer") || lower.includes("trench") || lower.includes("coat") || lower.includes("jacket") || lower.includes("outerwear") || lower.includes("luxe")) return 'suits_outerwear';
+    if (lower.includes("handbags_bags") || lower.includes("bag") || lower.includes("handbag") || lower.includes("tote") || lower.includes("purse") || lower.includes("clutch")) return 'handbags_bags';
+    if (lower.includes("jewelry_belts") || lower.includes("jewel") || lower.includes("belt") || lower.includes("strap") || lower.includes("necklace") || lower.includes("earring") || lower.includes("bracelet") || lower.includes("bangle")) return 'jewelry_belts';
+    
+    // Legacy fallback aliases
+    if (lower.includes("men")) return 'shirts_tops';
+    if (lower.includes("women")) return 'dresses_gowns';
     return 'all';
 }
 
@@ -335,10 +405,18 @@ function renderProductGrid() {
     // Group items by category when default view/featured sort is active
     let groupedItems = filteredItems;
     if (STATE.sortBy === 'featured') {
-        const categoryOrderMap = { 'men': 1, 'women': 2, 'bags': 3, 'belts': 4, 'jewelry': 5, 'luxe': 6 };
+        const categoryOrderMap = { 
+            'dresses_gowns': 1, 
+            'denim_bottoms': 2, 
+            'shirts_tops': 3, 
+            'suits_outerwear': 4, 
+            'handbags_bags': 5, 
+            'jewelry_belts': 6,
+            'men': 3, 'women': 1, 'bags': 5, 'belts': 6, 'jewelry': 6, 'luxe': 4
+        };
         groupedItems = [...filteredItems].sort((a, b) => {
-            const grpA = categoryOrderMap[a.categoryGroup || getCategoryGroup(a.category)] || 99;
-            const grpB = categoryOrderMap[b.categoryGroup || getCategoryGroup(b.category)] || 99;
+            const grpA = categoryOrderMap[a.categoryGroup || a.mainCategory || getCategoryGroup(a.category)] || 99;
+            const grpB = categoryOrderMap[b.categoryGroup || b.mainCategory || getCategoryGroup(b.category)] || 99;
             return grpA - grpB;
         });
     }
@@ -347,12 +425,18 @@ function renderProductGrid() {
     renderActiveFilterChips(filteredItems.length);
 
     const categoryHeaderLabels = {
-        'men': '<i class="fas fa-male"></i> Men\'s Collection',
-        'women': '<i class="fas fa-female"></i> Women\'s Collection',
+        'dresses_gowns': '<i class="fas fa-female"></i> Dresses & Evening Gowns',
+        'denim_bottoms': '<i class="fas fa-cut"></i> Denim & Bottoms',
+        'shirts_tops': '<i class="fas fa-tshirt"></i> Shirts & Tops',
+        'suits_outerwear': '<i class="fas fa-user-tie"></i> Suits & Outerwear',
+        'handbags_bags': '<i class="fas fa-shopping-bag"></i> Handbags & Bags',
+        'jewelry_belts': '<i class="fas fa-gem"></i> Jewelry & Accessories',
+        'men': '<i class="fas fa-tshirt"></i> Shirts & Tops',
+        'women': '<i class="fas fa-female"></i> Dresses & Evening Gowns',
         'bags': '<i class="fas fa-shopping-bag"></i> Handbags & Bags',
-        'belts': '<i class="fas fa-user-tag"></i> Belts & Straps',
-        'jewelry': '<i class="fas fa-gem"></i> Jewelry Collection',
-        'luxe': '<i class="fas fa-crown"></i> Cultural Luxe'
+        'belts': '<i class="fas fa-gem"></i> Jewelry & Accessories',
+        'jewelry': '<i class="fas fa-gem"></i> Jewelry & Accessories',
+        'luxe': '<i class="fas fa-user-tie"></i> Suits & Outerwear'
     };
 
     containers.forEach((container) => {

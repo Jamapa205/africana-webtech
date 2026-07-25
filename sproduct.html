@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
 
-        <link rel="stylesheet" href="style.css?v=6">
+        <link rel="stylesheet" href="style.css?v=7">
         <script src="cart.js"></script>
         <script src="productsData.js"></script>
     </head>
@@ -127,18 +127,20 @@
                 if (smallImgBox) {
                     smallImgBox.innerHTML = imgs.map((imgUrl, idx) => `
                         <div class="small-img-col">
-                            <img src="${imgUrl}" width="100%" class="small-img" alt="Thumbnail ${idx + 1}">
+                            <img src="${imgUrl}" width="100%" class="small-img ${idx === 0 ? 'active' : ''}" alt="Thumbnail ${idx + 1}">
                         </div>
                     `).join('');
 
                     const smallImgs = document.getElementsByClassName("small-img");
                     for (let i = 0; i < smallImgs.length; i++) {
                         smallImgs[i].onclick = function() {
+                            Array.from(smallImgs).forEach(img => img.classList.remove('active'));
+                            this.classList.add('active');
                             if (mainImg) {
                                 mainImg.style.transition = 'opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1)';
                                 mainImg.style.opacity = '0.3';
                                 setTimeout(() => {
-                                    mainImg.src = smallImgs[i].src;
+                                    mainImg.src = this.src;
                                     mainImg.style.opacity = '1';
                                 }, 120);
                             }

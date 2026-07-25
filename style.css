@@ -1494,32 +1494,36 @@ footer a:hover {
 
 .small-img-box {
   display: flex;
-  justify-content: space-between;
-  margin-top: 12px;
-  gap: 8px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  gap: 12px;
 }
 
 .small-img-col {
-  flex-basis: 23%;
+  flex: 0 0 78px;
+  width: 78px;
+  height: 78px;
   cursor: pointer;
 }
 
 .small-img-col img.small-img {
   width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
   background-color: var(--off-white);
-  padding: 4px;
-  border-radius: 10px;
+  padding: 2px;
+  border-radius: 12px;
   transition: all 0.3s var(--ease);
-  border: 2px solid transparent;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.small-img-col img.small-img:hover {
-  opacity: 0.85;
+.small-img-col img.small-img:hover,
+.small-img-col img.small-img.active {
   border-color: var(--red-primary);
   transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(192, 21, 42, 0.3);
 }
 
 #pro-details .details {
