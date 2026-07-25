@@ -167,8 +167,10 @@ button.white {
 }
 
 button.white:hover {
-  background-color: rgba(255,255,255,0.12);
-  border-color: var(--white);
+  background-color: var(--red-primary);
+  border-color: var(--red-primary);
+  color: var(--white);
+  box-shadow: 0 6px 20px rgba(192,21,42,0.4);
 }
 
 /* ─── Announcement Bar ───────────────────────────────────── */
@@ -239,7 +241,7 @@ button.white:hover {
 
 #navbar li a:hover,
 #navbar li a.active {
-  color: var(--white);
+  color: var(--red-primary);
 }
 
 #navbar li a.active::after,
@@ -485,7 +487,8 @@ button.white:hover {
 }
 
 #feature .fe-box:hover {
-  background: rgba(255,255,255,0.03);
+  background: rgba(192,21,42,0.08);
+  border-color: rgba(192,21,42,0.4);
 }
 
 #feature .fe-box img {
@@ -564,7 +567,8 @@ button.white:hover {
 
 .collection-card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 20px 45px rgba(192,21,42,0.28);
+  border: 1px solid var(--red-primary);
 }
 
 .collection-card-bg {
@@ -621,7 +625,7 @@ button.white:hover {
 }
 
 .collection-card:hover .collection-card-content a {
-  color: var(--white);
+  color: var(--red-primary);
 }
 
 .collection-card.large {

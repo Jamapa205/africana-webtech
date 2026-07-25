@@ -1,192 +1,192 @@
-// Centralized Product Database for Africana Modern Boutique E-Commerce Platform
+// Centralized Product Database for INSTYLE Modern Boutique E-Commerce Platform
 
 let PRODUCTS_DATA = {
     "f1": {
         id: "f1",
-        name: "Lori mens tradional wear",
+        name: "Men's Slim Fit Oxford Shirt",
         category: "Men's Collection",
         categoryGroup: "men",
         price: 150000,
-        tags: ["men", "shirt", "tunic", "traditional", "cotton", "embroidery", "male", "apparel"],
+        tags: ["men", "shirt", "oxford", "cotton", "formal", "casual", "apparel", "navy"],
         mainImg: "img/products/f1.png",
         smallImgs: ["img/products/f1.png", "img/products/f3.png", "img/products/f8.jpg"],
-        description: "Handcrafted traditional men's tunic shirt featuring intricate navy and sapphire embroidery along the split neckline and chest placket. Tailored from 100% premium breathable linen cotton."
+        description: "Tailored slim fit Oxford shirt crafted from 100% breathable premium cotton. Features a refined button-down collar, buttoned cuffs, and a chest pocket."
     },
     "f2": {
         id: "f2",
-        name: "Lori women tradional wear",
+        name: "Women's Floral Wrap Midi Dress",
         category: "Women's Collection",
         categoryGroup: "women",
         price: 200000,
-        tags: ["women", "dress", "gown", "traditional", "floral", "turquoise", "female", "apparel"],
+        tags: ["women", "dress", "floral", "midi", "wrap", "casual", "summer", "apparel"],
         mainImg: "img/products/f2.jpg",
         smallImgs: ["img/products/f2.jpg", "img/products/f4.jpg", "img/products/f5.jpg"],
-        description: "Elegant African women's traditional gown featuring vibrant turquoise and dark floral accents, ornate embroidery patterns along the front placket, and a graceful flowing silhouette."
+        description: "Chic floral print wrap midi dress featuring a graceful V-neckline, tie waist, and flutter sleeves. Designed for effortless daytime and evening elegance."
     },
     "f3": {
         id: "f3",
-        name: "Havani men tradional wear",
+        name: "Men's Classic Denim Jacket",
         category: "Men's Collection",
         categoryGroup: "men",
         price: 170000,
-        tags: ["men", "shirt", "tunic", "gold", "embroidery", "mandarin", "male", "apparel"],
+        tags: ["men", "jacket", "denim", "blue", "streetwear", "casual", "outerwear"],
         mainImg: "img/products/f3.png",
         smallImgs: ["img/products/f3.png", "img/products/f1.png", "img/products/f8.jpg"],
-        description: "Distinguished Havani men's traditional tunic featuring rich metallic gold embroidery along the mandarin neck collar and cuff bands."
+        description: "Timeless trucker denim jacket with buttoned flap chest pockets, point collar, and adjustable waist tabs. A modern wardrobe essential."
     },
     "f4": {
         id: "f4",
-        name: "Havani women tradional wear",
+        name: "Women's Tailored Blazer & Pants Set",
         category: "Women's Collection",
         categoryGroup: "women",
         price: 200000,
-        tags: ["women", "dress", "gown", "ceremonial", "patterned", "female", "apparel"],
+        tags: ["women", "suit", "blazer", "set", "formal", "office", "apparel"],
         mainImg: "img/products/f4.jpg",
         smallImgs: ["img/products/f4.jpg", "img/products/f2.jpg", "img/products/f5.jpg"],
-        description: "Vibrant African women's traditional gown crafted with premium patterned textiles, contrasting embroidered trims, and structured waist tailoring."
+        description: "Sophisticated double-breasted blazer and matching high-waisted tailored trousers. Perfect for modern executive and power dressing."
     },
     "f5": {
         id: "f5",
-        name: "Jieng women traditional wear",
+        name: "Women's Satin Evening Gown",
         category: "Women's Collection",
         categoryGroup: "women",
         price: 200000,
-        tags: ["women", "dress", "gown", "beaded", "cotton", "female", "apparel"],
+        tags: ["women", "gown", "satin", "evening", "party", "gala", "apparel"],
         mainImg: "img/products/f5.jpg",
         smallImgs: ["img/products/f5.jpg", "img/products/f2.jpg", "img/products/f4.jpg"],
-        description: "Royal Jieng traditional gown showcasing bold cultural motifs, regal neckline embellishments, and breathable linen cotton fabric."
+        description: "Luxurious floor-length satin gown with a delicate cowl neckline and graceful side slit. Styled for formal events and evening celebrations."
     },
     "f6": {
         id: "f6",
-        name: "Flutani",
+        name: "Men's Executive 3-Piece Suit",
         category: "Cultural Luxe",
         categoryGroup: "luxe",
         price: 300000,
-        tags: ["luxe", "luxury", "suit", "ceremonial", "gold", "robe", "vip", "gala"],
+        tags: ["luxe", "suit", "tuxedo", "formal", "vip", "gala", "men", "executive"],
         mainImg: "img/products/f6.webp",
         smallImgs: ["img/products/f6.webp", "img/products/f1.png", "img/products/f3.png"],
-        description: "High-end luxury ceremonial robe featuring rich metallic threads, premium woven jacquard fabric, and flawless hand finishing."
+        description: "Bespoke executive 3-piece suit tailored from premium wool-blend fabric. Includes a notch-lapel jacket, buttoned vest, and flat-front trousers."
     },
     "f7": {
         id: "f7",
-        name: "Lori men 2 piece set",
+        name: "Men's Urban Streetwear 2-Piece Set",
         category: "Men's Collection",
         categoryGroup: "men",
         price: 250000,
-        tags: ["men", "suit", "set", "trousers", "tunic", "male", "apparel", "2piece"],
+        tags: ["men", "streetwear", "set", "casual", "tracksuit", "apparel", "2piece"],
         mainImg: "img/products/f7.jpg",
         smallImgs: ["img/products/f7.jpg", "img/products/f1.png", "img/products/f3.png"],
-        description: "Complete 2-piece traditional tunic shirt and matching tailored trouser ensemble. Features clean geometric front embroidery and athletic cut."
+        description: "Modern urban streetwear set featuring a minimalist zip-up bomber jacket and relaxed fit drawstring jogger trousers."
     },
     "f8": {
         id: "f8",
-        name: "Lori men tradional tunic",
+        name: "Men's Pure Linen Casual Shirt",
         category: "Men's Collection",
         categoryGroup: "men",
         price: 150000,
-        tags: ["men", "shirt", "tunic", "short-sleeve", "casual", "male", "apparel"],
+        tags: ["men", "shirt", "linen", "casual", "summer", "short-sleeve", "apparel"],
         mainImg: "img/products/f8.jpg",
         smallImgs: ["img/products/f8.jpg", "img/products/f1.png", "img/products/f3.png"],
-        description: "Classic short-sleeved traditional tunic shirt adorned with understated chest embroidery. Lightweight, breathable, and designed for stylish daily wear."
+        description: "Lightweight 100% pure linen casual shirt. Soft, breathable, and designed for relaxed, stylish warm-weather wear."
     },
     "f9": {
         id: "f9",
-        name: "Casual inspired tradition wear",
+        name: "Unisex Minimalist Trench Coat",
         category: "Cultural Luxe",
         categoryGroup: "luxe",
         price: 175000,
-        tags: ["luxe", "casual", "streetwear", "unisex", "tunic", "motif", "apparel"],
+        tags: ["luxe", "trench", "coat", "unisex", "outerwear", "minimalist", "modern"],
         mainImg: "img/products/f9.avif",
         smallImgs: ["img/products/f9.avif", "img/products/f1.png", "img/products/f3.png"],
-        description: "Versatile casual tunic blending modern streetwear cuts with traditional African motif prints. Soft, durable, and styled for effortless daily wear."
+        description: "Sleek double-breasted trench coat with storm flap, waist belt, and water-repellent finish. Modern luxury statement outerwear."
     },
     "a1": {
         id: "a1",
-        name: "cowrie shell necklace",
+        name: "Minimalist Gold Choker Necklace",
         category: "Jewelry",
         categoryGroup: "jewelry",
         price: 45000,
-        tags: ["jewelry", "necklace", "cowrie", "shell", "beads", "heritage", "accessories"],
+        tags: ["jewelry", "necklace", "gold", "choker", "minimalist", "accessories"],
         mainImg: "img/products/a1.webp",
         smallImgs: ["img/products/a1.webp", "img/products/a3.jpg", "img/products/a5.webp"],
-        description: "Handcrafted authentic cowrie shell necklace strung on durable natural twine. Symbolizing prosperity, spiritual strength, and royal African heritage."
+        description: "Elegant 18k gold-plated minimalist choker necklace. Sleek, polished, and lightweight for daily subtle glam."
     },
     "a2": {
         id: "a2",
-        name: "Tenal pair",
-        category: "Jewelry",
-        categoryGroup: "jewelry",
+        name: "Designer Leather Crossbody Handbag",
+        category: "Handbags & Bags",
+        categoryGroup: "bags",
         price: 100000,
-        tags: ["jewelry", "cuff", "bracelet", "brass", "beaded", "accessories", "pair"],
+        tags: ["bags", "handbag", "crossbody", "leather", "designer", "accessories"],
         mainImg: "img/products/a2.jpg",
         smallImgs: ["img/products/a2.jpg", "img/products/a4.jpg", "img/products/a6.jpg"],
-        description: "Handcrafted traditional brass and beaded cuff bracelet set. Beautifully polished with authentic tribal engravings for cultural elegance."
+        description: "Genuine leather crossbody flap bag with gold hardware, adjustable shoulder strap, and multi-compartment interior storage."
     },
     "a3": {
         id: "a3",
-        name: "Rememberance beads",
+        name: "Layered Pearl & Gold Necklace",
         category: "Jewelry",
         categoryGroup: "jewelry",
         price: 45000,
-        tags: ["jewelry", "necklace", "beads", "glass", "multi-colored", "accessories"],
+        tags: ["jewelry", "necklace", "pearl", "gold", "layered", "accessories"],
         mainImg: "img/products/a3.jpg",
         smallImgs: ["img/products/a3.jpg", "img/products/a1.webp", "img/products/a5.webp"],
-        description: "Artisanal multi-strand glass bead necklace celebrating traditional African colorways and ceremonial beauty."
+        description: "Chic double-layer necklace combining freshwater pearls and delicate gold chain accents for a sophisticated touch."
     },
     "a4": {
         id: "a4",
-        name: "lori earings",
+        name: "Geometric Drop Gold Earrings",
         category: "Jewelry",
         categoryGroup: "jewelry",
         price: 15000,
-        tags: ["jewelry", "earrings", "hoop", "wirework", "metallic", "accessories"],
+        tags: ["jewelry", "earrings", "gold", "geometric", "drop", "accessories"],
         mainImg: "img/products/a4.jpg",
         smallImgs: ["img/products/a4.jpg", "img/products/a6.jpg", "img/products/a2.jpg"],
-        description: "Lightweight handcrafted hoop earrings featuring subtle African wirework detail and polished metallic finish."
+        description: "Contemporary geometric statement drop earrings in polished brushed gold. Ultra-lightweight with hypo-allergenic posts."
     },
     "a5": {
         id: "a5",
-        name: "Africa bangles",
-        category: "Jewelry",
-        categoryGroup: "jewelry",
+        name: "Genuine Leather Dress Belt",
+        category: "Belts & Straps",
+        categoryGroup: "belts",
         price: 75000,
-        tags: ["jewelry", "bangles", "bracelet", "wooden", "brass", "stacked", "accessories"],
+        tags: ["belts", "belt", "leather", "black", "brass", "accessories"],
         mainImg: "img/products/a5.webp",
         smallImgs: ["img/products/a5.webp", "img/products/a2.jpg", "img/products/a7.webp"],
-        description: "Set of stacked wooden and brass bangles wrapped with vibrant traditional thread patterns."
+        description: "Full-grain genuine black leather dress belt with a polished metallic pin buckle. Essential accessory for suits and chinos."
     },
     "a6": {
         id: "a6",
-        name: "Tani earings",
+        name: "Crystal Stud Statement Earrings",
         category: "Jewelry",
         categoryGroup: "jewelry",
         price: 30000,
-        tags: ["jewelry", "earrings", "drop", "carved", "bone", "beads", "accessories"],
+        tags: ["jewelry", "earrings", "crystal", "stud", "sparkle", "accessories"],
         mainImg: "img/products/a6.jpg",
         smallImgs: ["img/products/a6.jpg", "img/products/a4.jpg", "img/products/a2.jpg"],
-        description: "Statement drop earrings adorned with carved bone and polished beads, embodying authentic artisanal craftsmanship."
+        description: "Dazzling cubic zirconia crystal stud earrings set in sterling silver. Adds brilliant sparkle to any evening outfit."
     },
     "a7": {
         id: "a7",
-        name: "Madino Bracelet",
-        category: "Jewelry",
-        categoryGroup: "jewelry",
+        name: "Braided Leather Wrist Strap",
+        category: "Belts & Straps",
+        categoryGroup: "belts",
         price: 55000,
-        tags: ["jewelry", "bracelet", "leather", "braided", "wristlet", "accessories"],
+        tags: ["belts", "strap", "leather", "braided", "wristlet", "accessories"],
         mainImg: "img/products/a7.webp",
         smallImgs: ["img/products/a7.webp", "img/products/a2.jpg", "img/products/a5.webp"],
-        description: "Elegantly braided leather and beaded wristlet featuring a secure brass clasp and comfortable fit."
+        description: "Hand-braided genuine leather wrist strap featuring a magnetic stainless steel clasp. Sleek unisex accessory."
     },
     "a8": {
         id: "a8",
-        name: "Matako necklace",
+        name: "Chunky Chain Link Gold Necklace",
         category: "Jewelry",
         categoryGroup: "jewelry",
         price: 100000,
-        tags: ["jewelry", "necklace", "beads", "amber", "ceremonial", "accessories"],
+        tags: ["jewelry", "necklace", "chain", "gold", "chunky", "accessories"],
         mainImg: "img/products/a8.jpg",
         smallImgs: ["img/products/a8.jpg", "img/products/a1.webp", "img/products/a3.jpg"],
-        description: "Bold ceremonial statement necklace featuring cascading amber-hued beads and intricate wire-wrapped accents."
+        description: "Bold curb chain link statement necklace in heavy gold-tone plating. Modern fashion runway essential."
     }
 };
 
@@ -211,45 +211,32 @@ function getCategoryGroup(catName) {
     return 'all';
 }
 
-// Master Filter & Sort Engine
+// Filter and Sort Engine
 function getFilteredAndSortedProducts() {
-    // 1. Sync custom local storage products
-    const localCustom = JSON.parse(localStorage.getItem('africana_custom_products')) || [];
-    localCustom.forEach(p => {
-        if (p && p.id) {
-            if (!p.categoryGroup) p.categoryGroup = getCategoryGroup(p.category);
-            if (!p.tags || !Array.isArray(p.tags)) {
-                p.tags = [p.name, p.category, p.description].join(' ').toLowerCase().split(/\s+/).filter(Boolean);
-            }
-            PRODUCTS_DATA[p.id] = p;
+    let result = Object.values(PRODUCTS_DATA);
+
+    // Merge custom admin products from localStorage
+    try {
+        const custom = JSON.parse(localStorage.getItem('africana_custom_products') || '[]');
+        if (Array.isArray(custom) && custom.length > 0) {
+            result = [...result, ...custom];
         }
-    });
+    } catch (e) {
+        console.error('Error loading custom products:', e);
+    }
 
-    let items = Object.values(PRODUCTS_DATA);
-
-    // 2. Category Filter
-    if (STATE.activeCategory && STATE.activeCategory !== 'all') {
-        items = items.filter(p => {
-            const group = p.categoryGroup || getCategoryGroup(p.category);
-            return group === STATE.activeCategory;
+    // 1. Category Filter
+    if (STATE.activeCategory !== 'all') {
+        result = result.filter(p => {
+            const grp = p.categoryGroup || getCategoryGroup(p.category);
+            return grp === STATE.activeCategory;
         });
     }
 
-    // 3. Price Filter
-    if (STATE.priceFilter && STATE.priceFilter !== 'all') {
-        items = items.filter(p => {
-            const price = Number(p.price || 0);
-            if (STATE.priceFilter === 'under-50k') return price < 50000;
-            if (STATE.priceFilter === '50k-150k') return price >= 50000 && price <= 150000;
-            if (STATE.priceFilter === 'over-150k') return price > 150000;
-            return true;
-        });
-    }
-
-    // 4. Search Query Filter
+    // 2. Search Query Filter (Matches Name, Category, Tags, Description)
     if (STATE.searchQuery && STATE.searchQuery.trim() !== '') {
-        const q = STATE.searchQuery.trim().toLowerCase();
-        items = items.filter(p => {
+        const q = STATE.searchQuery.toLowerCase().trim();
+        result = result.filter(p => {
             const nameMatch = (p.name || '').toLowerCase().includes(q);
             const catMatch = (p.category || '').toLowerCase().includes(q);
             const descMatch = (p.description || '').toLowerCase().includes(q);
@@ -258,19 +245,29 @@ function getFilteredAndSortedProducts() {
         });
     }
 
-    // 5. Sorting Controller
-    items = [...items]; // clone
-    if (STATE.sortBy === 'price-asc') {
-        items.sort((a, b) => Number(a.price || 0) - Number(b.price || 0));
-    } else if (STATE.sortBy === 'price-desc') {
-        items.sort((a, b) => Number(b.price || 0) - Number(a.price || 0));
-    } else if (STATE.sortBy === 'name-asc') {
-        items.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
-    } else if (STATE.sortBy === 'newest') {
-        items.reverse();
+    // 3. Price Filter
+    if (STATE.priceFilter !== 'all') {
+        result = result.filter(p => {
+            const price = Number(p.price || 0);
+            if (STATE.priceFilter === 'under-50k') return price < 50000;
+            if (STATE.priceFilter === '50k-150k') return price >= 50000 && price <= 150000;
+            if (STATE.priceFilter === 'over-150k') return price > 150000;
+            return true;
+        });
     }
 
-    return items;
+    // 4. Sort Controller
+    if (STATE.sortBy === 'price-asc') {
+        result.sort((a, b) => Number(a.price || 0) - Number(b.price || 0));
+    } else if (STATE.sortBy === 'price-desc') {
+        result.sort((a, b) => Number(b.price || 0) - Number(a.price || 0));
+    } else if (STATE.sortBy === 'newest') {
+        result.sort((a, b) => (b.id || '').localeCompare(a.id || ''));
+    } else if (STATE.sortBy === 'name-asc') {
+        result.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+    }
+
+    return result;
 }
 
 // Render Main Product Catalog Grid (Products of the same category grouped together under section headers)
@@ -315,7 +312,7 @@ function renderProductGrid() {
                 <div class="no-results-box">
                     <i class="fas fa-search-minus"></i>
                     <h3>No items found matching your criteria</h3>
-                    <p>Try searching for <strong>jeans, shirts, belts, handbags, or cowrie shell necklaces</strong>.</p>
+                    <p>Try searching for <strong>jeans, shirts, belts, handbags, or dresses</strong>.</p>
                     <button onclick="clearAllFilters()" class="normal">Clear All Filters</button>
                 </div>
             `;
@@ -342,7 +339,7 @@ function renderProductGrid() {
                 <div class="pro" data-id="${p.id}">
                     <img src="${p.mainImg || 'img/products/f1.png'}" alt="${p.name}">
                     <div class="des">
-                        <span>${p.category || 'Africana'}</span>
+                        <span>${p.category || 'INSTYLE'}</span>
                         <h5>${p.name}</h5>
                         <div class="star">
                             <i class="fas fa-star"></i>
@@ -353,7 +350,7 @@ function renderProductGrid() {
                         </div>
                         <h4>SSP ${Number(p.price || 0).toLocaleString()}</h4>
                     </div>
-                    <a href="javascript:void(0);"><i class="fal fa-shopping-cart cart"></i></a>
+                    <a href="javascript:void(0);"><i class="fal fa-shopping-bag cart"></i></a>
                 </div>
             `;
         });
@@ -362,77 +359,69 @@ function renderProductGrid() {
     });
 }
 
-// Render Removable Active Filter Chips
-function renderActiveFilterChips(totalCount) {
-    const chipsBar = document.getElementById('active-filter-chips');
-    const resultCountEl = document.getElementById('catalog-result-count');
-
-    if (resultCountEl) {
-        resultCountEl.textContent = `${totalCount} Product${totalCount === 1 ? '' : 's'} Found`;
+// Render Active Filter Badges Bar & Result Count
+function renderActiveFilterChips(count) {
+    const countEl = document.getElementById('catalog-result-count');
+    if (countEl) {
+        countEl.textContent = `Showing ${count} product${count === 1 ? '' : 's'}`;
     }
 
-    if (!chipsBar) return;
+    const chipsContainer = document.getElementById('active-filter-chips');
+    if (!chipsContainer) return;
 
-    let chipsHTML = '';
-    
+    let chipsHtml = '';
+    let hasFilter = false;
+
     if (STATE.activeCategory !== 'all') {
-        const catLabel = document.querySelector(`.category-pill[data-cat="${STATE.activeCategory}"]`)?.textContent || STATE.activeCategory;
-        chipsHTML += `<span class="filter-chip">Category: ${catLabel} <i class="fas fa-times" onclick="setCategoryFilter('all')"></i></span>`;
+        hasFilter = true;
+        const catLabels = { 'men': 'Men', 'women': 'Women', 'bags': 'Bags', 'belts': 'Belts', 'jewelry': 'Jewelry', 'luxe': 'Luxe' };
+        chipsHtml += `<span class="filter-chip">Category: ${catLabels[STATE.activeCategory] || STATE.activeCategory} <i class="fas fa-times" onclick="setCategoryFilter('all')"></i></span>`;
     }
 
     if (STATE.priceFilter !== 'all') {
-        const priceLabel = STATE.priceFilter === 'under-50k' ? '< SSP 50,000' : STATE.priceFilter === '50k-150k' ? 'SSP 50k - 150k' : '> SSP 150,000';
-        chipsHTML += `<span class="filter-chip">Price: ${priceLabel} <i class="fas fa-times" onclick="setPriceFilter('all')"></i></span>`;
+        hasFilter = true;
+        const priceLabels = { 'under-50k': '< 50k', '50k-150k': '50k-150k', 'over-150k': '> 150k' };
+        chipsHtml += `<span class="filter-chip">Price: ${priceLabels[STATE.priceFilter] || STATE.priceFilter} <i class="fas fa-times" onclick="setPriceFilter('all')"></i></span>`;
     }
 
     if (STATE.searchQuery && STATE.searchQuery.trim() !== '') {
-        chipsHTML += `<span class="filter-chip">Search: "${STATE.searchQuery}" <i class="fas fa-times" onclick="setSearchQuery('')"></i></span>`;
+        hasFilter = true;
+        chipsHtml += `<span class="filter-chip">Search: "${STATE.searchQuery}" <i class="fas fa-times" onclick="setSearchQuery('')"></i></span>`;
     }
 
-    if (chipsHTML !== '') {
-        chipsHTML += `<button onclick="clearAllFilters()" class="clear-all-chip-btn">Clear All</button>`;
-        chipsBar.innerHTML = chipsHTML;
-        chipsBar.classList.remove('hide');
+    if (hasFilter) {
+        chipsHtml += `<button class="clear-all-chip-btn" onclick="clearAllFilters()">Clear All</button>`;
+        chipsContainer.classList.remove('hide');
+        chipsContainer.innerHTML = chipsHtml;
     } else {
-        chipsBar.innerHTML = '';
-        chipsBar.classList.add('hide');
+        chipsContainer.classList.add('hide');
+        chipsContainer.innerHTML = '';
     }
 }
 
 // State Setter Actions
 function setCategoryFilter(cat) {
     STATE.activeCategory = cat;
-
-    // Update active pill UI
-    document.querySelectorAll('.category-pill').forEach(pill => {
-        if (pill.getAttribute('data-cat') === cat) {
-            pill.classList.add('active');
-        } else {
-            pill.classList.remove('active');
-        }
+    document.querySelectorAll('.category-pill').forEach(btn => {
+        if (btn.getAttribute('data-cat') === cat) btn.classList.add('active');
+        else btn.classList.remove('active');
     });
-
     renderProductGrid();
 }
 
-function setPriceFilter(priceRange) {
-    STATE.priceFilter = priceRange;
-
-    document.querySelectorAll('.price-pill').forEach(pill => {
-        if (pill.getAttribute('data-price') === priceRange) {
-            pill.classList.add('active');
-        } else {
-            pill.classList.remove('active');
-        }
+function setPriceFilter(range) {
+    STATE.priceFilter = range;
+    document.querySelectorAll('.price-pill').forEach(btn => {
+        if (btn.getAttribute('data-price') === range) btn.classList.add('active');
+        else btn.classList.remove('active');
     });
-
     renderProductGrid();
 }
 
 function setSearchQuery(query) {
     STATE.searchQuery = query;
-    const inputs = document.querySelectorAll('#shop-search-input, #hero-search-input');
-    inputs.forEach(input => input.value = query);
+    const input = document.getElementById('shop-search-input');
+    if (input) input.value = query;
     renderProductGrid();
 }
 
@@ -447,148 +436,137 @@ function clearAllFilters() {
     STATE.searchQuery = '';
     STATE.sortBy = 'featured';
 
-    const searchInput = document.getElementById('shop-search-input');
-    if (searchInput) searchInput.value = '';
+    const input = document.getElementById('shop-search-input');
+    if (input) input.value = '';
 
     const sortSelect = document.getElementById('shop-sort-select');
     if (sortSelect) sortSelect.value = 'featured';
 
-    document.querySelectorAll('.category-pill').forEach(pill => {
-        pill.classList.toggle('active', pill.getAttribute('data-cat') === 'all');
-    });
+    document.querySelectorAll('.category-pill').forEach(b => b.classList.remove('active'));
+    const allCatBtn = document.querySelector('.category-pill[data-cat="all"]');
+    if (allCatBtn) allCatBtn.classList.add('active');
 
-    document.querySelectorAll('.price-pill').forEach(pill => {
-        pill.classList.toggle('active', pill.getAttribute('data-price') === 'all');
-    });
+    document.querySelectorAll('.price-pill').forEach(b => b.classList.remove('active'));
+    const allPriceBtn = document.querySelector('.price-pill[data-price="all"]');
+    if (allPriceBtn) allPriceBtn.classList.add('active');
 
     renderProductGrid();
 }
 
-// Live Search Auto-Suggest Overlay Handler
-function handleLiveSearchAutoSuggest(e) {
-    const input = e.target;
-    const query = input.value.trim().toLowerCase();
-    let overlay = document.getElementById('search-suggestions-overlay');
+// Real-Time Search Auto-Suggest Popup Overlay
+function handleLiveSearchAutoSuggest() {
+    const searchInput = document.getElementById('shop-search-input');
+    if (!searchInput) return;
 
+    let overlay = document.getElementById('search-suggestions-overlay');
     if (!overlay) {
         overlay = document.createElement('div');
         overlay.id = 'search-suggestions-overlay';
-        overlay.className = 'suggestions-overlay';
-        if (input.parentNode) input.parentNode.appendChild(overlay);
+        overlay.className = 'suggestions-overlay hide';
+        searchInput.parentElement.appendChild(overlay);
     }
 
-    if (!query) {
-        overlay.innerHTML = '';
-        overlay.classList.add('hide');
-        setSearchQuery('');
-        return;
-    }
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        setSearchQuery(e.target.value);
 
-    const all = Object.values(PRODUCTS_DATA);
-    const matches = all.filter(p => {
-        const nameMatch = (p.name || '').toLowerCase().includes(query);
-        const catMatch = (p.category || '').toLowerCase().includes(query);
-        const tagMatch = Array.isArray(p.tags) && p.tags.some(t => String(t).toLowerCase().includes(query));
-        return nameMatch || catMatch || tagMatch;
-    }).slice(0, 5);
+        if (!query) {
+            overlay.classList.add('hide');
+            return;
+        }
 
-    if (matches.length === 0) {
-        overlay.innerHTML = `<div class="suggestion-item empty">No matching items for "${query}"</div>`;
-    } else {
-        overlay.innerHTML = matches.map(m => `
-            <div class="suggestion-item" onclick="window.location.href='sproduct.html?id=${encodeURIComponent(m.id)}';">
-                <img src="${m.mainImg || 'img/products/f1.png'}" alt="${m.name}">
-                <div class="sugg-info">
-                    <h6>${m.name}</h6>
-                    <span>${m.category || 'Africana'} • SSP ${Number(m.price || 0).toLocaleString()}</span>
+        const matches = Object.values(PRODUCTS_DATA).filter(p => {
+            const nameMatch = (p.name || '').toLowerCase().includes(query);
+            const catMatch = (p.category || '').toLowerCase().includes(query);
+            const tagMatch = Array.isArray(p.tags) && p.tags.some(t => String(t).toLowerCase().includes(query));
+            return nameMatch || catMatch || tagMatch;
+        }).slice(0, 5);
+
+        if (matches.length === 0) {
+            overlay.innerHTML = `<div class="suggestion-item empty">No matching products found</div>`;
+        } else {
+            overlay.innerHTML = matches.map(m => `
+                <div class="suggestion-item" onclick="window.location.href='sproduct.html?id=${m.id}'">
+                    <img src="${m.mainImg || 'img/products/f1.png'}" alt="${m.name}">
+                    <div class="sugg-info">
+                        <h6>${m.name}</h6>
+                        <span>${m.category} • SSP ${Number(m.price || 0).toLocaleString()}</span>
+                    </div>
                 </div>
-            </div>
-        `).join('');
-    }
+            `).join('');
+        }
 
-    overlay.classList.remove('hide');
-    setSearchQuery(query);
+        overlay.classList.remove('hide');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!searchInput.contains(e.target) && !overlay.contains(e.target)) {
+            overlay.classList.add('hide');
+        }
+    });
 }
 
-// Asynchronously sync product catalog from online API
+// Fetch products from server if API is reachable
 async function fetchOnlineProducts() {
     try {
-        const response = await fetch('/api/products');
-        if (response.ok) {
-            const data = await response.json();
-            if (data.success && Array.isArray(data.products)) {
-                data.products.forEach(p => {
-                    const existing = PRODUCTS_DATA[p.id];
-                    let bestImg = p.mainImg;
-
-                    if (existing && existing.mainImg && existing.mainImg.startsWith('data:image')) {
-                        bestImg = existing.mainImg;
-                    } else if (p.mainImg && p.mainImg.startsWith('uploads/')) {
-                        const localCustom = JSON.parse(localStorage.getItem('africana_custom_products')) || [];
-                        const matchLocal = localCustom.find(lc => lc.id === p.id || lc.name === p.name);
-                        if (matchLocal && matchLocal.mainImg && matchLocal.mainImg.startsWith('data:image')) {
-                            bestImg = matchLocal.mainImg;
-                        }
-                    }
-
-                    PRODUCTS_DATA[p.id] = {
-                        id: p.id,
-                        name: p.name,
-                        category: p.category,
-                        categoryGroup: p.categoryGroup || getCategoryGroup(p.category),
-                        price: p.price,
-                        tags: p.tags || [p.name, p.category].join(' ').toLowerCase().split(/\s+/),
-                        mainImg: bestImg || 'img/products/f1.png',
-                        smallImgs: [bestImg || 'img/products/f1.png'],
-                        description: p.description,
-                        isPlaceholder: p.isPlaceholder || false
-                    };
+        const res = await fetch('/api/products');
+        if (res.ok) {
+            const apiProducts = await res.json();
+            if (Array.isArray(apiProducts) && apiProducts.length > 0) {
+                apiProducts.forEach(p => {
+                    if (p.id) PRODUCTS_DATA[p.id] = p;
                 });
                 renderProductGrid();
             }
         }
     } catch (err) {
-        console.log("Using offline product cache.");
+        console.log('Running offline/standalone static mode with PRODUCTS_DATA');
     }
 }
 
-// Helper function to get product by ID or default to f1
+// Product Lookup Helper
 function getProductById(id) {
-    const localCustom = JSON.parse(localStorage.getItem('africana_custom_products')) || [];
-    localCustom.forEach(p => {
-        if (p && p.id) PRODUCTS_DATA[p.id] = p;
-    });
+    if (!id) return null;
+    if (PRODUCTS_DATA[id]) return PRODUCTS_DATA[id];
 
-    if (id && PRODUCTS_DATA[id]) {
-        return PRODUCTS_DATA[id];
+    // Check custom products
+    try {
+        const custom = JSON.parse(localStorage.getItem('africana_custom_products') || '[]');
+        return custom.find(p => String(p.id) === String(id)) || null;
+    } catch (e) {
+        return null;
     }
-
-    const found = Object.values(PRODUCTS_DATA).find(p => p.id === id || String(p.id) === String(id));
-    if (found) return found;
-
-    return PRODUCTS_DATA["f1"];
 }
 
-// Initialize dynamic grid and controls on DOM load
+// DOM Initialization
 document.addEventListener('DOMContentLoaded', () => {
-    // Read category from URL params e.g. shop.html?category=bags
+    // Read search query parameter from URL (e.g. shop.html?search=jeans)
     const urlParams = new URLSearchParams(window.location.search);
-    const catParam = urlParams.get('category');
+    const searchParam = urlParams.get('search');
+    const catParam = urlParams.get('cat');
+
+    if (searchParam) {
+        STATE.searchQuery = searchParam;
+        const input = document.getElementById('shop-search-input');
+        if (input) input.value = searchParam;
+    }
+
     if (catParam) {
         STATE.activeCategory = catParam;
+        document.querySelectorAll('.category-pill').forEach(btn => {
+            if (btn.getAttribute('data-cat') === catParam) btn.classList.add('active');
+            else btn.classList.remove('active');
+        });
     }
 
     renderProductGrid();
-    fetchOnlineProducts();
+    handleLiveSearchAutoSuggest();
 
-    // Attach search input event listeners
-    const searchInput = document.getElementById('shop-search-input');
-    if (searchInput) {
-        searchInput.addEventListener('input', handleLiveSearchAutoSuggest);
-    }
-
+    // Attach listener to sort dropdown
     const sortSelect = document.getElementById('shop-sort-select');
     if (sortSelect) {
         sortSelect.addEventListener('change', (e) => setSortBy(e.target.value));
     }
+
+    fetchOnlineProducts();
 });
