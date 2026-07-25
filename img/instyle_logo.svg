@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 46" width="230" height="46">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@900&amp;display=swap');
+      .logo-in {
+        font-family: 'Outfit', 'Spartan', 'Arial Black', 'Impact', sans-serif;
+        font-weight: 900;
+        font-size: 34px;
+        fill: #C0152A;
+        stroke: #FFFFFF;
+        stroke-width: 2.5px;
+        stroke-linejoin: round;
+        paint-order: stroke fill;
+        letter-spacing: 2px;
+      }
+      .logo-style {
+        font-family: 'Outfit', 'Spartan', 'Arial Black', 'Impact', sans-serif;
+        font-weight: 900;
+        font-size: 34px;
+        fill: #0a1628;
+        stroke: #FFFFFF;
+        stroke-width: 2.5px;
+        stroke-linejoin: round;
+        paint-order: stroke fill;
+        letter-spacing: 2px;
+      }
+    </style>
+  </defs>
+  <text x="4" y="34">
+    <tspan class="logo-in">IN</tspan><tspan class="logo-style">STYLE</tspan>
+  </text>
+</svg>

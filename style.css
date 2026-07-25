@@ -173,24 +173,7 @@ button.white:hover {
   box-shadow: 0 6px 20px rgba(192,21,42,0.4);
 }
 
-/* ─── Announcement Bar ───────────────────────────────────── */
-#announcement-bar {
-  background: var(--red-primary);
-  color: var(--white);
-  text-align: center;
-  padding: 10px 20px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
 
-#announcement-bar span {
-  opacity: 0.85;
-}
-
-#announcement-bar strong {
-  font-weight: 900;
-}
 
 /* ─── Header / Navigation ────────────────────────────────── */
 #header {
@@ -208,11 +191,12 @@ button.white:hover {
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-#header .logo {
-  height: 46px;
+#header .logo,
+footer .logo {
+  height: 42px;
   width: auto;
   object-fit: contain;
-  filter: brightness(1);
+  filter: none;
 }
 
 #navbar {
