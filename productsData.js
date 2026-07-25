@@ -1,6 +1,39 @@
 // Centralized Product Database for INSTYLE Modern Boutique E-Commerce Platform
 
 let PRODUCTS_DATA = {
+    "j1": {
+        id: "j1",
+        name: "Dark Indigo Distressed Ripped Skinny Jeans",
+        category: "Men's Collection",
+        categoryGroup: "men",
+        price: 185000,
+        tags: ["jeans", "denim", "distressed", "ripped", "dark blue", "indigo", "skinny", "men", "pants"],
+        mainImg: "img/products/j1.jpg",
+        smallImgs: ["img/products/j1.jpg"],
+        description: "Modern dark indigo blue skinny jeans featuring edgy horizontal ripped slash cuts along the thighs and knees. Crafted from premium stretch cotton denim with contrast gold stitching, 5-pocket layout, and comfortable tapered fit."
+    },
+    "j2": {
+        id: "j2",
+        name: "Light Sky Blue Distressed Slash Jeans",
+        category: "Women's Collection",
+        categoryGroup: "women",
+        price: 175000,
+        tags: ["jeans", "denim", "distressed", "ripped", "light blue", "sky blue", "high waist", "women", "pants"],
+        mainImg: "img/products/j2.jpg",
+        smallImgs: ["img/products/j2.jpg"],
+        description: "Light sky blue wash denim jeans with stylish knee slash distress detailing and subtle thigh fading. Features a flattering high-waist cut, durable stretch cotton fabric, and classic 5-pocket styling."
+    },
+    "j3": {
+        id: "j3",
+        name: "Vintage Washed Charcoal Black Jeans",
+        category: "Men's Collection",
+        categoryGroup: "men",
+        price: 160000,
+        tags: ["jeans", "denim", "black", "charcoal", "washed", "slim fit", "streetwear", "men", "pants"],
+        mainImg: "img/products/j3.jpg",
+        smallImgs: ["img/products/j3.jpg"],
+        description: "Vintage washed charcoal black denim jeans with a subtle faded thigh finish. Designed with a slim tapered leg, reinforced belt loops, and premium stretch comfort for modern daily styling."
+    },
     "f1": {
         id: "f1",
         name: "Men's Slim Fit Oxford Shirt",
