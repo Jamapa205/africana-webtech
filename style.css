@@ -433,77 +433,74 @@ footer .logo {
 /* ─── Feature Badges ─────────────────────────────────────── */
 #feature {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: stretch;
+  justify-content: center;
   flex-wrap: wrap;
   background: var(--navy-deep);
-  gap: 0;
+  gap: 16px;
+  padding: 40px 80px;
 }
 
 #feature .fe-box {
-  flex: 1;
-  min-width: 150px;
+  flex: 1 1 150px;
+  max-width: 190px;
   text-align: center;
-  padding: 28px 20px;
-  border-right: 1px solid rgba(255,255,255,0.06);
+  padding: 24px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   transition: all 0.3s var(--ease);
   position: relative;
-}
-
-#feature .fe-box:last-child {
-  border-right: none;
-}
-
-#feature .fe-box::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 2px;
-  background: var(--red-primary);
-  transition: width 0.3s var(--ease);
-}
-
-#feature .fe-box:hover::after {
-  width: 60%;
+  overflow: hidden;
 }
 
 #feature .fe-box:hover {
-  background: rgba(192,21,42,0.08);
-  border-color: rgba(192,21,42,0.4);
+  background: rgba(192, 21, 42, 0.1);
+  border-color: var(--red-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(192, 21, 42, 0.2);
 }
 
 #feature .fe-box img {
-  width: 56px;
+  width: 52px;
   height: 52px;
   object-fit: contain;
-  margin-bottom: 12px;
+  margin: 0 auto 14px auto;
+  display: block;
   transition: transform 0.3s var(--ease);
 }
 
 #feature .fe-box:hover img {
-  transform: scale(1.1);
+  transform: scale(1.12);
 }
 
 #feature .fe-box h6 {
-  display: inline-block;
-  padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
   line-height: 1;
-  border-radius: 6px;
+  border-radius: 50px;
   color: var(--white);
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.5px;
-  background: rgba(192,21,42,0.18);
-  border: 1px solid rgba(192,21,42,0.2);
+  background: rgba(192, 21, 42, 0.2);
+  border: 1px solid rgba(192, 21, 42, 0.35);
+  margin: 0 0 6px 0;
+  white-space: nowrap;
 }
 
 #feature .fe-box p {
-  font-size: 13px;
-  color: rgba(255,255,255,0.45);
-  margin: 6px 0 0 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  line-height: 1.4;
+  text-align: center;
 }
 
 /* ─── Shop by Collection Section ─────────────────────────── */
@@ -1891,14 +1888,13 @@ footer a:hover {
 
   #feature {
     justify-content: center;
-    gap: 0;
-    flex-wrap: wrap;
+    gap: 12px;
+    padding: 30px 20px;
   }
 
   #feature .fe-box {
-    width: 48%;
-    border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    flex: 1 1 45%;
+    max-width: 48%;
   }
 
   .collections-grid {
@@ -2091,14 +2087,15 @@ footer a:hover {
     display: none;
   }
 
-  #feature .fe-box {
-    width: 50%;
+  #feature {
+    gap: 10px;
     padding: 20px 12px;
   }
 
-  #feature .fe-box img {
-    width: 44px;
-    height: 40px;
+  #feature .fe-box {
+    flex: 1 1 47%;
+    max-width: 48%;
+    padding: 16px 10px;
   }
 
   .collections-grid {
