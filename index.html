@@ -5,10 +5,10 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Africana</title>
+        <title>INSTYLE — Modern Fashion, Timeless You</title>
+        <meta name="description" content="INSTYLE is your modern fashion boutique offering premium men's and women's clothing, handbags, belts, and jewelry in Juba, South Sudan.">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
-
         <link rel="stylesheet" href="style.css">
         <script src="productsData.js"></script>
         <script src="cart.js"></script>
@@ -16,8 +16,16 @@
 
     <body>
 
+        <!-- ── Announcement Bar ───────────────────────────── -->
+        <div id="announcement-bar">
+            <strong>FREE SHIPPING</strong> <span>on all orders over SSP 200,000 &nbsp;·&nbsp; New Collection Just Dropped 🔥</span>
+        </div>
+
+        <!-- ── Header / Navigation ───────────────────────── -->
         <section id="header">
-            <a href="index.html"><img src="img/logo.png" class="logo" alt="logo"></a>
+            <a href="index.html">
+                <img src="img/instyle_logo.jpg" class="logo" alt="INSTYLE Boutique Logo">
+            </a>
 
             <div>
                 <ul id="navbar">
@@ -26,395 +34,329 @@
                     <li><a href="shop.html">Shop</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span id="cart-count">0</span></a></li>
+                    <li id="lg-bag">
+                        <a href="cart.html" class="cart-badge">
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                            <span id="cart-count">0</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
+
             <div id="mobile">
-                <a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
-                <i id="bar" class="fas fa-outdent"></i>
+                <a href="cart.html"><i class="fa fa-shopping-bag"></i></a>
+                <i id="bar" class="fas fa-bars"></i>
             </div>
         </section>
 
+        <!-- ── Hero Section ───────────────────────────────── -->
         <section id="hero">
-            <h4>Modern Boutique & Cultural House</h4>
-            <h2>Curated Elegance</h2>
-            <h1>Apparel, Handbags, Belts & Jewelry</h1>
-            <p>Discover modern fashion pieces, leather accessories, and authentic cultural jewelry</p>
-            <div class="hero-search-bar">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" id="hero-search-input" placeholder="Search jeans, shirts, handbags, belts, jewelry, tags..." onkeyup="if(event.key==='Enter') window.location.href='shop.html?search='+encodeURIComponent(this.value);">
-                <button onclick="const val=document.getElementById('hero-search-input').value; if(val) window.location.href='shop.html?search='+encodeURIComponent(val);" class="normal">Search Catalog</button>
+            <div class="hero-eyebrow">
+                <i class="fas fa-circle"></i>
+                New Collection 2025
+            </div>
+            <h1>Define Your<br><span class="hero-accent">Style.</span></h1>
+            <p class="hero-tagline">INSTYLE — Modern Fashion, Timeless You</p>
+            <div class="hero-cta-group">
+                <a href="shop.html" class="hero-cta-primary">
+                    Shop Now <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="shop.html#collections" class="hero-cta-secondary">
+                    View Collections <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">500+</div>
+                    <div class="hero-stat-label">Products</div>
+                </div>
+                <div class="hero-divider"></div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">6</div>
+                    <div class="hero-stat-label">Collections</div>
+                </div>
+                <div class="hero-divider"></div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">1K+</div>
+                    <div class="hero-stat-label">Happy Customers</div>
+                </div>
             </div>
         </section>
 
-        <section id="feature" class="section-p1">
+        <!-- ── Feature Badges ─────────────────────────────── -->
+        <section id="feature">
             <div class="fe-box">
-                <img src="img/features/f1.png" alt="">
-                <h6>Free shipping</h6>
+                <img src="img/features/f1.png" alt="Free Shipping">
+                <h6>Free Shipping</h6>
+                <p>On orders over SSP 200k</p>
             </div>
             <div class="fe-box">
-                <img src="img/features/f2.png" alt="">
-                <h6>Online Order</h6>
+                <img src="img/features/f2.png" alt="Online Order">
+                <h6>Easy Returns</h6>
+                <p>7-day hassle-free returns</p>
             </div>
             <div class="fe-box">
-                <img src="img/features/f3.png" alt="">
-                <h6>Save Money</h6>
+                <img src="img/features/f3.png" alt="Best Prices">
+                <h6>Best Prices</h6>
+                <p>Guaranteed lowest prices</p>
             </div>
             <div class="fe-box">
-                <img src="img/features/f4.png" alt="">
-                <h6>Promotions</h6>
+                <img src="img/features/f4.png" alt="Promotions">
+                <h6>Flash Sales</h6>
+                <p>Deals every weekend</p>
             </div>
             <div class="fe-box">
-                <img src="img/features/f5.png" alt="">
-                <h6>Happy Customers</h6>
+                <img src="img/features/f5.png" alt="Happy Customers">
+                <h6>1K+ Customers</h6>
+                <p>Trusted by thousands</p>
             </div>
             <div class="fe-box">
-                <img src="img/features/f6.png" alt="">
-                <h6>Support</h6>
+                <img src="img/features/f6.png" alt="Support">
+                <h6>24/7 Support</h6>
+                <p>Always here to help</p>
             </div>
         </section>
 
+        <!-- ── Shop by Collection ─────────────────────────── -->
+        <section id="collections" class="section-p1">
+            <div class="section-header">
+                <h2>Shop by Collection</h2>
+                <p>Discover our curated selection of modern fashion</p>
+            </div>
+            <div class="collections-grid">
+                <div class="collection-card" onclick="location.href='shop.html?cat=men'">
+                    <div class="collection-card-bg" style="background-image: url('img/products/f1.png'); background-color: #0f2347;"></div>
+                    <div class="collection-card-overlay"></div>
+                    <div class="collection-card-content">
+                        <span>Collection</span>
+                        <h3>Men's Wear</h3>
+                        <a href="shop.html?cat=men">Shop Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="collection-card" onclick="location.href='shop.html?cat=women'">
+                    <div class="collection-card-bg" style="background-image: url('img/products/f2.jpg'); background-color: #1a0a10;"></div>
+                    <div class="collection-card-overlay"></div>
+                    <div class="collection-card-content">
+                        <span>Collection</span>
+                        <h3>Women's Wear</h3>
+                        <a href="shop.html?cat=women">Shop Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="collection-card" onclick="location.href='shop.html?cat=bags'">
+                    <div class="collection-card-bg" style="background-color: #0a1628; background-image: none;"></div>
+                    <div class="collection-card-overlay"></div>
+                    <div class="collection-card-content">
+                        <span>Accessories</span>
+                        <h3>Handbags &amp; Bags</h3>
+                        <a href="shop.html?cat=bags">Shop Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="collection-card" onclick="location.href='shop.html?cat=belts'">
+                    <div class="collection-card-bg" style="background-color: #1a1008; background-image: none;"></div>
+                    <div class="collection-card-overlay"></div>
+                    <div class="collection-card-content">
+                        <span>Accessories</span>
+                        <h3>Belts &amp; Straps</h3>
+                        <a href="shop.html?cat=belts">Shop Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="collection-card" onclick="location.href='shop.html?cat=jewelry'">
+                    <div class="collection-card-bg" style="background-image: url('img/products/a1.webp'); background-color: #0f1a2e;"></div>
+                    <div class="collection-card-overlay"></div>
+                    <div class="collection-card-content">
+                        <span>Accessories</span>
+                        <h3>Jewelry</h3>
+                        <a href="shop.html?cat=jewelry">Shop Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="collection-card" onclick="location.href='shop.html?cat=luxe'">
+                    <div class="collection-card-bg" style="background-image: url('img/products/f6.webp'); background-color: #0d0d0d;"></div>
+                    <div class="collection-card-overlay"></div>
+                    <div class="collection-card-content">
+                        <span>Premium</span>
+                        <h3>Cultural Luxe</h3>
+                        <a href="shop.html?cat=luxe">Shop Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Featured Products ──────────────────────────── -->
         <section id="product1" class="section-p1">
             <h2>Featured Products</h2>
-            <p>The Hottest items</p>
-            <div class="pro-container">
-                <div class="pro" data-id="f1">
-                    <img src="img/products/f1.png" alt="">
-                    <div class="des">
-                        <span>Africana</span>
-                        <h5>Lori mens tradional wear</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>SSP 150000</h4>
-                    </div>
-                    <a href="javascript:void(0);"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-
-                <div class="pro" data-id="f2">
-                    <img src="img/products/f2.jpg" alt="">
-                    <div class="des">
-                        <span>Africana</span>
-                        <h5>Lori women tradional wear</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>SSP 200000</h4>
-                    </div>
-                    <a href="javascript:void(0);"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro" data-id="f3">
-                    <img src="img/products/f3.png" alt="">
-                    <div class="des">
-                        <span>Africana</span>
-                        <h5>Havani men tradional wear</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>SSP 170000</h4>
-                    </div>
-                    <a href="javascript:void(0);"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro" data-id="f4">
-                    <img src="img/products/f4.jpg" alt="">
-                    <div class="des">
-                        <span>African</span>
-                        <h5>Havani women tradional wear</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>SSP 200000</h4>
-                    </div>
-                    <a href="javascript:void(0);"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro" data-id="f5">
-                    <img src="img/products/f5.jpg" alt="">
-                    <div class="des">
-                        <span>Africana</span>
-                        <h5>Jieng women traditional wear</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>SSP 200000</h4>
-                    </div>
-                    <a href="javascript:void(0);"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro" data-id="f6">
-                    <img src="img/products/f6.webp" alt="">
-                    <div class="des">
-                        <span>Africana</span>
-                        <h5>Flutani</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>SSP 300000</h4>
-                    </div>
-                    <a href="javascript:void(0);"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro" data-id="f7">
-                    <img src="img/products/f7.jpg" alt="">
-                    <div class="des">
-                        <span>Africana</span>
-                        <h5>Lori men 2 piece set</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>SSP 250000</h4>
-                    </div>
-                    <a href="javascript:void(0);"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
- 
-                <div class="pro" data-id="f9">
-                    <img src="img/products/f9.avif" alt="">
-                    <div class="des">
-                        <span>Africana</span>
-                        <h5>Casual inspired tradition wear</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>SSP 175000</h4>
-                    </div>
-                    <a href="javascript:void(0);"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
- 
+            <p>Handpicked for you — the season's best</p>
+            <div class="pro-container" id="home-product-grid">
+                <!-- Products dynamically rendered by productsData.js -->
             </div>
         </section>
 
+        <!-- ── Promo Banner ───────────────────────────────── -->
         <section id="banner" class="section-m1">
-            <h4>Accessories</h4>
-            <h2>buy <span>2 get 1 free</span> on all Accessories</h2>
-            <button class="normal">Explore More</button>
+            <h4>Limited Time Offer</h4>
+            <h2>Buy <span>2 Get 1 Free</span> on All Accessories</h2>
+            <a href="shop.html?cat=jewelry"><button class="normal">Shop Accessories</button></a>
         </section>
 
+        <!-- ── Jewelry Showcase ───────────────────────────── -->
         <section id="product1" class="section-p1">
-            <h2>Accessories</h2>
-            <p>The Hottest items</p>
-            <div class="pro-container">
-                <div class="pro" data-id="a1">
-                    <img src="img/products/a1.webp" alt="">
-                    <div class="des">
-                        <span>Africana</span>
-                        <h5>cowrie shell necklace</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>SSP 45000</h4>
-                    </div>
-                    <a href="javascript:void(0);"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-
-                <div class="pro" data-id="a2">
-                    <img src="img/products/a2.jpg" alt="">
-                    <div class="des">
-                        <span>Africana</span>
-                        <h5>Tenal pair</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>SSP 100000</h4>
-                    </div>
-                    <a href="javascript:void(0);"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro" data-id="a3">
-                    <img src="img/products/a3.jpg" alt="">
-                    <div class="des">
-                        <span>Africana</span>
-                        <h5>Rememberance beads</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>SSP 45000</h4>
-                    </div>
-                    <a href="javascript:void(0);"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="img/products/a4.jpg" alt="">
-                    <div class="des">
-                        <span>African</span>
-                        <h5>lori earings</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>SSP 15000</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="img/products/a5.webp" alt="">
-                    <div class="des">
-                        <span>Africana</span>
-                        <h5>Africa bangles</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>SSP 75000</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="img/products/a6.jpg" alt="">
-                    <div class="des">
-                        <span>Africana</span>
-                        <h5>Tani earings</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>SSP 300000</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="img/products/a7.webp" alt="">
-                    <div class="des">
-                        <span>Africana</span>
-                        <h5>Madino Bracelet</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>SSP 55000</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
- 
-                <div class="pro">
-                    <img src="img/products/a8.jpg" alt="">
-                    <div class="des">
-                        <span>Africana</span>
-                        <h5>Matako necklace</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>SSP 100000</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
- 
+            <h2>Jewelry &amp; Accessories</h2>
+            <p>Elegant pieces that complete every look</p>
+            <div class="pro-container" id="home-jewelry-grid">
+                <!-- Jewelry rendered dynamically -->
             </div>
         </section>
 
+        <!-- ── Small Banners ──────────────────────────────── -->
         <section id="sm-banner" class="section-p1">
             <div class="banner-box">
-                <h4>Hot deals</h4>
-                <h2>40% off</h2>
-                <span>best deal</span>
-                <button class="white">Learn More</button>
+                <h4>Hot Deals</h4>
+                <h2>Up to 40% Off</h2>
+                <span>This weekend only — limited stock</span>
+                <a href="shop.html"><button class="white">Shop Deals</button></a>
             </div>
 
             <div class="banner-box banner-box2">
-                <h4>Sunny Season</h4>
-                <h2>Keep of the heat</h2>
-                <span>best deal</span>
-                <button class="white" id="white">Headware</button>
+                <h4>New Season</h4>
+                <h2>Fresh Drops Daily</h2>
+                <span>New arrivals added every week</span>
+                <a href="shop.html?sort=newest"><button class="white" id="white">New Arrivals</button></a>
             </div>
         </section>
 
-        <section id="banner3">
-            <div class="banner-box">
-                <h2>Madabu Sale</h2>
-                <h3>madabu items 15% off</h3>
+        <!-- ── Newsletter ─────────────────────────────────── -->
+        <section id="newsletter">
+            <div class="newstext">
+                <h4>Sign Up & Get <span>10% Off</span></h4>
+                <p>Get exclusive deals, style tips, and new arrivals straight to your inbox.</p>
+            </div>
+            <div class="form">
+                <input type="email" id="newsletter-email" placeholder="Enter your email address" aria-label="Email for newsletter">
+                <button id="newsletter-btn" type="button" onclick="subscribeNewsletter()">Subscribe</button>
             </div>
         </section>
 
-        <footer class="section-p1">
+        <!-- ── Footer ─────────────────────────────────────── -->
+        <footer>
             <div class="col">
-                <img class="logo" src="img/logo.png" alt="">
-                <h4>Contact</h4>
-                <p><strong>Address:</strong> Jebel road, juba, South Sudan</p>
-                <p><strong>Phone:</strong> +211 922 273 982</p>
-                <p><strong>Hours</strong> 8:00 - 5:00, Mon - Fri</p>
-                <div class="follow">
-                    <h4>Follow us</h4>
-                    <div class="icon">
-                        <i class="fab fa-facebook-f"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-pinterest-p"></i>
-                        <i class="fab fa-youtube"></i>
-                    </div>
-                </div>
+                <img class="logo" src="img/instyle_logo.jpg" alt="INSTYLE Boutique Logo">
+                <p>Modern fashion for the confident, the bold, and the stylish. Juba's premier boutique since 2024.</p>
+                <p><i class="fas fa-map-marker-alt" style="color:#C0152A; margin-right:6px;"></i> Jebel Road, Juba, South Sudan</p>
+                <p><i class="fas fa-phone" style="color:#C0152A; margin-right:6px;"></i> +211 922 273 982</p>
+                <p><i class="fas fa-clock" style="color:#C0152A; margin-right:6px;"></i> Mon–Fri: 8:00am – 5:00pm</p>
             </div>
 
             <div class="col">
-                <h4>About</h4>
-                <a href="#">About us</a>
-                <a href="#">Contact us</a>
+                <h4>Shop</h4>
+                <a href="shop.html?cat=men">Men's Collection</a>
+                <a href="shop.html?cat=women">Women's Collection</a>
+                <a href="shop.html?cat=bags">Handbags &amp; Bags</a>
+                <a href="shop.html?cat=belts">Belts &amp; Straps</a>
+                <a href="shop.html?cat=jewelry">Jewelry</a>
+                <a href="shop.html?cat=luxe">Cultural Luxe</a>
+            </div>
+
+            <div class="col">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="admin.html">Admin Portal</a>
             </div>
 
             <div class="col">
                 <h4>Account</h4>
-                <a href="#">Sign in</a>
-                <a href="#">View Cart</a>
-                <a href="#">Wishlist</a>
-                <a href="#">Help</a>
+                <a href="cart.html">View Cart</a>
+                <a href="#">Order Tracking</a>
+                <a href="#">Returns</a>
+                <a href="#">Help &amp; FAQs</a>
             </div>
 
             <div class="payment">
-                <h4>Payment Gateway</h4>
-                <img src="img/pay/pay.png" alt="">
+                <h4>Payment</h4>
+                <img src="img/pay/pay.png" alt="Payment methods accepted">
             </div>
+        </footer>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 INSTYLE Boutique. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+
+        <!-- ── Toast Container ───────────────────────────── -->
+        <div id="toast-container"></div>
+
+        <!-- ── Page Init Script ───────────────────────────── -->
+        <script>
+            // Render featured products (top 8 from all categories) on home page
+            document.addEventListener('DOMContentLoaded', function () {
+                const homeGrid = document.getElementById('home-product-grid');
+                const jewelryGrid = document.getElementById('home-jewelry-grid');
+
+                if (typeof PRODUCTS_DATA !== 'undefined') {
+                    // Featured: first 8 non-jewelry, non-luxe items
+                    const featured = Object.values(PRODUCTS_DATA)
+                        .filter(p => p.categoryGroup !== 'jewelry')
+                        .slice(0, 8);
+
+                    const jewelry = Object.values(PRODUCTS_DATA)
+                        .filter(p => p.categoryGroup === 'jewelry')
+                        .slice(0, 8);
+
+                    const buildCards = (items) => items.map(p => `
+                        <div class="pro" data-id="${p.id}">
+                            <img src="${p.mainImg}" alt="${p.name}" loading="lazy">
+                            <div class="des">
+                                <span>${p.category}</span>
+                                <h5>${p.name}</h5>
+                                <div class="star">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>SSP ${p.price.toLocaleString()}</h4>
+                            </div>
+                            <a href="javascript:void(0);"><i class="fal fa-shopping-cart cart"></i></a>
+                        </div>
+                    `).join('');
+
+                    if (homeGrid) homeGrid.innerHTML = buildCards(featured);
+                    if (jewelryGrid) jewelryGrid.innerHTML = buildCards(jewelry);
+                }
+
+                // Newsletter subscription
+                window.subscribeNewsletter = function () {
+                    const email = document.getElementById('newsletter-email').value;
+                    if (email && email.includes('@')) {
+                        showToast('🎉 You\'re subscribed! Check your inbox.');
+                        document.getElementById('newsletter-email').value = '';
+                    } else {
+                        showToast('Please enter a valid email address.', 'error');
+                    }
+                };
+
+                function showToast(message, type) {
+                    const container = document.getElementById('toast-container');
+                    if (!container) return;
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-notification';
+                    toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+                    container.appendChild(toast);
+                    setTimeout(() => { toast.classList.add('hide'); setTimeout(() => toast.remove(), 400); }, 3000);
+                }
+            });
+        </script>
+
     </body>
 </html>
