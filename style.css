@@ -667,8 +667,8 @@ button.white:hover {
 
 #product1 .pro:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(10,22,40,0.14);
-  border-color: var(--navy-light);
+  box-shadow: 0 20px 40px rgba(192,21,42,0.16);
+  border-color: var(--red-primary);
 }
 
 #product1 .pro img {
@@ -712,7 +712,7 @@ button.white:hover {
 }
 
 #product1 .pro:hover .des h5 {
-  color: var(--navy-light);
+  color: var(--red-primary);
 }
 
 #product1 .pro .des i {
@@ -798,6 +798,8 @@ button.white:hover {
   align-items: center;
   gap: 10px;
   letter-spacing: -0.3px;
+  border-left: 4px solid var(--red-primary);
+  padding-left: 12px;
 }
 
 .category-header-title h3 i {
@@ -1074,6 +1076,8 @@ footer a {
 
 footer a:hover {
   color: var(--red-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .footer-bottom {
@@ -1203,8 +1207,8 @@ footer a:hover {
 
 .search-box-container input:focus,
 .hero-search-bar input:focus {
-  border-color: var(--navy-light);
-  box-shadow: 0 8px 25px rgba(10,22,40,0.12);
+  border-color: var(--red-primary);
+  box-shadow: 0 8px 25px rgba(192,21,42,0.14);
 }
 
 .sort-box-container {
@@ -1237,7 +1241,7 @@ footer a:hover {
 }
 
 .sort-box-container select:focus {
-  border-color: var(--navy-light);
+  border-color: var(--red-primary);
 }
 
 /* Pills Filter Bar */
@@ -1276,18 +1280,18 @@ footer a:hover {
 
 .category-pill:hover,
 .price-pill:hover {
-  background: var(--slate-100);
-  border-color: var(--navy-light);
-  color: var(--navy-deep);
+  background: rgba(192,21,42,0.06);
+  border-color: var(--red-primary);
+  color: var(--red-primary);
   transform: translateY(-2px);
 }
 
 .category-pill.active,
 .price-pill.active {
-  background: var(--navy-deep);
+  background: var(--red-primary);
   color: var(--white);
-  border-color: var(--navy-deep);
-  box-shadow: 0 4px 14px rgba(10,22,40,0.25);
+  border-color: var(--red-primary);
+  box-shadow: 0 4px 14px rgba(192,21,42,0.3);
 }
 
 /* Catalog Status Bar */
@@ -1531,7 +1535,7 @@ footer a:hover {
 
 .small-img-col img.small-img:hover {
   opacity: 0.85;
-  border-color: var(--navy-deep);
+  border-color: var(--red-primary);
   transform: translateY(-3px);
 }
 
@@ -1806,7 +1810,7 @@ footer a:hover {
   border-radius: 6px;
   border: 2px solid var(--off-white);
 }
-::-webkit-scrollbar-thumb:hover { background: var(--navy-light); }
+::-webkit-scrollbar-thumb:hover { background: var(--red-primary); }
 
 /* ─── Responsive: Tablet (≤799px) ───────────────────────── */
 @media (max-width: 799px) {
