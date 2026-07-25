@@ -1,6 +1,28 @@
 // Centralized Product Database for INSTYLE Modern Boutique E-Commerce Platform
 
 let PRODUCTS_DATA = {
+    "d1": {
+        id: "d1",
+        name: "Mint Floral Chiffon Rhinestone Maxi Dress",
+        category: "Women's Collection",
+        categoryGroup: "women",
+        price: 210000,
+        tags: ["women", "dress", "maxi", "floral", "mint green", "chiffon", "rhinestone", "evening", "gala", "apparel"],
+        mainImg: "img/products/d1.jpg",
+        smallImgs: ["img/products/d1.jpg"],
+        description: "Elegant mint green watercolor floral print chiffon maxi dress featuring a surplice V-neckline adorned with sparkling rhinestone embellishments. Detailed with graceful bell sleeves, ruffle cuffs, and a flowing side cascade ruffle."
+    },
+    "d2": {
+        id: "d2",
+        name: "Shimmering Champagne Gold Plunge Evening Gown",
+        category: "Women's Collection",
+        categoryGroup: "women",
+        price: 240000,
+        tags: ["women", "gown", "gold", "metallic", "shimmer", "plunge", "evening", "party", "gala", "apparel"],
+        mainImg: "img/products/d2.jpg",
+        smallImgs: ["img/products/d2.jpg"],
+        description: "Breathtaking champagne gold metallic shimmer evening gown with a deep plunging V-neckline, waist-cinching crystal brooch detail, flare bell ruffle sleeves, and an alluring lace-up open back design."
+    },
     "j1": {
         id: "j1",
         name: "Dark Indigo Distressed Ripped Skinny Jeans",
