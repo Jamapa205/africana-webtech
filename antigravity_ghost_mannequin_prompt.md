@@ -1,4 +1,7 @@
-# Ghost Mannequin E-commerce Prompt for Antigravity
+# Ghost Mannequin E-commerce Prompt for Antigravity & Google AI Studio
+
+> [!IMPORTANT]
+> **Google AI Studio Image Generation Routing**: All studio product images generated for INSTYLE boutique must be generated via your connected Google AI Studio account using `python scripts/ai_studio_generator.py` (which connects using `GEMINI_API_KEY` from `.env`).
 
 Use this prompt for **all uploaded images of the same product**.  
 Each image filename indicates whether it is the **front** or **back** view.  
@@ -8,14 +11,14 @@ The goal is to preserve the garment **exactly** as uploaded while producing a cl
 
 ## Prompt
 
-You are creating premium e-commerce fashion product photography for a website using a **ghost mannequin / invisible mannequin** technique.
+You are creating premium e-commerce fashion product photography for a website using a **ghost mannequin / invisible mannequin** technique via **Google AI Studio API**.
 
 ### Highest Priority
 The uploaded image(s) are the **only source of truth**.
 
 Do **not** redesign, reinterpret, enhance, restyle, simplify, or invent any aspect of the garment.
 
-Your job is to faithfully reproduce the uploaded clothing item exactly as it exists while replacing the original photo with premium studio-quality ghost mannequin photography.
+Your job is to faithfully reproduce the uploaded clothing item exactly as it exists while replacing the original photo with premium studio-quality ghost mannequin photography generated via Google AI Studio API (`imagen-3.0-generate-002`).
 
 Every visible detail from the uploaded garment must remain identical.
 

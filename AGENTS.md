@@ -29,7 +29,7 @@ To preserve context quality, minimize token usage, and ensure high-precision cha
 - **State Management**: Product cart data MUST sync via `localStorage.getItem('cart')` / `localStorage.setItem('cart', ...)`.
 - **Product Data Engine**: All product data lives centrally in [`productsData.js`](file:///c:/Antigravity%20projects/Webtech%20Project/productsData.js). Do NOT duplicate product cards in HTML — grids are rendered dynamically via `renderProductGrid()`.
 - **Image Gallery & Secondary Views**: Products feature a `mainImg` (studio front view) and a `smallImgs` array (front, back, flared-open views). `sproduct.html` renders all secondary images as interactive thumbnails below `#main-img`.
-- **Ghost Mannequin / Studio Prompt**: Follow rules in [`antigravity_ghost_mannequin_prompt.md`](file:///c:/Antigravity%20projects/Webtech%20Project/antigravity_ghost_mannequin_prompt.md) for generating studio shots on light neutral backgrounds.
+- **Ghost Mannequin & AI Studio Routing**: All studio product images MUST be generated via Google AI Studio API using `python scripts/ai_studio_generator.py` (which connects using `GEMINI_API_KEY` from `.env`) following the rules in [`antigravity_ghost_mannequin_prompt.md`](file:///c:/Antigravity%20projects/Webtech%20Project/antigravity_ghost_mannequin_prompt.md).
 
 ---
 
