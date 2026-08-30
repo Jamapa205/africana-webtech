@@ -227,24 +227,33 @@
         </div>
     </section>
 
+    <!-- Central Product Engine & Catalog Database -->
+    <script src="productsData.js"></script>
     <script>
         const token = localStorage.getItem('token');
         const user = JSON.parse(localStorage.getItem('user') || '{}');
 
         // Access Control Verification
         if (!token || user.role !== 'admin') {
-            alert('Access Denied: Admin privileges required. Please log in as jamapa.');
+            alert('Admin Access Required. Redirecting to login...');
             window.location.href = 'login.html';
         }
 
-        document.getElementById('admin-username').textContent = user.username || 'jamapa';
+        // Navigation Tabs
+        function showSection(sectionId) {
+            document.querySelectorAll('.admin-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.admin-nav .admin-tab').forEach(tab => tab.classList.remove('active'));
+            
+            const target = document.getElementById(sectionId);
+            if (target) target.classList.add('active');
 
-        document.getElementById('logout-btn').addEventListener('click', (e) => {
-            e.preventDefault();
-            localStorage.removeItem('token');
-            localStorage.removeItem('user');
-            window.location.href = 'login.html';
-        });
+            // Find matching tab
+            const activeTab = Array.from(document.querySelectorAll('.admin-tab')).find(t => t.textContent.toLowerCase().includes(sectionId.split('-')[0]));
+            if (activeTab) activeTab.classList.add('active');
+
+            if (sectionId === 'orders-section') loadOrders();
+            if (sectionId === 'users-section') loadUsers();
+        }
 
         function switchTab(sectionId, tabEl) {
             document.querySelectorAll('.admin-section').forEach(sec => sec.classList.remove('active'));
@@ -257,7 +266,7 @@
             if (sectionId === 'users-section') loadUsers();
         }
 
-        // Fetch and Render Products
+        // Fetch and Render All Products (Catalog + Custom + API)
         async function loadAdminProducts() {
             let apiProducts = [];
             try {
@@ -267,13 +276,16 @@
                     apiProducts = data.products;
                 }
             } catch (err) {
-                console.error(err);
+                console.warn('API products fetch warning:', err);
             }
 
-            const localCustom = JSON.parse(localStorage.getItem('africana_custom_products')) || [];
+            const localCustom = JSON.parse(localStorage.getItem('africana_custom_products') || localStorage.getItem('instyle_custom_products') || '[]');
+            const catalogProducts = (typeof PRODUCTS_DATA !== 'undefined') ? Object.values(PRODUCTS_DATA) : [];
+
             const prodMap = new Map();
-            [...localCustom, ...apiProducts].forEach(p => {
-                if (p && p.id && !prodMap.has(p.id)) {
+            // Load catalog products first, then override with any custom/API modifications
+            [...catalogProducts, ...localCustom, ...apiProducts].forEach(p => {
+                if (p && p.id) {
                     prodMap.set(p.id, p);
                 }
             });
@@ -283,18 +295,30 @@
             if (!tbody) return;
 
             document.getElementById('product-count').textContent = combinedProducts.length;
-            tbody.innerHTML = combinedProducts.map(p => `
-                <tr>
-                    <td><img src="${p.mainImg}" style="width: 50px; height: 50px; object-fit: contain; border-radius: 6px; background: #f8fafc;"></td>
-                    <td><strong>${p.name}</strong></td>
-                    <td>${p.category || 'Africana / Apparel'}</td>
-                    <td>SSP ${Number(p.price || 0).toLocaleString()}</td>
-                    <td>${p.isPlaceholder ? '<span class="badge-placeholder">Placeholder</span>' : '<span class="badge-real">Real Product</span>'}</td>
-                    <td>
-                        <button onclick="deleteProduct('${p.id}')" style="background: #ef4444; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px;"><i class="fas fa-trash"></i> Delete</button>
-                    </td>
-                </tr>
-            `).join('');
+            tbody.innerHTML = combinedProducts.map(p => {
+                const hasBackImg = p.smallImgs && p.smallImgs.length > 1;
+                const imgSrc = p.mainImg || (p.smallImgs && p.smallImgs[0]) || 'img/products/f1.png';
+                return `
+                    <tr>
+                        <td>
+                            <a href="sproduct.html?id=${p.id}" target="_blank" title="View product in store">
+                                <img src="${imgSrc}" style="width: 50px; height: 50px; object-fit: contain; border-radius: 6px; background: #f8fafc; border: 1px solid #e2e8f0;">
+                            </a>
+                        </td>
+                        <td>
+                            <strong><a href="sproduct.html?id=${p.id}" target="_blank" style="color: #0a1628; text-decoration: none;">${p.name}</a></strong>
+                            ${hasBackImg ? '<span style="display:block; font-size: 11px; color: #088178; font-weight:600;"><i class="fas fa-check-circle"></i> Front & Back Views</span>' : ''}
+                        </td>
+                        <td>${p.category || p.subCategory || 'Boutique Collection'}</td>
+                        <td><strong>SSP ${Number(p.price || 0).toLocaleString()}</strong></td>
+                        <td><span class="badge-real">Live In Store</span></td>
+                        <td>
+                            <a href="sproduct.html?id=${p.id}" target="_blank" style="background: #0047AB; color: white; padding: 6px 10px; border-radius: 4px; font-size: 12px; text-decoration: none; display: inline-block; margin-right: 4px;"><i class="fas fa-eye"></i> View</a>
+                            <button onclick="deleteProduct('${p.id}')" style="background: #ef4444; color: white; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;"><i class="fas fa-trash"></i> Delete</button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
         }
 
         // Image preview handlers
