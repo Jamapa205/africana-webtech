@@ -245,6 +245,77 @@
         </div>
     </section>
 
+    <!-- EDIT PRODUCT MODAL COMPONENT -->
+    <div id="edit-product-modal" style="display: none; position: fixed; inset: 0; background: rgba(10, 22, 40, 0.75); z-index: 9999; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(4px);">
+        <div style="background: white; border-radius: 12px; max-width: 650px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3); border: 1px solid #e2e8f0;">
+            <div style="padding: 18px 24px; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; background: #f8fafc; border-top-left-radius: 12px; border-top-right-radius: 12px;">
+                <h3 style="margin: 0; color: #0a1628; font-size: 17px; display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-edit" style="color: #C0152A;"></i> Edit Product: <span id="edit-modal-title" style="color: #0047AB;"></span>
+                </h3>
+                <button type="button" onclick="closeEditModal()" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #64748b; line-height: 1;">&times;</button>
+            </div>
+            
+            <form id="edit-product-form" style="padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <input type="hidden" id="edit-prod-id">
+                
+                <div style="grid-column: 1 / -1;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 5px; font-size: 13px;">Product Title *</label>
+                    <input type="text" id="edit-name" required style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: inherit;">
+                </div>
+
+                <div>
+                    <label style="font-weight: 600; display: block; margin-bottom: 5px; font-size: 13px;">Category *</label>
+                    <select id="edit-category" style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: inherit;">
+                        <option value="Dresses & Evening Gowns">Dresses & Evening Gowns</option>
+                        <option value="Suits & Outerwear">Suits & Outerwear</option>
+                        <option value="Shirts & Tops">Shirts & Tops</option>
+                        <option value="Denim & Bottoms">Denim & Bottoms</option>
+                        <option value="Handbags & Bags">Handbags & Bags</option>
+                        <option value="Jewelry & Accessories">Jewelry & Accessories</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label style="font-weight: 600; display: block; margin-bottom: 5px; font-size: 13px;">Price (SSP) *</label>
+                    <input type="number" id="edit-price" required style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: inherit;">
+                </div>
+
+                <div style="grid-column: 1 / -1;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 5px; font-size: 13px;">Search Tags (Comma separated)</label>
+                    <input type="text" id="edit-tags" placeholder="e.g. dress, satin, red, evening" style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: inherit;">
+                </div>
+
+                <div>
+                    <label style="font-weight: 600; display: block; margin-bottom: 5px; font-size: 13px;"><i class="fas fa-image" style="color: #C0152A;"></i> Front View (Main)</label>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+                        <img id="edit-front-preview" style="width: 50px; height: 50px; object-fit: contain; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc;">
+                        <input type="file" id="edit-image-front" accept="image/*" style="font-size: 12px; width: 100%;">
+                    </div>
+                </div>
+
+                <div>
+                    <label style="font-weight: 600; display: block; margin-bottom: 5px; font-size: 13px;"><i class="fas fa-images" style="color: #0047AB;"></i> Back View (Secondary)</label>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+                        <img id="edit-back-preview" style="width: 50px; height: 50px; object-fit: contain; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc;">
+                        <input type="file" id="edit-image-back" accept="image/*" style="font-size: 12px; width: 100%;">
+                    </div>
+                </div>
+
+                <div style="grid-column: 1 / -1;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 5px; font-size: 13px;">Product Description</label>
+                    <textarea id="edit-desc" rows="3" style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: inherit;"></textarea>
+                </div>
+
+                <div style="grid-column: 1 / -1; display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px;">
+                    <button type="button" onclick="closeEditModal()" style="background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer;">Cancel</button>
+                    <button type="submit" style="background: #0047AB; color: white; border: none; padding: 10px 24px; border-radius: 6px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Central Product Engine & Catalog Database -->
     <script src="productsData.js"></script>
     <script>
@@ -351,6 +422,7 @@
                         <td><span class="badge-real">Live In Store</span></td>
                         <td>
                             <a href="sproduct.html?id=${p.id}" target="_blank" style="background: #0047AB; color: white; padding: 6px 10px; border-radius: 4px; font-size: 12px; text-decoration: none; display: inline-block; margin-right: 4px;"><i class="fas fa-eye"></i> View</a>
+                            <button onclick="openEditModal('${p.id}')" style="background: #f59e0b; color: white; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 600; margin-right: 4px;"><i class="fas fa-edit"></i> Edit</button>
                             <button onclick="deleteProduct('${p.id}')" style="background: #ef4444; color: white; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;"><i class="fas fa-trash"></i> Delete</button>
                         </td>
                     </tr>
@@ -581,6 +653,200 @@
 
             if (typeof showToast === 'function') showToast('Product deleted successfully!');
             loadAdminProducts();
+        }
+
+        // ==========================================
+        // EDIT PRODUCT MODAL LOGIC
+        // ==========================================
+        let currentEditingProduct = null;
+
+        function openEditModal(productId) {
+            const modal = document.getElementById('edit-product-modal');
+            if (!modal) return;
+
+            // Find product
+            let p = null;
+            const localCustom = JSON.parse(localStorage.getItem('africana_custom_products') || localStorage.getItem('instyle_custom_products') || '[]');
+            p = localCustom.find(item => item && (item.id === productId || String(item.id) === String(productId)));
+            
+            if (!p && typeof PRODUCTS_DATA !== 'undefined' && PRODUCTS_DATA[productId]) {
+                p = PRODUCTS_DATA[productId];
+            }
+
+            if (!p) {
+                alert('Product details could not be found.');
+                return;
+            }
+
+            currentEditingProduct = p;
+
+            document.getElementById('edit-prod-id').value = p.id;
+            document.getElementById('edit-modal-title').textContent = p.name;
+            document.getElementById('edit-name').value = p.name || '';
+            
+            const catSelect = document.getElementById('edit-category');
+            if (catSelect) {
+                const currentCat = p.category || p.subCategory || 'Dresses & Evening Gowns';
+                Array.from(catSelect.options).forEach(opt => {
+                    opt.selected = (opt.value.toLowerCase() === currentCat.toLowerCase());
+                });
+            }
+
+            document.getElementById('edit-price').value = p.price || 0;
+            document.getElementById('edit-tags').value = Array.isArray(p.tags) ? p.tags.join(', ') : (p.tags || '');
+            document.getElementById('edit-desc').value = p.description || '';
+
+            // Set current image previews
+            const frontImg = p.mainImg || (p.smallImgs && p.smallImgs[0]) || 'img/products/f1.png';
+            const backImg = (p.smallImgs && p.smallImgs.length > 1) ? p.smallImgs[1] : frontImg;
+
+            const frontPrev = document.getElementById('edit-front-preview');
+            const backPrev = document.getElementById('edit-back-preview');
+            if (frontPrev) frontPrev.src = frontImg;
+            if (backPrev) backPrev.src = backImg;
+
+            // Reset file input selections
+            const frontInput = document.getElementById('edit-image-front');
+            const backInput = document.getElementById('edit-image-back');
+            if (frontInput) frontInput.value = '';
+            if (backInput) backInput.value = '';
+
+            modal.style.display = 'flex';
+        }
+
+        function closeEditModal() {
+            const modal = document.getElementById('edit-product-modal');
+            if (modal) modal.style.display = 'none';
+            currentEditingProduct = null;
+        }
+
+        // Setup edit image preview listeners
+        document.getElementById('edit-image-front')?.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    const img = document.getElementById('edit-front-preview');
+                    if (img) img.src = ev.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        document.getElementById('edit-image-back')?.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    const img = document.getElementById('edit-back-preview');
+                    if (img) img.src = ev.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Save Product Edits Handler
+        document.getElementById('edit-product-form')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!currentEditingProduct) return;
+
+            const id = document.getElementById('edit-prod-id').value;
+            const name = document.getElementById('edit-name').value.trim();
+            const category = document.getElementById('edit-category').value;
+            const price = parseFloat(document.getElementById('edit-price').value) || 0;
+            const description = document.getElementById('edit-desc').value.trim();
+            const tagsRaw = document.getElementById('edit-tags').value;
+            const tags = tagsRaw ? tagsRaw.split(',').map(t => t.trim()).filter(Boolean) : (currentEditingProduct.tags || []);
+
+            const frontFile = document.getElementById('edit-image-front')?.files[0];
+            const backFile = document.getElementById('edit-image-back')?.files[0];
+
+            let frontImgData = currentEditingProduct.mainImg || (currentEditingProduct.smallImgs && currentEditingProduct.smallImgs[0]);
+            let backImgData = (currentEditingProduct.smallImgs && currentEditingProduct.smallImgs.length > 1) ? currentEditingProduct.smallImgs[1] : null;
+
+            if (frontFile) {
+                frontImgData = (await getBase64(frontFile)) || frontImgData;
+            }
+            if (backFile) {
+                backImgData = (await getBase64(backFile)) || backImgData;
+            }
+
+            const updatedSmallImgs = [frontImgData];
+            if (backImgData && backImgData !== frontImgData) {
+                updatedSmallImgs.push(backImgData);
+            }
+
+            const updatedProd = {
+                ...currentEditingProduct,
+                id: id,
+                name: name,
+                category: category,
+                subCategory: category,
+                categoryGroup: getCategoryGroupKey(category),
+                price: price,
+                tags: tags,
+                description: description,
+                mainImg: frontImgData,
+                smallImgs: updatedSmallImgs,
+                updatedAt: new Date().toISOString()
+            };
+
+            // Update in central in-memory catalog
+            if (typeof PRODUCTS_DATA !== 'undefined' && PRODUCTS_DATA[id]) {
+                PRODUCTS_DATA[id] = updatedProd;
+            }
+
+            // Sync to localStorage
+            let localCustom = JSON.parse(localStorage.getItem('africana_custom_products') || '[]');
+            localCustom = localCustom.filter(p => p && p.id !== id && String(p.id) !== String(id));
+            localCustom.unshift(updatedProd);
+            localStorage.setItem('africana_custom_products', JSON.stringify(localCustom));
+            localStorage.setItem('instyle_custom_products', JSON.stringify(localCustom));
+
+            // Also un-delete if it was previously in deleted list
+            let deletedList = JSON.parse(localStorage.getItem('instyle_deleted_products') || '[]');
+            deletedList = deletedList.filter(d => String(d) !== String(id));
+            localStorage.setItem('instyle_deleted_products', JSON.stringify(deletedList));
+
+            // Sync to backend API
+            try {
+                const formData = new FormData();
+                formData.append('id', id);
+                formData.append('name', name);
+                formData.append('category', category);
+                formData.append('price', price);
+                formData.append('tags', tags.join(','));
+                formData.append('description', description);
+                formData.append('imageUrl', frontImgData);
+                if (frontFile) formData.append('image', frontFile);
+                if (backFile) formData.append('image_back', backFile);
+
+                await fetch(`/api/products/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Authorization': `Bearer ${token}` },
+                    body: formData
+                });
+            } catch (err) {
+                console.warn('API update warning:', err);
+            }
+
+            closeEditModal();
+            if (typeof showToast === 'function') {
+                showToast(`"${name}" updated successfully!`);
+            } else {
+                alert(`"${name}" updated successfully!`);
+            }
+            loadAdminProducts();
+        });
+
+        function getCategoryGroupKey(catName) {
+            const cat = (catName || '').toLowerCase();
+            if (cat.includes('dress') || cat.includes('gown')) return 'dresses_gowns';
+            if (cat.includes('suit') || cat.includes('outerwear') || cat.includes('blazer') || cat.includes('jacket') || cat.includes('coat')) return 'suits_outerwear';
+            if (cat.includes('shirt') || cat.includes('top') || cat.includes('tee')) return 'shirts_tops';
+            if (cat.includes('jeans') || cat.includes('denim') || cat.includes('pant') || cat.includes('trouser') || cat.includes('bottom')) return 'denim_bottoms';
+            if (cat.includes('bag') || cat.includes('handbag') || cat.includes('purse') || cat.includes('tote')) return 'handbags_bags';
+            return 'jewelry_belts';
         }
 
         // Toggle Collapsible Order Breakdown Row
