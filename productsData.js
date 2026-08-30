@@ -1,6 +1,603 @@
 // Centralized Product Database for INSTYLE Modern Boutique E-Commerce Platform
 
 let PRODUCTS_DATA = {
+    "pro_sp_20260702_1104": {
+        "id": "pro_sp_20260702_1104",
+        "name": "Sp 20260702 1104",
+        "gender": "women",
+        "mainCategory": "shirts_tops",
+        "subCategory": "Shirts & Tops",
+        "category": "Shirts & Tops",
+        "categoryGroup": "shirts_tops",
+        "price": 220000,
+        "tags": [
+                "instyle",
+                "boutique",
+                "luxury",
+                "fashion"
+        ],
+        "mainImg": "img/products/sp_20260702_1104_Studio.jpg",
+        "smallImgs": [
+                "img/products/sp_20260702_1104_Studio.jpg"
+        ],
+        "description": "Exquisite designer piece from the INSTYLE boutique collection, featuring tailored construction and premium materials."
+},
+    "pro_sp_20260702_1047": {
+        "id": "pro_sp_20260702_1047",
+        "name": "Sp 20260702 1047",
+        "gender": "women",
+        "mainCategory": "shirts_tops",
+        "subCategory": "Shirts & Tops",
+        "category": "Shirts & Tops",
+        "categoryGroup": "shirts_tops",
+        "price": 220000,
+        "tags": [
+                "instyle",
+                "boutique",
+                "luxury",
+                "fashion"
+        ],
+        "mainImg": "img/products/sp_20260702_1047_Studio.jpg",
+        "smallImgs": [
+                "img/products/sp_20260702_1047_Studio.jpg"
+        ],
+        "description": "Exquisite designer piece from the INSTYLE boutique collection, featuring tailored construction and premium materials."
+},
+    "pro_item_018": {
+        "id": "pro_item_018",
+        "name": "Noir Beaded Wrap-Waist Long-Sleeve Evening Dress",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 225000,
+        "tags": [
+                "black dress",
+                "beaded dress",
+                "evening gown",
+                "long sleeve dress",
+                "wrap dress",
+                "instyle",
+                "boutique"
+        ],
+        "mainImg": "img/products/item-018_Studio.jpg",
+        "smallImgs": [
+                "img/products/item-018_Studio.jpg"
+        ],
+        "description": "Tailored from smooth dark charcoal fabric, this elegant evening dress features a plunging V-neckline, gathered shoulders, and a cinched wrap waist adorned with a black beaded geometric fringe embellishment."
+},
+    "pro_d2": {
+        "id": "pro_d2",
+        "name": "D2",
+        "gender": "women",
+        "mainCategory": "shirts_tops",
+        "subCategory": "Shirts & Tops",
+        "category": "Shirts & Tops",
+        "categoryGroup": "shirts_tops",
+        "price": 220000,
+        "tags": [
+                "instyle",
+                "boutique",
+                "luxury",
+                "fashion"
+        ],
+        "mainImg": "img/products/d2_back.jpg",
+        "smallImgs": [
+                "img/products/d2_back.jpg"
+        ],
+        "description": "Exquisite designer piece from the INSTYLE boutique collection, featuring tailored construction and premium materials."
+},
+    "pro_d2_jpg": {
+        "id": "pro_d2_jpg",
+        "name": "D2.jpg",
+        "gender": "women",
+        "mainCategory": "shirts_tops",
+        "subCategory": "Shirts & Tops",
+        "category": "Shirts & Tops",
+        "categoryGroup": "shirts_tops",
+        "price": 220000,
+        "tags": [
+                "instyle",
+                "boutique",
+                "luxury",
+                "fashion"
+        ],
+        "mainImg": "img/products/d2.jpg",
+        "smallImgs": [
+                "img/products/d2.jpg"
+        ],
+        "description": "Exquisite designer piece from the INSTYLE boutique collection, featuring tailored construction and premium materials."
+},
+    "pro_d1_jpg": {
+        "id": "pro_d1_jpg",
+        "name": "D1.jpg",
+        "gender": "women",
+        "mainCategory": "shirts_tops",
+        "subCategory": "Shirts & Tops",
+        "category": "Shirts & Tops",
+        "categoryGroup": "shirts_tops",
+        "price": 220000,
+        "tags": [
+                "instyle",
+                "boutique",
+                "luxury",
+                "fashion"
+        ],
+        "mainImg": "img/products/d1.jpg",
+        "smallImgs": [
+                "img/products/d1.jpg"
+        ],
+        "description": "Exquisite designer piece from the INSTYLE boutique collection, featuring tailored construction and premium materials."
+},
+    "pro_yellow_solid_smooth_suit": {
+        "id": "pro_yellow_solid_smooth_suit",
+        "name": "Vibrant Mustard Yellow Tailored 2-Piece Suit Set",
+        "gender": "men",
+        "mainCategory": "suits_outerwear",
+        "subCategory": "Suits & Outerwear",
+        "category": "Suits & Outerwear",
+        "categoryGroup": "suits_outerwear",
+        "price": 280000,
+        "tags": [
+                "yellow suit",
+                "statement suit",
+                "menswear",
+                "tailored blazer",
+                "instyle",
+                "bold fashion"
+        ],
+        "mainImg": "img/products/Yellow_Solid_Smooth_Suit_Front.jpg",
+        "smallImgs": [
+                "img/products/Yellow_Solid_Smooth_Suit_Front.jpg",
+                "img/products/Yellow_Solid_Smooth_Suit_Back.jpg"
+        ],
+        "description": "Command attention in this bold mustard yellow tailored suit set, featuring a contemporary slim-fit blazer with peak lapels and matching crisp trousers."
+},
+    "pro_royal_blue_rhinestone_trim_maxi_dress_item5": {
+        "id": "pro_royal_blue_rhinestone_trim_maxi_dress_item5",
+        "name": "Royal Blue Crystal Rhinestone Trim Satin Maxi Dress",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 240000,
+        "tags": [
+                "royal blue dress",
+                "rhinestone gown",
+                "satin dress",
+                "evening gown",
+                "instyle",
+                "blue"
+        ],
+        "mainImg": "img/products/Royal_Blue_Rhinestone_Trim_Maxi_Dress_Item5_Front.jpg",
+        "smallImgs": [
+                "img/products/Royal_Blue_Rhinestone_Trim_Maxi_Dress_Item5_Front.jpg",
+                "img/products/Royal_Blue_Rhinestone_Trim_Maxi_Dress_Item5_Back.jpg"
+        ],
+        "description": "Radiant royal blue satin gown adorned with brilliant diagonal rhinestone crystal embellishments and a figure-skimming silhouette."
+},
+    "pro_mint_green_watercolor_floral_maxi_dress_item1": {
+        "id": "pro_mint_green_watercolor_floral_maxi_dress_item1",
+        "name": "Mint Green Watercolor Floral Chiffon Maxi Dress",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 210000,
+        "tags": [
+                "mint dress",
+                "floral dress",
+                "chiffon gown",
+                "maxi dress",
+                "instyle",
+                "boutique",
+                "summer gown"
+        ],
+        "mainImg": "img/products/Mint_Green_Watercolor_Floral_Maxi_Dress_Item1_Front.jpg",
+        "smallImgs": [
+                "img/products/Mint_Green_Watercolor_Floral_Maxi_Dress_Item1_Front.jpg",
+                "img/products/Mint_Green_Watercolor_Floral_Maxi_Dress_Item1_Back.jpg"
+        ],
+        "description": "Crafted from delicate watercolor floral chiffon, this flowing maxi dress features an empire silhouette, flutter accents, and a tiered flared hemline for effortless elegance."
+},
+    "pro_ivory_white_satin_beaded_draped_gown_item10": {
+        "id": "pro_ivory_white_satin_beaded_draped_gown_item10",
+        "name": "Ivory White Satin Beaded Draped Gala Gown",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 285000,
+        "tags": [
+                "white gown",
+                "ivory satin dress",
+                "beaded gown",
+                "bridal gala",
+                "instyle",
+                "luxury"
+        ],
+        "mainImg": "img/products/Ivory_White_Satin_Beaded_Draped_Gown_Item10_Front.jpg",
+        "smallImgs": [
+                "img/products/Ivory_White_Satin_Beaded_Draped_Gown_Item10_Front.jpg",
+                "img/products/Ivory_White_Satin_Beaded_Draped_Gown_Item10_Back.jpg"
+        ],
+        "description": "Luminous ivory white satin gown featuring pearl-and-crystal hand-beading along the neckline with fluid Grecian-inspired side draping."
+},
+    "pro_grey_solid_smooth_garment": {
+        "id": "pro_grey_solid_smooth_garment",
+        "name": "Grey Solid Smooth Garment",
+        "gender": "women",
+        "mainCategory": "shirts_tops",
+        "subCategory": "Shirts & Tops",
+        "category": "Shirts & Tops",
+        "categoryGroup": "shirts_tops",
+        "price": 220000,
+        "tags": [
+                "instyle",
+                "boutique",
+                "luxury",
+                "fashion"
+        ],
+        "mainImg": "img/products/Grey_Solid_Smooth_Garment_Front.jpg",
+        "smallImgs": [
+                "img/products/Grey_Solid_Smooth_Garment_Front.jpg",
+                "img/products/Grey_Solid_Smooth_Garment_Back.jpg"
+        ],
+        "description": "Exquisite designer piece from the INSTYLE boutique collection, featuring tailored construction and premium materials."
+},
+    "pro_grey_solid_smooth_combo_set_v2": {
+        "id": "pro_grey_solid_smooth_combo_set_v2",
+        "name": "Grey Solid Smooth Combo Set V2",
+        "gender": "women",
+        "mainCategory": "shirts_tops",
+        "subCategory": "Shirts & Tops",
+        "category": "Shirts & Tops",
+        "categoryGroup": "shirts_tops",
+        "price": 220000,
+        "tags": [
+                "instyle",
+                "boutique",
+                "luxury",
+                "fashion"
+        ],
+        "mainImg": "img/products/Grey_Solid_Smooth_Combo_Set_V2_Front.jpg",
+        "smallImgs": [
+                "img/products/Grey_Solid_Smooth_Combo_Set_V2_Front.jpg",
+                "img/products/Grey_Solid_Smooth_Combo_Set_V2_Back.jpg"
+        ],
+        "description": "Exquisite designer piece from the INSTYLE boutique collection, featuring tailored construction and premium materials."
+},
+    "pro_grey_solid_smooth_combo_set": {
+        "id": "pro_grey_solid_smooth_combo_set",
+        "name": "Grey Solid Smooth Combo Set",
+        "gender": "women",
+        "mainCategory": "shirts_tops",
+        "subCategory": "Shirts & Tops",
+        "category": "Shirts & Tops",
+        "categoryGroup": "shirts_tops",
+        "price": 220000,
+        "tags": [
+                "instyle",
+                "boutique",
+                "luxury",
+                "fashion"
+        ],
+        "mainImg": "img/products/Grey_Solid_Smooth_Combo_Set_Front.jpg",
+        "smallImgs": [
+                "img/products/Grey_Solid_Smooth_Combo_Set_Front.jpg",
+                "img/products/Grey_Solid_Smooth_Combo_Set_Back.jpg"
+        ],
+        "description": "Exquisite designer piece from the INSTYLE boutique collection, featuring tailored construction and premium materials."
+},
+    "pro_grey_solid_smooth_apparel_v3": {
+        "id": "pro_grey_solid_smooth_apparel_v3",
+        "name": "Grey Solid Smooth Apparel V3",
+        "gender": "women",
+        "mainCategory": "shirts_tops",
+        "subCategory": "Shirts & Tops",
+        "category": "Shirts & Tops",
+        "categoryGroup": "shirts_tops",
+        "price": 220000,
+        "tags": [
+                "instyle",
+                "boutique",
+                "luxury",
+                "fashion"
+        ],
+        "mainImg": "img/products/Grey_Solid_Smooth_Apparel_V3_Front.jpg",
+        "smallImgs": [
+                "img/products/Grey_Solid_Smooth_Apparel_V3_Front.jpg",
+                "img/products/Grey_Solid_Smooth_Apparel_V3_Back.jpg"
+        ],
+        "description": "Exquisite designer piece from the INSTYLE boutique collection, featuring tailored construction and premium materials."
+},
+    "pro_grey_solid_smooth_apparel_v2": {
+        "id": "pro_grey_solid_smooth_apparel_v2",
+        "name": "Grey Solid Smooth Apparel V2",
+        "gender": "women",
+        "mainCategory": "shirts_tops",
+        "subCategory": "Shirts & Tops",
+        "category": "Shirts & Tops",
+        "categoryGroup": "shirts_tops",
+        "price": 220000,
+        "tags": [
+                "instyle",
+                "boutique",
+                "luxury",
+                "fashion"
+        ],
+        "mainImg": "img/products/Grey_Solid_Smooth_Apparel_V2_Front.jpg",
+        "smallImgs": [
+                "img/products/Grey_Solid_Smooth_Apparel_V2_Front.jpg",
+                "img/products/Grey_Solid_Smooth_Apparel_V2_Back.jpg"
+        ],
+        "description": "Exquisite designer piece from the INSTYLE boutique collection, featuring tailored construction and premium materials."
+},
+    "pro_grey_patterned_chiffon_maxi_dress_item1": {
+        "id": "pro_grey_patterned_chiffon_maxi_dress_item1",
+        "name": "Slate Grey Geometric Patterned Chiffon Maxi Dress",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 210000,
+        "tags": [
+                "grey dress",
+                "patterned chiffon",
+                "geometric dress",
+                "instyle",
+                "boutique"
+        ],
+        "mainImg": "img/products/Grey_Patterned_Chiffon_Maxi_Dress_Item1_Front.jpg",
+        "smallImgs": [
+                "img/products/Grey_Patterned_Chiffon_Maxi_Dress_Item1_Front.jpg",
+                "img/products/Grey_Patterned_Chiffon_Maxi_Dress_Item1_Back.jpg"
+        ],
+        "description": "Artistic slate grey chiffon maxi featuring micro-geometric patterns, semi-sheer sleeve details, and an adjustable cinched waist."
+},
+    "pro_grey_feather_print_chiffon_maxi_dress": {
+        "id": "pro_grey_feather_print_chiffon_maxi_dress",
+        "name": "Feather Print Silk Chiffon Tiered Maxi Dress",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 215000,
+        "tags": [
+                "feather print",
+                "grey dress",
+                "chiffon maxi",
+                "boho luxe",
+                "instyle"
+        ],
+        "mainImg": "img/products/Grey_Feather_Print_Chiffon_Maxi_Dress_Front.jpg",
+        "smallImgs": [
+                "img/products/Grey_Feather_Print_Chiffon_Maxi_Dress_Front.jpg",
+                "img/products/Grey_Feather_Print_Chiffon_Maxi_Dress_Back.jpg"
+        ],
+        "description": "Ethereal grey silk-chiffon dress adorned with an artistic feather motif, blouson sleeves, and a tiered flared skirt."
+},
+    "pro_gold_shimmer_vneck_maxi_gown_item2": {
+        "id": "pro_gold_shimmer_vneck_maxi_gown_item2",
+        "name": "Champagne Gold Shimmer V-Neck Evening Gown",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 265000,
+        "tags": [
+                "gold gown",
+                "shimmer dress",
+                "evening dress",
+                "v neck gown",
+                "glamour",
+                "instyle",
+                "party"
+        ],
+        "mainImg": "img/products/Gold_Shimmer_VNeck_Maxi_Gown_Item2_Front.jpg",
+        "smallImgs": [
+                "img/products/Gold_Shimmer_VNeck_Maxi_Gown_Item2_Front.jpg",
+                "img/products/Gold_Shimmer_VNeck_Maxi_Gown_Item2_Back.jpg"
+        ],
+        "description": "A breathtaking gold metallic-threaded evening gown featuring a deep plunging neckline, cinched waistline, and shimmering pleated column skirt designed for red carpet galas."
+},
+    "pro_emerald_green_pleated_rosette_maxi_dress_item8": {
+        "id": "pro_emerald_green_pleated_rosette_maxi_dress_item8",
+        "name": "Emerald Green Pleated Rosette Maxi Evening Dress",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 230000,
+        "tags": [
+                "emerald dress",
+                "green gown",
+                "pleated dress",
+                "rosette dress",
+                "instyle",
+                "boutique"
+        ],
+        "mainImg": "img/products/Emerald_Green_Pleated_Rosette_Maxi_Dress_Item8_Front.jpg",
+        "smallImgs": [
+                "img/products/Emerald_Green_Pleated_Rosette_Maxi_Dress_Item8_Front.jpg",
+                "img/products/Emerald_Green_Pleated_Rosette_Maxi_Dress_Item8_Back.jpg"
+        ],
+        "description": "Rich emerald green satin evening dress featuring delicate micro-pleating and handcrafted rosette floral detailing along the structured waistline."
+},
+    "pro_crimson_red_corset_lace_satin_gown_item6": {
+        "id": "pro_crimson_red_corset_lace_satin_gown_item6",
+        "name": "Crimson Red Corset Lace Satin Evening Gown",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 275000,
+        "tags": [
+                "red gown",
+                "corset dress",
+                "satin dress",
+                "lace gown",
+                "instyle",
+                "crimson red",
+                "luxury"
+        ],
+        "mainImg": "img/products/Crimson_Red_Corset_Lace_Satin_Gown_Item6_Front.jpg",
+        "smallImgs": [
+                "img/products/Crimson_Red_Corset_Lace_Satin_Gown_Item6_Front.jpg",
+                "img/products/Crimson_Red_Corset_Lace_Satin_Gown_Item6_Back.jpg"
+        ],
+        "description": "Rendered in signature INSTYLE Crimson Red satin, this couture gown features a structured boned corset bodice with lace overlay and a floor-sweeping mermaid skirt."
+},
+    "pro_brown_patterned_suit_set_item2": {
+        "id": "pro_brown_patterned_suit_set_item2",
+        "name": "Executive Brown Patterned 2-Piece Tailored Suit Set",
+        "gender": "men",
+        "mainCategory": "suits_outerwear",
+        "subCategory": "Suits & Outerwear",
+        "category": "Suits & Outerwear",
+        "categoryGroup": "suits_outerwear",
+        "price": 295000,
+        "tags": [
+                "brown suit",
+                "men suit",
+                "tailored suit",
+                "blazer set",
+                "executive",
+                "instyle",
+                "formal"
+        ],
+        "mainImg": "img/products/Brown_Patterned_Suit_Set_Item2_Front.jpg",
+        "smallImgs": [
+                "img/products/Brown_Patterned_Suit_Set_Item2_Front.jpg",
+                "img/products/Brown_Patterned_Suit_Set_Item2_Back.jpg"
+        ],
+        "description": "Tailored from premium wool-blend jacquard with subtle micro-patterns, this distinguished suit features notch lapels, structured shoulders, and slim-fit trousers."
+},
+    "pro_brown_patterned_suit_jacket_item2": {
+        "id": "pro_brown_patterned_suit_jacket_item2",
+        "name": "Brown Patterned Suit Jacket Item2",
+        "gender": "women",
+        "mainCategory": "suits_outerwear",
+        "subCategory": "Suits & Outerwear",
+        "category": "Suits & Outerwear",
+        "categoryGroup": "suits_outerwear",
+        "price": 220000,
+        "tags": [
+                "instyle",
+                "boutique",
+                "luxury",
+                "fashion"
+        ],
+        "mainImg": "img/products/Brown_Patterned_Suit_Jacket_Item2_Front.jpg",
+        "smallImgs": [
+                "img/products/Brown_Patterned_Suit_Jacket_Item2_Front.jpg"
+        ],
+        "description": "Exquisite designer piece from the INSTYLE boutique collection, featuring tailored construction and premium materials."
+},
+    "pro_black_shimmer_oneshoulder_maxi_gown_item3": {
+        "id": "pro_black_shimmer_oneshoulder_maxi_gown_item3",
+        "name": "Noir Shimmer Asymmetric One-Shoulder Evening Gown",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 245000,
+        "tags": [
+                "black gown",
+                "one shoulder dress",
+                "shimmer gown",
+                "evening wear",
+                "instyle",
+                "luxury"
+        ],
+        "mainImg": "img/products/Black_Shimmer_OneShoulder_Maxi_Gown_Item3_Front.jpg",
+        "smallImgs": [
+                "img/products/Black_Shimmer_OneShoulder_Maxi_Gown_Item3_Front.jpg",
+                "img/products/Black_Shimmer_OneShoulder_Maxi_Gown_Item3_Back.jpg"
+        ],
+        "description": "Sculpted in midnight black shimmer fabric, this dramatic one-shoulder gown features diagonal gathers and a high side slit creating a commanding, sophisticated silhouette."
+},
+    "pro_black_rhinestone_trim_maxi_dress_item4": {
+        "id": "pro_black_rhinestone_trim_maxi_dress_item4",
+        "name": "Midnight Black Crystal Rhinestone Trim Maxi Dress",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 235000,
+        "tags": [
+                "rhinestone dress",
+                "black dress",
+                "crystal gown",
+                "evening wear",
+                "instyle",
+                "boutique"
+        ],
+        "mainImg": "img/products/Black_Rhinestone_Trim_Maxi_Dress_Item4_Front.jpg",
+        "smallImgs": [
+                "img/products/Black_Rhinestone_Trim_Maxi_Dress_Item4_Front.jpg",
+                "img/products/Black_Rhinestone_Trim_Maxi_Dress_Item4_Back.jpg"
+        ],
+        "description": "Sleek and statuesque, this midnight black crepe maxi dress is elevated with hand-set crystal rhinestone trim along the neckline and contoured seams."
+},
+    "pro_black_rhinestone_leaf_applique_maxi_dress_item7": {
+        "id": "pro_black_rhinestone_leaf_applique_maxi_dress_item7",
+        "name": "Noir Crystal Leaf Applique Draped Maxi Dress",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 250000,
+        "tags": [
+                "leaf applique",
+                "rhinestone gown",
+                "black evening dress",
+                "draped dress",
+                "instyle"
+        ],
+        "mainImg": "img/products/Black_Rhinestone_Leaf_Applique_Maxi_Dress_Item7_Front.jpg",
+        "smallImgs": [
+                "img/products/Black_Rhinestone_Leaf_Applique_Maxi_Dress_Item7_Front.jpg",
+                "img/products/Black_Rhinestone_Leaf_Applique_Maxi_Dress_Item7_Back.jpg"
+        ],
+        "description": "Featuring intricate botanical crystal leaf appliqu\u00e9s across the bodice, this dark luxury evening dress drapes gracefully with a fluid stretch-crepe finish."
+},
+    "pro_beige_nude_pleated_rosette_maxi_dress_item9": {
+        "id": "pro_beige_nude_pleated_rosette_maxi_dress_item9",
+        "name": "Beige Nude Pleated Rosette Satin Maxi Dress",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 225000,
+        "tags": [
+                "nude dress",
+                "beige gown",
+                "pleated dress",
+                "rosette dress",
+                "instyle",
+                "neutral"
+        ],
+        "mainImg": "img/products/Beige_Nude_Pleated_Rosette_Maxi_Dress_Item9_Front.jpg",
+        "smallImgs": [
+                "img/products/Beige_Nude_Pleated_Rosette_Maxi_Dress_Item9_Front.jpg",
+                "img/products/Beige_Nude_Pleated_Rosette_Maxi_Dress_Item9_Back.jpg"
+        ],
+        "description": "Subtle champagne nude tone dress tailored with sunburst pleats and an architectural rosette corsage at the waist for understated luxury."
+},
     "sp_027": {
         "id": "sp_027",
         "name": "Emerald Silk Velvet Off-the-Shoulder Evening Gown",
