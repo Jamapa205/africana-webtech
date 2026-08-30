@@ -250,8 +250,10 @@ footer .logo {
   position: relative !important;
   display: inline-flex !important;
   align-items: center;
+  gap: 6px;
   justify-content: center;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+  text-decoration: none;
 }
 
 #navbar li a.cart-badge:hover,
@@ -262,8 +264,8 @@ footer .logo {
 }
 
 .bag-icon-svg {
-  width: 21px;
-  height: 21px;
+  width: 22px;
+  height: 22px;
   stroke: currentColor;
   stroke-width: 1.85;
   fill: none;
@@ -274,13 +276,13 @@ footer .logo {
 #cart-count,
 .cart-count-badge {
   position: absolute;
-  top: -6px;
-  right: -10px;
-  background: linear-gradient(135deg, #E52D42 0%, #C0152A 100%);
+  top: -5px;
+  right: -9px;
+  background: var(--navy-deep);
   color: #ffffff;
   font-family: var(--font-family);
   font-size: 10px;
-  font-weight: 800;
+  font-weight: 700;
   min-width: 18px;
   height: 18px;
   padding: 0 4px;
@@ -289,17 +291,20 @@ footer .logo {
   align-items: center;
   justify-content: center;
   line-height: 1;
-  box-shadow: 0 3px 8px rgba(192, 21, 42, 0.45);
-  border: 1.5px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(10, 22, 40, 0.35);
+  border: 1.5px solid var(--red-primary);
   z-index: 100;
   letter-spacing: -0.2px;
   pointer-events: none;
-  animation: badgePop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-@keyframes badgePop {
-  0% { transform: scale(0.6); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+/* Hide badge smoothly when empty */
+#cart-count.empty,
+.cart-count-badge.empty,
+#cart-count[data-count="0"],
+.cart-count-badge[data-count="0"] {
+  display: none !important;
 }
 
 /* ─── Hero Section ───────────────────────────────────────── */

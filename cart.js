@@ -60,6 +60,12 @@ function updateCartIcon() {
     
     document.querySelectorAll("#cart-count, .cart-count-badge").forEach(el => {
         el.textContent = totalQuantity;
+        el.setAttribute('data-count', totalQuantity);
+        if (totalQuantity <= 0) {
+            el.classList.add('empty');
+        } else {
+            el.classList.remove('empty');
+        }
     });
 }
 
