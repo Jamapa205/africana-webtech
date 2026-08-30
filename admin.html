@@ -355,7 +355,7 @@
             if (sectionId === 'users-section') loadUsers();
         }
 
-        // Fetch and Render All Products (Catalog + Custom + API)
+        // Fetch and Render All Products (Strictly API sourced)
         async function loadAdminProducts() {
             let apiProducts = [];
             try {
@@ -368,21 +368,7 @@
                 console.warn('API products fetch warning:', err);
             }
 
-            const localCustom = JSON.parse(localStorage.getItem('africana_custom_products') || localStorage.getItem('instyle_custom_products') || '[]');
-            const catalogProducts = (typeof PRODUCTS_DATA !== 'undefined') ? Object.values(PRODUCTS_DATA) : [];
-
-            const prodMap = new Map();
-            // Load catalog products first, then override with any custom/API modifications
-            [...catalogProducts, ...localCustom, ...apiProducts].forEach(p => {
-                if (p && p.id) {
-                    prodMap.set(p.id, p);
-                }
-            });
-
-            const combinedProducts = Array.from(prodMap.values()).filter(p => {
-                const deletedList = JSON.parse(localStorage.getItem('instyle_deleted_products') || '[]');
-                return !deletedList.includes(p.id) && !deletedList.includes(String(p.id));
-            });
+            const combinedProducts = apiProducts;
 
             const tbody = document.getElementById('products-table-body');
             if (!tbody) return;
@@ -592,23 +578,6 @@
             const msg = `Are you sure you want to delete ${ids.length} selected product${ids.length > 1 ? 's' : ''}? This will remove them from the store immediately.`;
             if (!confirm(msg)) return;
 
-            // 1. Add to instyle_deleted_products in localStorage
-            let deletedList = JSON.parse(localStorage.getItem('instyle_deleted_products') || '[]');
-            ids.forEach(id => {
-                if (!deletedList.includes(id)) deletedList.push(id);
-                if (!deletedList.includes(String(id))) deletedList.push(String(id));
-            });
-            localStorage.setItem('instyle_deleted_products', JSON.stringify(deletedList));
-
-            // 2. Remove from custom product lists
-            let custom1 = JSON.parse(localStorage.getItem('africana_custom_products') || '[]');
-            custom1 = custom1.filter(p => p && !ids.includes(String(p.id)));
-            localStorage.setItem('africana_custom_products', JSON.stringify(custom1));
-
-            let custom2 = JSON.parse(localStorage.getItem('instyle_custom_products') || '[]');
-            custom2 = custom2.filter(p => p && !ids.includes(String(p.id)));
-            localStorage.setItem('instyle_custom_products', JSON.stringify(custom2));
-
             // 3. Send API delete requests
             try {
                 await Promise.all(ids.map(id => 
@@ -628,20 +597,6 @@
         // Single Product Delete
         async function deleteProduct(id) {
             if (!confirm('Are you sure you want to delete this product?')) return;
-
-            let deletedList = JSON.parse(localStorage.getItem('instyle_deleted_products') || '[]');
-            if (!deletedList.includes(id)) deletedList.push(id);
-            if (!deletedList.includes(String(id))) deletedList.push(String(id));
-            localStorage.setItem('instyle_deleted_products', JSON.stringify(deletedList));
-
-            let localCustom = JSON.parse(localStorage.getItem('africana_custom_products') || '[]');
-            localCustom = localCustom.filter(p => p && p.id !== id && String(p.id) !== String(id));
-            localStorage.setItem('africana_custom_products', JSON.stringify(localCustom));
-
-            let localCustom2 = JSON.parse(localStorage.getItem('instyle_custom_products') || '[]');
-            localCustom2 = localCustom2.filter(p => p && p.id !== id && String(p.id) !== String(id));
-            localStorage.setItem('instyle_custom_products', JSON.stringify(localCustom2));
-
             try {
                 await fetch(`/api/products/${id}`, {
                     method: 'DELETE',

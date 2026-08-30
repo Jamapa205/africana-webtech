@@ -6,10 +6,24 @@ const os = require('os');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
+const mongoose = require('mongoose');
+require('dotenv').config();
+
+const Product = require('./models/Product'); // Mongoose Model
 
 const app = express();
 const PORT = process.env.PORT || 8000;
-const JWT_SECRET = 'africana_super_secret_jwt_key_2026';
+const JWT_SECRET = process.env.JWT_SECRET || 'africana_super_secret_jwt_key_2026';
+const MONGODB_URI = process.env.MONGODB_URI;
+
+// Connect to MongoDB
+if (MONGODB_URI) {
+    mongoose.connect(MONGODB_URI)
+        .then(() => console.log('Successfully connected to MongoDB Atlas!'))
+        .catch(err => console.error('MongoDB connection error:', err));
+} else {
+    console.warn('WARNING: No MONGODB_URI found in environment variables.');
+}
 
 const isVercel = Boolean(process.env.VERCEL || process.env.NOW_REGION);
 const DB_FILE = isVercel
@@ -421,28 +435,35 @@ app.post(['/api/auth/register', '/auth/register'], (req, res) => {
 // --- PRODUCT API ROUTES ---
 
 // Public: Get All Products
-app.get(['/api/products', '/products'], (req, res) => {
-    db = loadDatabase();
-    res.json({ success: true, products: db.products });
+app.get(['/api/products', '/products'], async (req, res) => {
+    try {
+        const products = await Product.find().sort({ createdAt: -1 });
+        res.json({ success: true, products: products });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
 });
 
 // Public: Get Product by ID
-app.get(['/api/products/:id', '/products/:id'], (req, res) => {
-    db = loadDatabase();
-    const item = db.products.find(p => p.id === req.params.id);
-    if (!item) return res.status(404).json({ success: false, message: 'Product not found' });
-    res.json({ success: true, product: item });
+app.get(['/api/products/:id', '/products/:id'], async (req, res) => {
+    try {
+        const item = await Product.findOne({ id: req.params.id });
+        if (!item) return res.status(404).json({ success: false, message: 'Product not found' });
+        res.json({ success: true, product: item });
+    } catch (err) {
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
 });
 
 // Admin: Add Product with File Upload or Base64 Image
-app.post(['/api/products', '/products'], requireAdmin, upload.single('image'), (req, res) => {
+app.post(['/api/products', '/products'], requireAdmin, upload.single('image'), async (req, res) => {
     const { id, name, category, price, description, imageUrl } = req.body;
     
     if (!name || !price) {
         return res.status(400).json({ success: false, message: 'Name and price are required' });
     }
 
-    db = loadDatabase();
     let mainImgUrl = 'img/products/f1.png';
 
     if (imageUrl && imageUrl.startsWith('data:image')) {
@@ -455,70 +476,69 @@ app.post(['/api/products', '/products'], requireAdmin, upload.single('image'), (
 
     const productId = id ? String(id).trim() : ('p_' + Date.now());
 
-    // Prevent duplicate entries by ID
-    db.products = db.products.filter(p => p.id !== productId);
+    try {
+        // Prevent duplicate entries by ID
+        await Product.deleteOne({ id: productId });
 
-    const newProduct = {
-        id: productId,
-        name: name.trim(),
-        category: category ? category.trim() : "Men's Collection",
-        price: parseFloat(price) || 0,
-        tags: req.body.tags ? (typeof req.body.tags === 'string' ? req.body.tags.split(',').map(t => t.trim()).filter(Boolean) : req.body.tags) : [name, category].join(' ').toLowerCase().split(/\s+/),
-        mainImg: mainImgUrl,
-        smallImgs: [mainImgUrl],
-        description: description ? description.trim() : "Authentic boutique item handcrafted with care.",
-        isPlaceholder: false,
-        createdAt: new Date().toISOString()
-    };
+        const newProduct = new Product({
+            id: productId,
+            name: name.trim(),
+            category: category ? category.trim() : "Men's Collection",
+            price: parseFloat(price) || 0,
+            tags: req.body.tags ? (typeof req.body.tags === 'string' ? req.body.tags.split(',').map(t => t.trim()).filter(Boolean) : req.body.tags) : [name, category].join(' ').toLowerCase().split(/\s+/),
+            mainImg: mainImgUrl,
+            smallImgs: [mainImgUrl],
+            description: description ? description.trim() : "Authentic boutique item handcrafted with care.",
+            isPlaceholder: false
+        });
 
-    db.products.unshift(newProduct);
-    saveDatabase(db);
-
-    res.json({ success: true, message: 'Product added successfully!', product: newProduct });
+        await newProduct.save();
+        res.json({ success: true, message: 'Product added successfully!', product: newProduct });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: 'Failed to add product' });
+    }
 });
 
 // Admin: Update Product
-app.put(['/api/products/:id', '/products/:id'], requireAdmin, upload.single('image'), (req, res) => {
+app.put(['/api/products/:id', '/products/:id'], requireAdmin, upload.single('image'), async (req, res) => {
     const productId = req.params.id;
-    db = loadDatabase();
+    try {
+        let targetProduct = await Product.findOne({ id: productId });
+        if (!targetProduct) {
+            return res.status(404).json({ success: false, message: 'Product not found' });
+        }
 
-    const productIndex = db.products.findIndex(p => p.id === productId);
-    if (productIndex === -1) {
-        return res.status(404).json({ success: false, message: 'Product not found' });
+        const { name, category, price, description } = req.body;
+        if (name) targetProduct.name = name.trim();
+        if (category) targetProduct.category = category.trim();
+        if (price) targetProduct.price = parseFloat(price) || targetProduct.price;
+        if (description) targetProduct.description = description.trim();
+
+        if (req.file) {
+            targetProduct.mainImg = 'uploads/' + req.file.filename;
+            targetProduct.smallImgs = ['uploads/' + req.file.filename];
+            targetProduct.isPlaceholder = false;
+        }
+
+        await targetProduct.save();
+        res.json({ success: true, message: 'Product updated successfully!', product: targetProduct });
+    } catch (err) {
+        res.status(500).json({ success: false, message: 'Failed to update product' });
     }
-
-    const { name, category, price, description } = req.body;
-    let targetProduct = db.products[productIndex];
-
-    if (name) targetProduct.name = name.trim();
-    if (category) targetProduct.category = category.trim();
-    if (price) targetProduct.price = parseFloat(price) || targetProduct.price;
-    if (description) targetProduct.description = description.trim();
-
-    if (req.file) {
-        targetProduct.mainImg = 'uploads/' + req.file.filename;
-        targetProduct.smallImgs = ['uploads/' + req.file.filename];
-        targetProduct.isPlaceholder = false;
-    }
-
-    db.products[productIndex] = targetProduct;
-    saveDatabase(db);
-
-    res.json({ success: true, message: 'Product updated successfully!', product: targetProduct });
 });
 
 // Admin: Delete Product
-app.delete(['/api/products/:id', '/products/:id'], requireAdmin, (req, res) => {
-    db = loadDatabase();
-    const initialLen = db.products.length;
-    db.products = db.products.filter(p => p.id !== req.params.id);
-
-    if (db.products.length === initialLen) {
-        return res.status(404).json({ success: false, message: 'Product not found' });
+app.delete(['/api/products/:id', '/products/:id'], requireAdmin, async (req, res) => {
+    try {
+        const result = await Product.deleteOne({ id: req.params.id });
+        if (result.deletedCount === 0) {
+            return res.status(404).json({ success: false, message: 'Product not found' });
+        }
+        res.json({ success: true, message: 'Product deleted successfully!' });
+    } catch (err) {
+        res.status(500).json({ success: false, message: 'Failed to delete product' });
     }
-
-    saveDatabase(db);
-    res.json({ success: true, message: 'Product deleted successfully!' });
 });
 
 // --- ORDERS API ROUTES ---
