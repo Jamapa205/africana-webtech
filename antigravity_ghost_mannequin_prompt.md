@@ -1,7 +1,9 @@
 # Ghost Mannequin E-commerce Prompt for Antigravity & Google AI Studio
 
 > [!IMPORTANT]
-> **Google AI Studio Image Generation Routing**: All studio product images generated for INSTYLE boutique must be generated via your connected Google AI Studio account using `python scripts/ai_studio_generator.py` (which connects using `GEMINI_API_KEY` from `.env`).
+> **Google AI Studio Image Generation Routing & Output Directory**: All studio product images generated for INSTYLE boutique must be generated via your connected Google AI Studio account using `python scripts/ai_studio_generator.py` (which connects using `GEMINI_API_KEY` from `.env`).
+> Sourced directly from `C:\Users\jamap\OneDrive\Pictures\shop pics organized\` (e.g. `item-018-grey-solid-smooth-apparel-garment-front.jpg`).
+> All generated work, original photoshoot copies, and studio views MUST be saved directly to `C:\Users\jamap\OneDrive\Pictures\shop pic new\`.
 
 Use this prompt for **all uploaded images of the same product**.  
 Each image filename indicates whether it is the **front** or **back** view.  

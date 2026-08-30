@@ -138,8 +138,21 @@
                     </div>
 
                     <div>
-                        <label style="font-weight: 600; display: block; margin-bottom: 5px;">Upload Real Product Image</label>
-                        <input type="file" id="new-image" accept="image/*" style="width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; background: #f8fafc;">
+                        <label style="font-weight: 600; display: block; margin-bottom: 5px;"><i class="fas fa-image" style="color: #C0152A;"></i> Front View (Main Image) *</label>
+                        <input type="file" id="new-image-front" accept="image/*" required style="width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; background: #f8fafc;">
+                        <div id="front-preview-container" style="margin-top: 6px; display: none; align-items: center; gap: 8px;">
+                            <img id="front-preview-img" style="width: 45px; height: 45px; object-fit: cover; border-radius: 4px; border: 1px solid #cbd5e1;">
+                            <span style="font-size: 12px; color: #64748b;">Front preview loaded</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label style="font-weight: 600; display: block; margin-bottom: 5px;"><i class="fas fa-images" style="color: #0047AB;"></i> Back View (Secondary Image)</label>
+                        <input type="file" id="new-image-back" accept="image/*" style="width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; background: #f8fafc;">
+                        <div id="back-preview-container" style="margin-top: 6px; display: none; align-items: center; gap: 8px;">
+                            <img id="back-preview-img" style="width: 45px; height: 45px; object-fit: cover; border-radius: 4px; border: 1px solid #cbd5e1;">
+                            <span style="font-size: 12px; color: #64748b;">Back preview loaded</span>
+                        </div>
                     </div>
 
                     <div style="grid-column: 1 / -1;">
@@ -284,7 +297,30 @@
             `).join('');
         }
 
-        // Add Product Form Handler
+        // Image preview handlers
+        const setupPreview = (inputId, containerId, imgId) => {
+            const input = document.getElementById(inputId);
+            if (!input) return;
+            input.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                const container = document.getElementById(containerId);
+                const img = document.getElementById(imgId);
+                if (file && container && img) {
+                    const reader = new FileReader();
+                    reader.onload = (ev) => {
+                        img.src = ev.target.result;
+                        container.style.display = 'flex';
+                    };
+                    reader.readAsDataURL(file);
+                } else if (container) {
+                    container.style.display = 'none';
+                }
+            });
+        };
+        setupPreview('new-image-front', 'front-preview-container', 'front-preview-img');
+        setupPreview('new-image-back', 'back-preview-container', 'back-preview-img');
+
+        // Add Product Form Handler (Front & Back Images)
         document.getElementById('add-product-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const name = document.getElementById('new-name').value;
@@ -293,16 +329,18 @@
             const description = document.getElementById('new-desc').value;
             const tagsRaw = document.getElementById('new-tags') ? document.getElementById('new-tags').value : '';
             const tags = tagsRaw ? tagsRaw.split(',').map(t => t.trim()).filter(Boolean) : [name, category].join(' ').toLowerCase().split(/\s+/);
-            const imageFile = document.getElementById('new-image').files[0];
+            
+            const frontFile = document.getElementById('new-image-front')?.files[0];
+            const backFile = document.getElementById('new-image-back')?.files[0];
 
             const getBase64 = (file) => new Promise((resolve) => {
-                if (!file) return resolve('img/products/f1.png');
+                if (!file) return resolve(null);
                 const reader = new FileReader();
                 reader.onload = (ev) => {
                     const img = new Image();
                     img.onload = () => {
                         const canvas = document.createElement('canvas');
-                        const MAX_WIDTH = 800;
+                        const MAX_WIDTH = 900;
                         let width = img.width;
                         let height = img.height;
 
@@ -320,11 +358,17 @@
                     img.onerror = () => resolve(ev.target.result);
                     img.src = ev.target.result;
                 };
-                reader.onerror = () => resolve('img/products/f1.png');
+                reader.onerror = () => resolve(null);
                 reader.readAsDataURL(file);
             });
 
-            const mainImgData = await getBase64(imageFile);
+            const frontImgData = (await getBase64(frontFile)) || 'img/products/f1.png';
+            const backImgData = await getBase64(backFile);
+
+            const smallImgsArray = [frontImgData];
+            if (backImgData) {
+                smallImgsArray.push(backImgData);
+            }
 
             const newProd = {
                 id: 'p_' + Date.now(),
@@ -333,16 +377,17 @@
                 price: price,
                 tags: tags,
                 description: description,
-                mainImg: mainImgData,
-                smallImgs: [mainImgData],
+                mainImg: frontImgData,
+                smallImgs: smallImgsArray,
                 isPlaceholder: false,
                 createdAt: new Date().toISOString()
             };
 
-            // Save to local storage for instant availability across shop/home pages
+            // Save to local storage for instant availability across shop, sproduct, and home pages
             let localCustom = JSON.parse(localStorage.getItem('africana_custom_products')) || [];
             localCustom.unshift(newProd);
             localStorage.setItem('africana_custom_products', JSON.stringify(localCustom));
+            localStorage.setItem('instyle_custom_products', JSON.stringify(localCustom));
 
             const formData = new FormData();
             formData.append('id', newProd.id);
@@ -351,8 +396,9 @@
             formData.append('price', price);
             formData.append('tags', tags.join(','));
             formData.append('description', description);
-            formData.append('imageUrl', mainImgData);
-            if (imageFile) formData.append('image', imageFile);
+            formData.append('imageUrl', frontImgData);
+            if (frontFile) formData.append('image', frontFile);
+            if (backFile) formData.append('image_back', backFile);
 
             try {
                 await fetch('/api/products', {
@@ -364,8 +410,12 @@
                 console.warn('API product post warning:', err);
             }
 
-            if (typeof showToast === 'function') showToast('Product published successfully!');
+            if (typeof showToast === 'function') showToast('Product with Front & Back views published successfully!');
             document.getElementById('add-product-form').reset();
+            const frontPrev = document.getElementById('front-preview-container');
+            const backPrev = document.getElementById('back-preview-container');
+            if (frontPrev) frontPrev.style.display = 'none';
+            if (backPrev) backPrev.style.display = 'none';
             loadAdminProducts();
         });
 

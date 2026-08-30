@@ -1,62 +1,147 @@
 // Centralized Product Database for INSTYLE Modern Boutique E-Commerce Platform
 
 let PRODUCTS_DATA = {
-    "d1": {
-        id: "d1",
-        name: "Mint Floral Chiffon Rhinestone Maxi Dress",
-        gender: "women",
-        mainCategory: "dresses_gowns",
-        subCategory: "Maxi Dress",
-        category: "Dresses & Evening Gowns",
-        categoryGroup: "dresses_gowns",
-        price: 210000,
-        tags: ["women", "dress", "maxi", "floral", "mint green", "chiffon", "rhinestone", "evening", "gala", "apparel"],
-        mainImg: "img/products/d1.jpg",
-        smallImgs: ["img/products/d1.jpg", "img/products/d1_front.jpg", "img/products/d1_back.jpg"],
-        description: "Elegant mint green watercolor floral print chiffon maxi dress featuring a surplice V-neckline adorned with sparkling rhinestone embellishments. Detailed with graceful bell sleeves, ruffle cuffs, and a flowing side cascade ruffle."
-    },
-    "d2": {
-        id: "d2",
-        name: "Shimmering Champagne Gold Plunge Evening Gown",
-        gender: "women",
-        mainCategory: "dresses_gowns",
-        subCategory: "Evening Gown",
-        category: "Dresses & Evening Gowns",
-        categoryGroup: "dresses_gowns",
-        price: 240000,
-        tags: ["women", "gown", "gold", "metallic", "shimmer", "plunge", "evening", "party", "gala", "apparel"],
-        mainImg: "img/products/d2.jpg",
-        smallImgs: ["img/products/d2.jpg", "img/products/d2_front.jpg", "img/products/d2_back.jpg"],
-        description: "Breathtaking champagne gold metallic shimmer evening gown with a deep plunging V-neckline, waist-cinching crystal brooch detail, flare bell ruffle sleeves, and an alluring lace-up open back design."
-    },
-    "j1": {
-        id: "j1",
-        name: "Dark Indigo Distressed Ripped Skinny Jeans",
-        gender: "men",
-        mainCategory: "denim_bottoms",
-        subCategory: "Distressed Jeans",
-        category: "Denim & Bottoms",
-        categoryGroup: "denim_bottoms",
-        price: 185000,
-        tags: ["jeans", "denim", "distressed", "ripped", "dark blue", "indigo", "skinny", "men", "pants"],
-        mainImg: "img/products/j1.jpg",
-        smallImgs: ["img/products/j1.jpg", "img/products/j1_front.jpg", "img/products/j1_back.jpg"],
-        description: "Modern dark indigo blue skinny jeans featuring edgy horizontal ripped slash cuts along the thighs and knees. Crafted from premium stretch cotton denim with contrast gold stitching, 5-pocket layout, and comfortable tapered fit."
-    },
-    "j2": {
-        id: "j2",
-        name: "Light Sky Blue Distressed Slash Jeans",
-        gender: "women",
-        mainCategory: "denim_bottoms",
-        subCategory: "Distressed Jeans",
-        category: "Denim & Bottoms",
-        categoryGroup: "denim_bottoms",
-        price: 175000,
-        tags: ["jeans", "denim", "distressed", "ripped", "light blue", "sky blue", "high waist", "women", "pants"],
-        mainImg: "img/products/j2.jpg",
-        smallImgs: ["img/products/j2.jpg", "img/products/j2_front.jpg", "img/products/j2_back.jpg"],
-        description: "Light sky blue wash denim jeans with stylish knee slash distress detailing and subtle thigh fading. Features a flattering high-waist cut, durable stretch cotton fabric, and classic 5-pocket styling."
-    },
+    "sp_027": {
+        "id": "sp_027",
+        "name": "Emerald Silk Velvet Off-the-Shoulder Evening Gown",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 245000,
+        "tags": [
+                "evening gown",
+                "velvet dress",
+                "emerald gown",
+                "off-the-shoulder",
+                "red carpet",
+                "designer dress",
+                "luxury fashion",
+                "couture"
+        ],
+        "mainImg": "img/products/sp_027.jpg",
+        "smallImgs": [
+                "img/products/sp_027.jpg",
+                "img/products/sp_027_front.jpg",
+                "img/products/sp_027_back.jpg"
+        ],
+        "description": "Crafted from plush emerald silk velvet, this breathtaking evening gown features a sculpted off-the-shoulder neckline and an interior boned corset that creates a tailored, hourglass silhouette. The floor-sweeping column skirt is dramatically accented by a subtle rear train and delicate micro-crystal trim along the folded bodice border."
+},
+    "sp_item_022": {
+        "id": "sp_item_022",
+        "name": "INSTYLE Luxury Fashion Item #item-022",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 215000,
+        "tags": [
+                "instyle",
+                "boutique",
+                "fashion"
+        ],
+        "mainImg": "img/products/sp_item_022.jpg",
+        "smallImgs": [
+                "img/products/sp_item_022.jpg",
+                "img/products/sp_item_022_front.jpg",
+                "img/products/sp_item_022_back.jpg"
+        ],
+        "description": "Exquisite luxury fashion garment from INSTYLE boutique collection."
+},
+    "sp_item_021": {
+        "id": "sp_item_021",
+        "name": "INSTYLE Luxury Fashion Item #item-021",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 215000,
+        "tags": [
+                "instyle",
+                "boutique",
+                "fashion"
+        ],
+        "mainImg": "img/products/sp_item_021.jpg",
+        "smallImgs": [
+                "img/products/sp_item_021.jpg",
+                "img/products/sp_item_021_front.jpg",
+                "img/products/sp_item_021_back.jpg"
+        ],
+        "description": "Exquisite luxury fashion garment from INSTYLE boutique collection."
+},
+    "sp_item_020": {
+        "id": "sp_item_020",
+        "name": "INSTYLE Luxury Fashion Item #item-020",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 215000,
+        "tags": [
+                "instyle",
+                "boutique",
+                "fashion"
+        ],
+        "mainImg": "img/products/sp_item_020.jpg",
+        "smallImgs": [
+                "img/products/sp_item_020.jpg",
+                "img/products/sp_item_020_front.jpg",
+                "img/products/sp_item_020_back.jpg"
+        ],
+        "description": "Exquisite luxury fashion garment from INSTYLE boutique collection."
+},
+    "sp_item_019": {
+        "id": "sp_item_019",
+        "name": "INSTYLE Luxury Fashion Item #item-019",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 215000,
+        "tags": [
+                "instyle",
+                "boutique",
+                "fashion"
+        ],
+        "mainImg": "img/products/sp_item_019.jpg",
+        "smallImgs": [
+                "img/products/sp_item_019.jpg",
+                "img/products/sp_item_019_front.jpg",
+                "img/products/sp_item_019_back.jpg"
+        ],
+        "description": "Exquisite luxury fashion garment from INSTYLE boutique collection."
+},
+    "sp_item_018": {
+        "id": "sp_item_018",
+        "name": "Noir Beaded Wrap-Waist Long-Sleeve Evening Dress",
+        "gender": "women",
+        "mainCategory": "dresses_gowns",
+        "subCategory": "Dresses & Evening Gowns",
+        "category": "Dresses & Evening Gowns",
+        "categoryGroup": "dresses_gowns",
+        "price": 225000,
+        "tags": [
+                "black dress",
+                "beaded dress",
+                "evening gown",
+                "long sleeve dress",
+                "wrap dress",
+                "instyle",
+                "boutique"
+        ],
+        "mainImg": "img/products/sp_item_018.jpg",
+        "smallImgs": [
+                "img/products/sp_item_018.jpg",
+                "img/products/sp_item_018_front.jpg",
+                "img/products/sp_item_018_back.jpg"
+        ],
+        "description": "Tailored from smooth dark charcoal fabric, this elegant evening dress features a plunging V-neckline, long sleeves with gathered shoulders, and a cinched wrap waist adorned with a striking black beaded geometric fringe embellishment."
+},
     "j3": {
         id: "j3",
         name: "Vintage Washed Charcoal Black Jeans",

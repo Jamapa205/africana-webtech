@@ -13,6 +13,7 @@ To preserve context quality, minimize token usage, and ensure high-precision cha
 - **Targeted Line Reading**: Never call `view_file` without `StartLine` and `EndLine` parameters on files over 100 lines (e.g. `style.css` or `index.html`).
 - **Surgical Edits**: Use `replace_file_content` or `multi_replace_file_content` for precise updates. Never overwrite an entire file to change a few lines.
 - **No Unneeded Re-scanning**: Once a file structure is inspected, rely on key symbols and line bounds instead of re-reading unchanged files.
+- **User Process Notification Rule**: STOP starting new background tasks or sub-processes before letting the user know what has happened and presenting the generated results.
 
 ### B. Project & Brand Rules (INSTYLE Modern Boutique)
 - **Store Name & Brand**: Store rebranded from Africana to **INSTYLE** (`INSTYLE — Modern Fashion, Timeless You`). Focuses exclusively on modern boutique apparel, evening gowns, denim, suits, handbags, belts, and jewelry.
@@ -29,6 +30,8 @@ To preserve context quality, minimize token usage, and ensure high-precision cha
 - **State Management**: Product cart data MUST sync via `localStorage.getItem('cart')` / `localStorage.setItem('cart', ...)`.
 - **Product Data Engine**: All product data lives centrally in [`productsData.js`](file:///c:/Antigravity%20projects/Webtech%20Project/productsData.js). Do NOT duplicate product cards in HTML — grids are rendered dynamically via `renderProductGrid()`.
 - **Image Gallery & Secondary Views**: Products feature a `mainImg` (studio front view) and a `smallImgs` array (front, back, flared-open views). `sproduct.html` renders all secondary images as interactive thumbnails below `#main-img`.
+- **Active Image Source Directory**: All raw photoshoot products and items MUST be sourced directly from `C:\Users\jamap\OneDrive\Pictures\shop pics organized\` (e.g. `item-018-grey-solid-smooth-apparel-garment-front.jpg`).
+- **Image Storage & Output Directory**: All generated product photography, studio mannequin shots, and front/back detail photos MUST be saved directly to `C:\Users\jamap\OneDrive\Pictures\shop pic new\` (e.g. `item-018_Studio.jpg`, `item-018_Front.jpg`, `item-018_Back.jpg`) as well as synced to `img/products/` for web rendering.
 - **Ghost Mannequin & AI Studio Routing**: All studio product images MUST be generated via Google AI Studio API using `python scripts/ai_studio_generator.py` (which connects using `GEMINI_API_KEY` from `.env`) following the rules in [`antigravity_ghost_mannequin_prompt.md`](file:///c:/Antigravity%20projects/Webtech%20Project/antigravity_ghost_mannequin_prompt.md).
 
 ---
