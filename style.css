@@ -241,38 +241,65 @@ footer .logo {
   transition: all 0.3s var(--ease);
 }
 
-/* Cart Icon in Nav & Badges */
+/* Luxury Boutique Shopping Bag Icon & Micro-Badge */
 #navbar li a.cart-badge,
 #navbar li#lg-bag a,
 .cart-badge,
+#mobile a.cart-badge,
 #mobile a {
   position: relative !important;
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
+
+#navbar li a.cart-badge:hover,
+#navbar li#lg-bag a:hover,
+#mobile a.cart-badge:hover {
+  transform: translateY(-2px);
+  color: var(--red-primary) !important;
+}
+
+.bag-icon-svg {
+  width: 21px;
+  height: 21px;
+  stroke: currentColor;
+  stroke-width: 1.85;
+  fill: none;
+  transition: stroke 0.2s ease;
+  vertical-align: middle;
 }
 
 #cart-count,
 .cart-count-badge {
   position: absolute;
   top: -6px;
-  right: -9px;
-  background: var(--red-primary);
-  color: var(--white);
-  font-size: 11px;
+  right: -10px;
+  background: linear-gradient(135deg, #E52D42 0%, #C0152A 100%);
+  color: #ffffff;
+  font-family: var(--font-family);
+  font-size: 10px;
   font-weight: 800;
-  min-width: 19px;
-  height: 19px;
+  min-width: 18px;
+  height: 18px;
   padding: 0 4px;
   border-radius: 999px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
-  box-shadow: 0 2px 6px rgba(192, 21, 42, 0.45);
-  border: 1.5px solid var(--white);
+  box-shadow: 0 3px 8px rgba(192, 21, 42, 0.45);
+  border: 1.5px solid #ffffff;
   z-index: 100;
+  letter-spacing: -0.2px;
   pointer-events: none;
+  animation: badgePop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes badgePop {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 /* ─── Hero Section ───────────────────────────────────────── */
