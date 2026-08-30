@@ -276,13 +276,14 @@ footer .logo {
 #cart-count,
 .cart-count-badge {
   position: absolute;
-  top: -5px;
-  right: -9px;
-  background: var(--navy-deep);
+  bottom: -4px;
+  right: -8px;
+  top: auto;
+  background: var(--red-primary);
   color: #ffffff;
   font-family: var(--font-family);
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 800;
   min-width: 18px;
   height: 18px;
   padding: 0 4px;
@@ -291,8 +292,8 @@ footer .logo {
   align-items: center;
   justify-content: center;
   line-height: 1;
-  box-shadow: 0 2px 8px rgba(10, 22, 40, 0.35);
-  border: 1.5px solid var(--red-primary);
+  box-shadow: 0 2px 6px rgba(192, 21, 42, 0.45);
+  border: 1.5px solid #ffffff;
   z-index: 100;
   letter-spacing: -0.2px;
   pointer-events: none;
