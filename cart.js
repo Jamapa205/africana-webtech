@@ -58,10 +58,9 @@ function updateCartIcon() {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let totalQuantity = cart.reduce((sum, item) => sum + (parseInt(item.quantity, 10) || 1), 0);
     
-    let cartCountElement = document.getElementById("cart-count");
-    if (cartCountElement) {
-        cartCountElement.textContent = totalQuantity;
-    }
+    document.querySelectorAll("#cart-count, .cart-count-badge").forEach(el => {
+        el.textContent = totalQuantity;
+    });
 }
 
 // Helper function to show a modern toast notification

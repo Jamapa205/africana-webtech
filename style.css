@@ -241,26 +241,38 @@ footer .logo {
   transition: all 0.3s var(--ease);
 }
 
-/* Cart Icon in Nav */
-#navbar li a .cart-badge {
-  position: relative;
+/* Cart Icon in Nav & Badges */
+#navbar li a.cart-badge,
+#navbar li#lg-bag a,
+.cart-badge,
+#mobile a {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
 }
 
-#cart-count {
+#cart-count,
+.cart-count-badge {
   position: absolute;
-  top: -10px;
-  right: -12px;
+  top: -6px;
+  right: -9px;
   background: var(--red-primary);
   color: var(--white);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 800;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 4px;
+  border-radius: 999px;
   display: flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
+  box-shadow: 0 2px 6px rgba(192, 21, 42, 0.45);
+  border: 1.5px solid var(--white);
+  z-index: 100;
+  pointer-events: none;
 }
 
 /* ─── Hero Section ───────────────────────────────────────── */
