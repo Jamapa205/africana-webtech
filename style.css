@@ -276,9 +276,9 @@ footer .logo {
 #cart-count,
 .cart-count-badge {
   position: absolute;
-  bottom: -4px;
-  right: -8px;
-  top: auto;
+  top: 50%;
+  right: -9px;
+  transform: translateY(-25%);
   background: var(--red-primary);
   color: #ffffff;
   font-family: var(--font-family);
