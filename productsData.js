@@ -1024,12 +1024,23 @@ function getFilteredAndSortedProducts() {
 
     // Merge custom admin products from localStorage
     try {
-        const custom = JSON.parse(localStorage.getItem('africana_custom_products') || '[]');
+        const custom = JSON.parse(localStorage.getItem('africana_custom_products') || localStorage.getItem('instyle_custom_products') || '[]');
         if (Array.isArray(custom) && custom.length > 0) {
             result = [...result, ...custom];
         }
     } catch (e) {
         console.error('Error loading custom products:', e);
+    }
+
+    // Filter out any admin-deleted products
+    try {
+        const deletedIds = JSON.parse(localStorage.getItem('instyle_deleted_products') || '[]');
+        if (Array.isArray(deletedIds) && deletedIds.length > 0) {
+            const deletedSet = new Set(deletedIds.map(String));
+            result = result.filter(p => p && p.id && !deletedSet.has(String(p.id)));
+        }
+    } catch (e) {
+        console.error('Error filtering deleted products:', e);
     }
 
     // 1. Category Filter
@@ -1348,11 +1359,19 @@ async function fetchOnlineProducts() {
 // Product Lookup Helper
 function getProductById(id) {
     if (!id) return null;
+
+    try {
+        const deletedIds = JSON.parse(localStorage.getItem('instyle_deleted_products') || '[]');
+        if (Array.isArray(deletedIds) && deletedIds.some(d => String(d) === String(id))) {
+            return null;
+        }
+    } catch (e) {}
+
     if (PRODUCTS_DATA[id]) return PRODUCTS_DATA[id];
 
     // Check custom products
     try {
-        const custom = JSON.parse(localStorage.getItem('africana_custom_products') || '[]');
+        const custom = JSON.parse(localStorage.getItem('africana_custom_products') || localStorage.getItem('instyle_custom_products') || '[]');
         return custom.find(p => String(p.id) === String(id)) || null;
     } catch (e) {
         return null;
