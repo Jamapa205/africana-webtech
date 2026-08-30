@@ -1483,13 +1483,15 @@ footer a:hover {
 #pro-details .single-pro-img #main-img {
   width: 100%;
   height: auto;
-  aspect-ratio: 1 / 1;
-  max-height: 480px;
+  min-height: 380px;
+  max-height: 620px;
   object-fit: contain;
+  object-position: center;
   background-color: var(--off-white);
   padding: 12px;
   border-radius: 18px;
   box-shadow: var(--shadow-md);
+  display: block;
 }
 
 .small-img-box {
@@ -1501,18 +1503,19 @@ footer a:hover {
 }
 
 .small-img-col {
-  flex: 0 0 78px;
-  width: 78px;
-  height: 78px;
+  flex: 0 0 84px;
+  width: 84px;
+  height: 98px;
   cursor: pointer;
 }
 
 .small-img-col img.small-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   background-color: var(--off-white);
-  padding: 2px;
+  padding: 4px;
   border-radius: 12px;
   transition: all 0.3s var(--ease);
   border: 2px solid rgba(0, 0, 0, 0.1);
@@ -2160,7 +2163,8 @@ footer a:hover {
   }
 
   #pro-details .single-pro-img #main-img {
-    max-height: 300px;
+    max-height: 480px;
+    object-fit: contain;
   }
 
   #pro-details .details h4 {
